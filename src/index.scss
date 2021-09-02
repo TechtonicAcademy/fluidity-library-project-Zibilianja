@@ -1,0 +1,15 @@
+.header {
+    display: inline-flex;
+    width: 100rem;
+    height: 10rem;
+    background-color: blue;
+    .__title {
+        margin-left: 2rem;
+    }
+    .__nav {
+        margin-left: 3rem;
+    }
+}
+body {
+    background-color: white;
+}
