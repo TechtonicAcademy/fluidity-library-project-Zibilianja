@@ -1,15 +1,160 @@
+$gray_background: rgb(60, 67, 75);
+$gray_letters: rgb(123, 127, 131);
+$teal_button: rgb(32, 145, 163);
+
+html body {
+    font-size: 14;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    border: 2px solid rgba(0, 0, 0, 0);
+    margin: 0 0 0 -3px;
+    padding: 0;
+    overflow: hidden;
+}
+
 .header {
     display: inline-flex;
-    width: 100rem;
-    height: 10rem;
-    background-color: blue;
-    .__title {
-        margin-left: 2rem;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    justify-content: space-between;
+    width: 100%;
+    height: 4em;
+    background-color: $gray_background;
+    color: white;
+    margin-top: -2px;
+    position: fixed;
+    
+    &__title {
+        height: 100%;
+        width: auto;
+        margin-left: 1rem;
+        text-decoration: none;
+        font-size: 1.5em;
+        font-weight: lighter;
     }
-    .__nav {
-        margin-left: 3rem;
+    &__nav {
+        width: 40vw;
+        margin-top: .7em;
+        color: $gray_letters;
+        ul {
+            list-style-type: none;
+            display: inline-flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            li {
+                margin-right: 5vw;
+            }
+        }
+    }
+    &__search {
+        width: fit-content;
+        height: 100%;
+        margin-right: 2%;
+        input {
+            margin-top: .8em;
+            height: 1.8em;
+            border-radius: 7px;
+            border-width: 2px;
+            border-color: gray;
+            width: 27vw;
+            max-width: 30em;
+            font-size: 1em; 
+            text-indent: 6px;
+            padding-top: 4px;
+            
+        }
+        button {
+            color: $teal_button;
+            font-size: 1em;
+            font-weight: bold;
+            width: 5em;
+            margin-left: .5em;
+            height: 2em;
+            border-radius: 5px;
+            background-color: $gray_background;
+            border: 1px solid $teal_button;
+        }
     }
 }
-body {
-    background-color: white;
+    
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    height: inherit;
+    background-color: rgb(255, 255, 255);
+    margin-top: 3.9em 0 0 0;
+
+    &__titlecontainer{
+        height: 44%;
+        width: 100%;
+        text-align: center;
+        background-color: gray;
+
+        
+    }
+    &__titleheadings {
+        margin-top: 12rem;
+        color: white;
+    }
+    &__titleheading1 {
+        font-size: 45pt;
+        font-weight: bold;
+    }
+    &__titleheading2 {
+        font-weight: lighter;
+        margin-top: -35px;
+    }
+    &__descriptions {
+        width: 80%;
+        margin: 3% auto 0 auto;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1em;
+    }
+    .description__heading {
+        font-style: italic;
+        font-weight: lighter;
+    }
+}
+
+footer {
+    background-color: rgb(196, 196, 196);
+    width: 100%;
+    height: 30px;
+    margin-top: -75px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: auto;
+}
+@media screen and (max-width: 1200px ){
+    .header {
+        min-height: 5em;
+        height: 9%;
+        &__title {
+            width: 15%;
+        }
+        &__nav{
+            width: 35%;
+            margin-left: -10%;
+        }
+        &__search {
+            width: 40%;
+            button {
+                width: 20%;
+                font-size: 89%;
+            }
+        }
+    }
+    .main__titlecontainer {
+        height: 50vh;
+        width: 100%;
+        
+    }
+    .main__titleheadings {
+        margin-top: 20%;
+    }
 }
