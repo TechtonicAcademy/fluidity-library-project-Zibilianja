@@ -11,7 +11,8 @@ html body {
     border: 2px solid rgba(0, 0, 0, 0);
     margin: 0 0 0 -3px;
     padding: 0;
-    overflow: hidden;
+    
+    
 }
 
 .header {
@@ -25,6 +26,7 @@ html body {
     color: white;
     margin-top: -2px;
     position: fixed;
+    z-index: 1;
     
     &__title {
         height: 100%;
@@ -65,7 +67,7 @@ html body {
             padding-top: 4px;
             
         }
-        button {
+        .header__searchbtn {
             color: $teal_button;
             font-size: 1em;
             font-weight: bold;
@@ -93,13 +95,23 @@ html body {
         height: 44%;
         width: 100%;
         text-align: center;
-        background-color: gray;
-
-        
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        background-image: url("./images/library2.jpeg");
+        background-repeat: no-repeat;
+        background-position-x: 50%;
+        background-position-y: 20%;
+        background-size: 75%;
     }
     &__titleheadings {
-        margin-top: 12rem;
-        color: white;
+        margin-top: 15rem;
+        width: 75%;
+        background-color:rgba(58, 43, 43, 0.733);
+        margin-left: auto;
+        margin-right: auto;
+        color: rgb(255, 255, 255);
+        
     }
     &__titleheading1 {
         font-size: 45pt;
@@ -113,11 +125,22 @@ html body {
         width: 80%;
         margin: 3% auto 0 auto;
         font-family: 'Times New Roman', Times, serif;
-        font-size: 1em;
+        font-size: 110%;
     }
     .description__heading {
         font-style: italic;
         font-weight: lighter;
+    }
+    .description__button {
+        height: 30px;
+        width: 180px;
+        font-weight: bold;
+        font-size: 12pt;
+        border-radius: 5px;
+    }
+    .button--dark {
+        background-color: rgb(52,58,64);
+        color: white;
     }
 }
 
@@ -125,21 +148,23 @@ footer {
     background-color: rgb(196, 196, 196);
     width: 100%;
     height: 30px;
-    margin-top: -75px;
+    margin-top: -50px;
     text-align: center;
     padding-top: 10px;
     padding-bottom: auto;
 }
-@media screen and (max-width: 1200px ){
+
+//Breakpoint for Md-laptop 769px - 1024px
+@media screen and (min-width:769px) and (max-width: 1024px ){
     .header {
-        min-height: 5em;
-        height: 9%;
+        min-height: 4em;
+        height: 8%;
         &__title {
             width: 15%;
         }
         &__nav{
-            width: 35%;
-            margin-left: -10%;
+            width: 40%;
+            flex-wrap: nowrap;
         }
         &__search {
             width: 40%;
@@ -148,13 +173,28 @@ footer {
                 font-size: 89%;
             }
         }
+        &__listitem {
+            width: fit-content;
+            flex-wrap: nowrap;
+        }
     }
-    .main__titlecontainer {
+    .main {
+    &__titlecontainer {
         height: 50vh;
         width: 100%;
-        
+        overflow: hidden;
     }
-    .main__titleheadings {
+    &__titleheadings {
         margin-top: 20%;
+    }
+}
+}
+
+//Breakpoint for Lg-desktop 1025px - 1200px
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .main {
+        &__titleheadings{
+            margin-top: 20%;
+        }
     }
 }
