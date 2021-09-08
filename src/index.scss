@@ -1,6 +1,7 @@
 $gray_background: rgb(60, 67, 75);
 $gray_letters: rgb(123, 127, 131);
 $teal_button: rgb(32, 145, 163);
+$book_brown: rgba(77, 63, 63, 0.63);
 
 html body {
     font-size: 14;
@@ -11,7 +12,7 @@ html body {
     border: 2px solid rgba(0, 0, 0, 0);
     margin: 0 0 0 -3px;
     padding: 0;
-    
+    position: absolute; 
     
 }
 
@@ -35,6 +36,9 @@ html body {
         text-decoration: none;
         font-size: 1.5em;
         font-weight: lighter;
+    }
+    &__dropdown {
+        display: none;
     }
     &__nav {
         width: 40vw;
@@ -90,6 +94,7 @@ html body {
     height: inherit;
     background-color: rgb(255, 255, 255);
     margin-top: 3.9em 0 0 0;
+    z-index: -1;
 
     &__titlecontainer{
         height: 44%;
@@ -105,9 +110,9 @@ html body {
         background-size: 75%;
     }
     &__titleheadings {
-        margin-top: 15rem;
+        margin-top: 13rem;
         width: 75%;
-        background-color:rgba(58, 43, 43, 0.733);
+        background-color:$book_brown;
         margin-left: auto;
         margin-right: auto;
         color: rgb(255, 255, 255);
@@ -122,8 +127,8 @@ html body {
         margin-top: -35px;
     }
     &__descriptions {
-        width: 80%;
-        margin: 3% auto 0 auto;
+        width: 75%;
+        margin: .5em auto 0 auto;
         font-family: 'Times New Roman', Times, serif;
         font-size: 110%;
     }
@@ -152,6 +157,7 @@ footer {
     text-align: center;
     padding-top: 10px;
     padding-bottom: auto;
+    position: fixed;
 }
 
 //Breakpoint for Md-laptop 769px - 1024px
@@ -195,6 +201,57 @@ footer {
     .main {
         &__titleheadings{
             margin-top: 20%;
+        }
+    }
+}
+
+//Breakpoint for Mobile 375px - 480px
+@media screen and (min-width: 375px) and (max-width: 480px) {
+    body {
+        overflow: scroll;
+    }
+    .header {
+        height: 3.5rem;
+        width: 100vw;
+        display: row;
+
+        &__title {
+            width: 50%;
+            
+            
+        }
+        &__dropdown {
+            display: inline-flex;
+            width: 2.5em;
+            height: 2.5em;
+            margin-right: 15px;
+            margin-top: 8px;
+            background-color: white;
+            border-radius: 20px;
+        }
+        &__nav {
+            display: none;
+        }
+        &__search {
+            display: none;
+        }
+}
+    .main {
+        width: 100vw;
+        &__titlecontainer {
+            width: 100%;
+            justify-content: center;
+            background-size: 100%;
+            min-height: 250px;
+            height: 33%;
+        }
+        &__titleheadings {
+            margin-top: 100px;
+            width: 100%;
+        }
+        &__descriptions {
+            padding-bottom: 100px;
+            
         }
     }
 }
