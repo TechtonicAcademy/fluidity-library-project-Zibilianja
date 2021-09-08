@@ -50,7 +50,8 @@ html .body {
             flex-direction: row;
             flex-wrap: nowrap;
             .header__listitem {
-                margin-right: 5vw;
+                margin-right: 4.8vw;
+                font-weight: lighter;
             }
         }
     }
@@ -131,6 +132,7 @@ html .body {
         margin: .5em auto 0 auto;
         font-family: 'Times New Roman', Times, serif;
         font-size: 110%;
+        text-align: left;
         
     }
     .description__heading {
