@@ -21,7 +21,7 @@ html .body {
     flex-direction: row;
     flex-wrap: no-wrap;
     justify-content: space-between;
-    width: 100%;
+    width: 101%;
     height: 4em;
     background-color: $gray_background;
     color: white;
@@ -31,7 +31,7 @@ html .body {
     
     &__title {
         height: 100%;
-        width: auto;
+        width: 30%;
         margin-left: 1rem;
         text-decoration: none;
         font-size: 1.5em;
@@ -49,23 +49,31 @@ html .body {
             display: inline-flex;
             flex-direction: row;
             flex-wrap: nowrap;
+            margin-left: -8px;
+            margin-top: 12px;
             .header__listitem {
-                margin-right: 4.8vw;
+                margin-right: 4.6vw;
                 font-weight: lighter;
+            }
+            .header--home {
+                color: white;
+            }
+            .header--addbook {
+                width: 100px;
             }
         }
     }
     &__search {
-        width: fit-content;
         height: 100%;
         margin-right: 2%;
+        width: 50%;
         .header__input {
             margin-top: .8em;
             height: 1.8em;
             border-radius: 7px;
             border-width: 2px;
             border-color: gray;
-            width: 27vw;
+            min-width: 26vw;
             max-width: 30em;
             font-size: 1em; 
             text-indent: 6px;
@@ -92,13 +100,14 @@ html .body {
     flex-direction: column;
     justify-content: flex-start;
     text-align: center;
-    height: inherit;
-    margin: 3.9em 0 0 0;
+    align-items: center;
+    height: auto;
+    margin: 3.8em 0 0 0;
     
 
     &__titlecontainer{
-        height: 44%;
-        min-height: 250px;
+        height: 44vh;
+        min-height: 280px;
         width: 100%;
         text-align: center;
         justify-content: center;
@@ -107,12 +116,13 @@ html .body {
         background-image: url("./images/library2.jpeg");
         background-repeat: no-repeat;
         background-position-x: 50%;
-        background-position-y: 20%;
-        background-size: 75%;
+        background-position-y: 45%;
+        background-size: 100%;
+        max-width: 1000px;
     }
     &__titleheadings {
-        margin-top: 13rem;
-        width: 75%;
+        margin-top: 100px;
+        width: 100%;
         background-color:$book_brown;
         margin-left: auto;
         margin-right: auto;
@@ -128,16 +138,18 @@ html .body {
         margin-top: -35px;
     }
     &__descriptions {
-        width: 75%;
+        width: 90%;
         margin: .5em auto 0 auto;
         font-family: 'Times New Roman', Times, serif;
-        font-size: 110%;
-        text-align: left;
+        font-size: 11pt;
         
     }
     .description__heading {
         font-style: italic;
         font-weight: lighter;
+    }
+    .main_paragraph {
+        text-align: left;
     }
     .description__button {
         height: 30px;
@@ -153,34 +165,37 @@ html .body {
 }
 
 .footer {
-    background-color: rgb(196, 196, 196);
+    background-color: rgb(226, 225, 225);
     width: 100%;
-    height: 30px;
-    position: relative;
+    height: 25px;
+    position: absolute;
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 0;
+    margin-top: 30px;
     padding-top: 10px;
     padding-bottom: auto;
-    
+    font-size: 11pt;
+    color: rgb(88, 88, 88);
 }
 
 //Breakpoint for Md-laptop 769px - 1024px
-@media screen and (min-width:769px) and (max-width: 1024px ){
+@media screen and (min-width:769px) and (max-width: 1025px ){
     .header {
         min-height: 4em;
         height: 8%;
         &__title {
-            width: 15%;
+            width: 16%;
         }
         &__nav{
-            width: 40%;
+            width: 39%;
             flex-wrap: nowrap;
+            .header__listitem {
+                font-size: 11pt;
+            }
         }
         &__search {
             width: 40%;
             button {
-                width: 20%;
+                width: 18%;
                 font-size: 89%;
             }
         }
@@ -191,27 +206,33 @@ html .body {
     }
     .main {
     &__titlecontainer {
-        height: 50vh;
+        height: 42vh;
         width: 100%;
         overflow: hidden;
     }
     &__titleheadings {
-        margin-top: 20%;
+        margin-top: 12%;
     }
+}
+.footer {
+    margin-top: 30px;
 }
 }
 
 //Breakpoint for Lg-desktop 1025px - 1200px
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
     .main {
+        &__titlecontainer {
+            background-position-y: 40%;
+        }
         &__titleheadings{
-            margin-top: 20%;
+            margin-top: 100px;
         }
     }
 }
 
 //Breakpoint for Mobile 375px - 480px
-@media screen and (min-width: 375px) and (max-width: 480px) {
+@media screen and (min-width: 0px) and (max-width: 480px) {
     .body {
         overflow: scroll;
         margin-bottom: -30px;
