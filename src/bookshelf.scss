@@ -5,15 +5,15 @@ $book_brown: rgba(77, 63, 63, 0.63);
 
 html .body {
     font-size: 14;
-    font-weight: bold;
+    font-weight: normal;
     font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
     width: 100vw;
-    margin: 0 0 0 -4px;
+    border: 2px solid rgba(0, 0, 0, 0);
+    margin: 0 0 0 -3px;
     padding: 0;
     position: relative; 
-    overflow: scroll;
-    border: 2px solid rgba(0, 0, 0, 0);
+    overflow-y: hidden;
 }
 
 .header {
@@ -21,7 +21,7 @@ html .body {
     flex-direction: row;
     flex-wrap: no-wrap;
     justify-content: space-between;
-    width: 100vw;
+    width: 101%;
     height: 4em;
     background-color: $gray_background;
     color: white;
@@ -31,7 +31,7 @@ html .body {
     
     &__title {
         height: 100%;
-        width: auto;
+        width: 30%;
         margin-left: 1rem;
         text-decoration: none;
         font-size: 1.5em;
@@ -41,7 +41,7 @@ html .body {
         display: none;
     }
     &__nav {
-        width: 42vw;
+        width: 40vw;
         margin-top: .7em;
         color: $gray_letters;
         .header__list{
@@ -49,23 +49,31 @@ html .body {
             display: inline-flex;
             flex-direction: row;
             flex-wrap: nowrap;
+            margin-left: -8px;
+            margin-top: 12px;
             .header__listitem {
-                margin-right: 4.8vw;
+                margin-right: 4.6vw;
                 font-weight: lighter;
+            }
+            .header--home {
+                color: white;
+            }
+            .header--addbook {
+                width: 100px;
             }
         }
     }
     &__search {
-        width: fit-content;
         height: 100%;
         margin-right: 2%;
+        width: 50%;
         .header__input {
             margin-top: .8em;
             height: 1.8em;
             border-radius: 7px;
             border-width: 2px;
             border-color: gray;
-            width: 27vw;
+            min-width: 26vw;
             max-width: 30em;
             font-size: 1em; 
             text-indent: 6px;
@@ -85,24 +93,176 @@ html .body {
         }
     }
 }
-
-.main {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    column-count: 3;
-    justify-content: flex-start;
-    text-align: center;
-    height: inherit;
-    margin: 3.8em 0 0 0;
     
-    h2 {
-        margin-left: auto;
-        margin-right: auto;
+.main {
+    margin-top: 4.5em;
+    width: 100%;
+    text-align: center;
+    &__title {
         font-weight: lighter;
-        font-size: 20pt;
         font-style: italic;
         font-family: 'Times New Roman', Times, serif;
         color: $gray_background;
+    }
+    &__gridcontainer {
+        margin-left: auto;
+        margin-right: auto;
+        height: 479px;
+        width: 82vw;
+        display: grid;
+        overflow-y: scroll;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        justify-content: space-evenly;
+        align-content: space-between;
+        margin-top: -5px;
+        
+        .grid__items {
+            justify-items: center;
+            display: grid;
+            grid-template-rows: 3;
+            align-content: space-evenly;
+            height: 220px;
+            width: 162px;
+            border: 1px solid $gray_letters;
+            margin-bottom: 35px;
+            font-size: 12pt;
+            font-family: 'Times New Roman', Times, serif;
+            color: $gray_background;
+            .grid__bookcover {
+                margin-top: 8px;
+                height: 130px;
+                width: auto;
+            }
+           .grid__title {
+               margin-left: 5px;
+               margin-right: 5px;
+               
+           } 
+           .grid__author {
+               font-size: 10pt;
+           }
+            
+            
+        }
+        
+        
+    }
+    
+
+    
+}
+.main__gridcontainer::-webkit-scrollbar {
+    width: 8px;
+  }
+   
+  .main__gridcontainer::-webkit-scrollbar-track {
+   border-radius: 5px;
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  }
+   
+  .main__gridcontainer::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    width: 15px;
+    background-color: rgb(121, 117, 117);
+    outline: 0 solid slategrey;
+  }
+
+.footer {
+    background-color: rgb(226, 225, 225);
+    width: 100%;
+    height: 25px;
+    position: absolute;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 10px;
+    padding-bottom: auto;
+    font-size: 11pt;
+    color: rgb(88, 88, 88);
+}
+
+//Breakpoint for Md-laptop 769px - 1024px
+@media screen and (min-width:769px) and (max-width: 1025px ){
+    .header {
+        min-height: 4em;
+        height: 8%;
+        &__title {
+            width: 16%;
+        }
+        &__nav{
+            width: 39%;
+            flex-wrap: nowrap;
+            .header__listitem {
+                font-size: 11pt;
+            }
+        }
+        &__search {
+            width: 40%;
+            button {
+                width: 18%;
+                font-size: 89%;
+            }
+        }
+        &__listitem {
+            width: fit-content;
+            flex-wrap: nowrap;
+        }
+    }
+    .main {
+    
+}
+.footer {
+    margin-top: 10px;
+    height: 22px;
+    font-size: 10pt;
+}
+}
+
+//Breakpoint for Lg-desktop 1025px - 1200px
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .main {
+        
+    }
+}
+
+//Breakpoint for Mobile 375px - 480px
+@media screen and (min-width: 0px) and (max-width: 480px) {
+    .body {
+        overflow: scroll;
+        margin-bottom: -30px;
+        
+    }
+    .header {
+        height: 3.5rem;
+        width: 100vw;
+        display: row;
+
+        &__title {
+            width: 50%;
+            
+            
+        }
+        &__dropdown {
+            display: inline-flex;
+            width: 2.5em;
+            height: 2.5em;
+            margin-right: 15px;
+            margin-top: 8px;
+            background-color: white;
+            border-radius: 20px;
+        }
+        &__nav {
+            display: none;
+        }
+        &__search {
+            display: none;
+        }
+}
+    .main {
+        width: 100vw;
+        
+    }
+    .footer {
+        margin-top: 30px;
     }
 }
