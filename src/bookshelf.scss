@@ -95,10 +95,12 @@ html .body {
 }
     
 .main {
-    margin-top: 4.5em;
+    margin-top: 4.8em;
     width: 100%;
     height: 80vh;
     text-align: center;
+    overflow: hidden;
+    
     &__searchwrapper {
         display: none;
     }
@@ -299,22 +301,32 @@ html .body {
 }
     .main {
         width: 100vw;
-        height: 80vh;
+        height: 82vh;       
         &__searchwrapper {
             width: 101%;
             height: 2em;
-            background-color: rgb(230, 230, 230);
-            margin-top: -20px;
-            padding-top: 4%;
+            background-color: rgb(216, 215, 215);
+            margin-top: -23px;
+            padding-top: 12px;
             padding-bottom: 2.5%;
             display: flex;
+            position: absolute;
+        }
+        &__title {
+            margin-top: 40px;
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
         }
         &__form {
+            
+            width: 100%;
             display: flex;
             flex-direction: row;
         }
         &__search {
-            width: 75%;
+            text-indent: 10pt;
+            width: 80%;
             height: 75%;
             border-radius: 5px;
             border: none;
@@ -332,10 +344,9 @@ html .body {
         &__gridcontainer{
             grid-template-columns: auto;
             grid-template-rows: auto;
-            .grid__items {
-               
+            
             }
-        }
+        
         
     }
     
