@@ -99,6 +99,9 @@ html .body {
     width: 100%;
     height: 80vh;
     text-align: center;
+    &__searchwrapper {
+        display: none;
+    }
     &__title {
         font-weight: lighter;
         font-style: italic;
@@ -122,7 +125,7 @@ html .body {
         .grid__items {
             justify-items: center;
             display: grid;
-            grid-template-rows: 3;
+            grid-template-rows: auto;
             align-content: space-evenly;
             height: 220px;
             width: 162px;
@@ -179,12 +182,14 @@ html .body {
     width: 100%;
     height: 20px;
     text-align: center;
-    position: fixed;
-    margin-top: 1.4em;
     padding-top: 8px;
     padding-bottom: auto;
     font-size: 10pt;
     color: rgb(88, 88, 88);
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    left: 0;
 }
 
 //Breakpoint for Md-laptop 769px - 1024px
@@ -216,14 +221,12 @@ html .body {
     }
     .main {
         height:80vh;
+        
         &__gridcontainer {
-            height: 97%;
+            height: 10%;
         }
     }
-    .footer {
-        margin-top: 3%;
-        
-    }
+    
 }
 
 
@@ -248,14 +251,14 @@ html .body {
     }
     .main{
         height:80vh;
+        &__searchwrapper {
+            display: none;
+        }
         &__gridcontainer {
             height: 97%;
         }
     }
-    .footer {
-        margin-top: 3%;
-        
-    }
+    
     
 }
 
@@ -264,16 +267,18 @@ html .body {
     .body {
         overflow: scroll;
         margin-bottom: -30px;
+        position: relative;
+        min-height: 100%;
+        min-height: 100vh;
         
     }
     .header {
         height: 3.5rem;
-        width: 100vw;
+        width: 101vw;
         display: row;
 
         &__title {
-            width: 50%;
-            
+            width: 100%;
             
         }
         &__dropdown {
@@ -294,9 +299,43 @@ html .body {
 }
     .main {
         width: 100vw;
+        height: 80vh;
+        &__searchwrapper {
+            width: 101%;
+            height: 2em;
+            background-color: rgb(230, 230, 230);
+            margin-top: -20px;
+            padding-top: 4%;
+            padding-bottom: 2.5%;
+            display: flex;
+        }
+        &__form {
+            display: flex;
+            flex-direction: row;
+        }
+        &__search {
+            width: 75%;
+            height: 75%;
+            border-radius: 5px;
+            border: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        &__searchimg {
+            height: 1.2em;
+            width: 1.2em;
+            position: absolute;
+            right: 57px;
+            top: 74px;
+        }
+        &__gridcontainer{
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+            .grid__items {
+               
+            }
+        }
         
     }
-    .footer {
-        margin-top: 30px;
-    }
+    
 }

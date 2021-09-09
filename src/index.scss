@@ -170,11 +170,13 @@ html .body {
     height: 25px;
     position: absolute;
     text-align: center;
-    margin-top: 30px;
     padding-top: 10px;
     padding-bottom: auto;
     font-size: 11pt;
     color: rgb(88, 88, 88);
+    right: 0;
+    bottom: 20px;
+    left: 0;
 }
 
 //Breakpoint for Md-laptop 769px - 1024px
@@ -214,9 +216,7 @@ html .body {
         margin-top: 12%;
     }
 }
-.footer {
-    margin-top: 30px;
-}
+
 }
 
 //Breakpoint for Lg-desktop 1025px - 1200px
@@ -283,7 +283,5 @@ html .body {
             
         }
     }
-    .footer {
-        margin-top: 30px;
-    }
+    
 }
