@@ -325,8 +325,9 @@ html .body {
             height: 1.2em;
             width: 1.2em;
             position: absolute;
-            right: 57px;
-            top: 74px;
+            right: 12.5%;
+            justify-self: center;
+            padding-top: 4px;
         }
         &__gridcontainer{
             grid-template-columns: auto;
