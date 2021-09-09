@@ -95,10 +95,15 @@ html .body {
 }
     
 .main {
-    margin-top: 4.5em;
+    margin-top: 4.8em;
     width: 100%;
     height: 80vh;
     text-align: center;
+    overflow: hidden;
+    
+    &__searchwrapper {
+        display: none;
+    }
     &__title {
         font-weight: lighter;
         font-style: italic;
@@ -122,7 +127,7 @@ html .body {
         .grid__items {
             justify-items: center;
             display: grid;
-            grid-template-rows: 3;
+            grid-template-rows: auto;
             align-content: space-evenly;
             height: 220px;
             width: 162px;
@@ -179,19 +184,21 @@ html .body {
     width: 100%;
     height: 20px;
     text-align: center;
-    position: fixed;
-    margin-top: 1.4em;
     padding-top: 8px;
     padding-bottom: auto;
     font-size: 10pt;
     color: rgb(88, 88, 88);
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    left: 0;
 }
 
 //Breakpoint for Md-laptop 769px - 1024px
 @media screen and (min-width:769px) and (max-width: 1025px ){
     .header {
         min-height: 4em;
-        height: 8%;
+        height: 7%;
         &__title {
             width: 16%;
         }
@@ -216,22 +223,20 @@ html .body {
     }
     .main {
         height:80vh;
+        
         &__gridcontainer {
-            height: 97%;
+            height: 10%;
         }
     }
-    .footer {
-        margin-top: 3%;
-        
-    }
+    
 }
 
 
 //Breakpoint for Lg-desktop 1025px - 1200px
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
     .header {
-        min-height: 4em;
-        height: 8%;
+        min-height: 3em;
+        height: 7%;
         justify-content: space-between;
         &__title {
             width: 16%;
@@ -247,15 +252,15 @@ html .body {
         }
     }
     .main{
-        height:80vh;
+        height:85vh;
+        &__searchwrapper {
+            display: none;
+        }
         &__gridcontainer {
             height: 97%;
         }
     }
-    .footer {
-        margin-top: 3%;
-        
-    }
+    
     
 }
 
@@ -264,25 +269,29 @@ html .body {
     .body {
         overflow: scroll;
         margin-bottom: -30px;
+        position: relative;
+        min-height: 100%;
+        min-height: 100vh;
         
     }
     .header {
         height: 3.5rem;
-        width: 100vw;
+        width: 101vw;
         display: row;
 
         &__title {
-            width: 50%;
-            
+            width: 100%;
             
         }
         &__dropdown {
             display: inline-flex;
-            width: 2.5em;
-            height: 2.5em;
-            margin-right: 15px;
-            margin-top: 8px;
-            background-color: white;
+            width: auto;
+            height: auto;
+            font-size: 22pt;
+            margin-right: 25px;
+            margin-top: 13px;
+            color: white;
+            background-color: $gray_background;
             border-radius: 20px;
         }
         &__nav {
@@ -294,9 +303,53 @@ html .body {
 }
     .main {
         width: 100vw;
+        height: 82vh;       
+        &__searchwrapper {
+            width: 101%;
+            height: 2em;
+            background-color: rgb(216, 215, 215);
+            margin-top: -23px;
+            padding-top: 12px;
+            padding-bottom: 2.5%;
+            display: flex;
+            position: absolute;
+        }
+        &__title {
+            margin-top: 40px;
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        &__form {
+            
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+        &__search {
+            text-indent: 10pt;
+            width: 80%;
+            height: 82%;
+            border-radius: 5px;
+            border: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        &__searchimg {
+            height: 1.2em;
+            width: 1.2em;
+            position: absolute;
+            right: 12.5%;
+            justify-self: center;
+            padding-top: 4px;
+        }
+        &__gridcontainer{
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+            
+            }
+        
         
     }
-    .footer {
-        margin-top: 30px;
-    }
+    
 }

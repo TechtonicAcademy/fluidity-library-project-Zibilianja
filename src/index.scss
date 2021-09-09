@@ -150,6 +150,9 @@ html .body {
     }
     .main_paragraph {
         text-align: left;
+        width:80%;
+        margin-left: auto;
+        margin-right: auto;
     }
     .description__button {
         height: 30px;
@@ -170,11 +173,13 @@ html .body {
     height: 25px;
     position: absolute;
     text-align: center;
-    margin-top: 30px;
     padding-top: 10px;
     padding-bottom: auto;
     font-size: 11pt;
     color: rgb(88, 88, 88);
+    right: 0;
+    bottom: 20px;
+    left: 0;
 }
 
 //Breakpoint for Md-laptop 769px - 1024px
@@ -214,9 +219,7 @@ html .body {
         margin-top: 12%;
     }
 }
-.footer {
-    margin-top: 30px;
-}
+
 }
 
 //Breakpoint for Lg-desktop 1025px - 1200px
@@ -250,11 +253,13 @@ html .body {
         }
         &__dropdown {
             display: inline-flex;
-            width: 2.5em;
-            height: 2.5em;
-            margin-right: 15px;
-            margin-top: 8px;
-            background-color: white;
+            width: auto;
+            height: auto;
+            font-size: 22pt;
+            margin-right: 35px;
+            margin-top: 13px;
+            color: white;
+            background-color: $gray_background;
             border-radius: 20px;
         }
         &__nav {
@@ -283,7 +288,5 @@ html .body {
             
         }
     }
-    .footer {
-        margin-top: 30px;
-    }
+    
 }
