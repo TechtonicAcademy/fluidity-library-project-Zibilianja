@@ -13,7 +13,7 @@ html .body {
     margin: 0 0 0 -3px;
     padding: 0;
     position: relative; 
-    overflow: scroll;
+    overflow-y: hidden;
 }
 
 .header {
@@ -95,85 +95,95 @@ html .body {
 }
     
 .main {
+    margin-top: 4.5em;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    height: 80vh;
     text-align: center;
-    align-items: center;
-    height: auto;
-    margin: 3.8em 0 0 0;
-    
-
-    &__titlecontainer{
-        height: 44vh;
-        min-height: 280px;
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-        position: relative;
-        overflow: hidden;
-        background-image: url("./images/library2.jpeg");
-        background-repeat: no-repeat;
-        background-position-x: 50%;
-        background-position-y: 45%;
-        background-size: 100%;
-        max-width: 1000px;
+    &__title {
+        font-weight: lighter;
+        font-style: italic;
+        font-family: 'Times New Roman', Times, serif;
+        color: $gray_background;
     }
-    &__titleheadings {
-        margin-top: 100px;
-        width: 100%;
-        background-color:$book_brown;
+    &__gridcontainer {
         margin-left: auto;
         margin-right: auto;
-        color: rgb(255, 255, 255);
+        min-height: 92%;
+        max-height: 95%;
+        width: 82vw;
+        display: grid;
+        overflow-y: scroll;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        justify-content: space-evenly;
+        align-content: space-between;
+        margin-top: -5px;
+        
+        .grid__items {
+            justify-items: center;
+            display: grid;
+            grid-template-rows: 3;
+            align-content: space-evenly;
+            height: 220px;
+            width: 162px;
+            border: 1px solid $gray_letters;
+            margin-bottom: 30px;
+            font-size: 12pt;
+            font-family: 'Times New Roman', Times, serif;
+            color: $gray_background;
+            .grid__bookcover {
+                margin-top: 8px;
+                height: 130px;
+                width: auto;
+            }
+           .grid__title {
+               margin-left: 5px;
+               margin-right: 5px;
+               
+           } 
+           .grid__author {
+               font-size: 10pt;
+           }
+            
+            
+        }
+        
         
     }
-    &__titleheading1 {
-        font-size: 45pt;
-        font-weight: bold;
-    }
-    &__titleheading2 {
-        font-weight: lighter;
-        margin-top: -35px;
-    }
-    &__descriptions {
-        width: 90%;
-        margin: .5em auto 0 auto;
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 11pt;
-        
-    }
-    .description__heading {
-        font-style: italic;
-        font-weight: lighter;
-    }
-    .main_paragraph {
-        text-align: left;
-    }
-    .description__button {
-        height: 30px;
-        width: 180px;
-        font-weight: bold;
-        font-size: 12pt;
-        border-radius: 5px;
-    }
-    .button--dark {
-        background-color: rgb(52,58,64);
-        color: white;
-    }
+    
+
+    
 }
+//Scroll bar customs
+.main__gridcontainer::-webkit-scrollbar {
+    width: 8px;
+  }
+   
+  .main__gridcontainer::-webkit-scrollbar-track {
+   border-radius: 5px;
+   border-left: 3px solid transparent;
+   border-right: 3px solid transparent;
+   -webkit-box-shadow: inset 0 0 10px rgba(185, 185, 185, 0.3); 
+  }
+   
+  .main__gridcontainer::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    border: 10px solid $gray_background;
+    width: 15px;
+    background-color: rgb(121, 117, 117);
+    outline: 0 solid slategrey;
+  }
 
 .footer {
     background-color: rgb(226, 225, 225);
     width: 100%;
-    height: 25px;
-    position: absolute;
+    height: 20px;
     text-align: center;
-    margin-top: 30px;
-    padding-top: 10px;
+    position: fixed;
+    margin-top: 1.4em;
+    padding-top: 8px;
     padding-bottom: auto;
-    font-size: 11pt;
+    font-size: 10pt;
     color: rgb(88, 88, 88);
 }
 
@@ -186,8 +196,8 @@ html .body {
             width: 16%;
         }
         &__nav{
-            width: 39%;
-            flex-wrap: nowrap;
+            width: 40%;
+            margin-left: -10px;
             .header__listitem {
                 font-size: 11pt;
             }
@@ -205,30 +215,48 @@ html .body {
         }
     }
     .main {
-    &__titlecontainer {
-        height: 42vh;
-        width: 100%;
-        overflow: hidden;
+        height:80vh;
+        &__gridcontainer {
+            height: 97%;
+        }
     }
-    &__titleheadings {
-        margin-top: 12%;
+    .footer {
+        margin-top: 3%;
+        
     }
 }
-.footer {
-    margin-top: 30px;
-}
-}
+
 
 //Breakpoint for Lg-desktop 1025px - 1200px
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
-    .main {
-        &__titlecontainer {
-            background-position-y: 40%;
+    .header {
+        min-height: 4em;
+        height: 8%;
+        justify-content: space-between;
+        &__title {
+            width: 16%;
         }
-        &__titleheadings{
-            margin-top: 100px;
+        &__nav {
+            margin-left: -3%;
+            width: 39%
+        }
+        &__search {
+            width: 40%;
+            margin-right: -3%;
+            
         }
     }
+    .main{
+        height:80vh;
+        &__gridcontainer {
+            height: 97%;
+        }
+    }
+    .footer {
+        margin-top: 3%;
+        
+    }
+    
 }
 
 //Breakpoint for Mobile 375px - 480px
@@ -266,22 +294,7 @@ html .body {
 }
     .main {
         width: 100vw;
-        &__titlecontainer {
-            width: 100%;
-            justify-content: center;
-            background-size: 100%;
-            min-height: 250px;
-            height: 33%;
-            margin-top: -15px;
-        }
-        &__titleheadings {
-            margin-top: 100px;
-            width: 100%;
-        }
-        &__descriptions {
-            padding-bottom: 100px;
-            
-        }
+        
     }
     .footer {
         margin-top: 30px;
