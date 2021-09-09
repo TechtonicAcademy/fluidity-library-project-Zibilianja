@@ -223,7 +223,25 @@ html .body {
 }
 
 //Breakpoint for Lg-desktop 1025px - 1200px
-@media screen and (min-width: 1025px) and (max-width: 1200px) {
+@media screen and (min-width: 1025px) and (max-width: 2200px) {
+    .header {
+        min-height: 65px;
+        height: 7%;
+        max-height: 65px;
+        justify-content: space-between;
+        &__title {
+            width: 16%;
+        }
+        &__nav {
+            margin-left: -7%;
+            width: 39%
+        }
+        &__search {
+            width: 40%;
+            margin-right: -2%;
+            
+        }
+    }
     .main {
         &__titlecontainer {
             background-position-y: 40%;
