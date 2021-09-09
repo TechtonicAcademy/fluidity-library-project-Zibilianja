@@ -198,7 +198,7 @@ html .body {
 @media screen and (min-width:769px) and (max-width: 1025px ){
     .header {
         min-height: 4em;
-        height: 8%;
+        height: 7%;
         &__title {
             width: 16%;
         }
@@ -235,8 +235,8 @@ html .body {
 //Breakpoint for Lg-desktop 1025px - 1200px
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
     .header {
-        min-height: 4em;
-        height: 8%;
+        min-height: 3em;
+        height: 7%;
         justify-content: space-between;
         &__title {
             width: 16%;
@@ -252,7 +252,7 @@ html .body {
         }
     }
     .main{
-        height:80vh;
+        height:85vh;
         &__searchwrapper {
             display: none;
         }
@@ -285,11 +285,13 @@ html .body {
         }
         &__dropdown {
             display: inline-flex;
-            width: 2.5em;
-            height: 2.5em;
-            margin-right: 15px;
-            margin-top: 8px;
-            background-color: white;
+            width: auto;
+            height: auto;
+            font-size: 22pt;
+            margin-right: 25px;
+            margin-top: 13px;
+            color: white;
+            background-color: $gray_background;
             border-radius: 20px;
         }
         &__nav {
@@ -327,7 +329,7 @@ html .body {
         &__search {
             text-indent: 10pt;
             width: 80%;
-            height: 75%;
+            height: 82%;
             border-radius: 5px;
             border: none;
             margin-left: auto;

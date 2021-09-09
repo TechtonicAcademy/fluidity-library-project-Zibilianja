@@ -150,6 +150,9 @@ html .body {
     }
     .main_paragraph {
         text-align: left;
+        width:80%;
+        margin-left: auto;
+        margin-right: auto;
     }
     .description__button {
         height: 30px;
@@ -250,11 +253,13 @@ html .body {
         }
         &__dropdown {
             display: inline-flex;
-            width: 2.5em;
-            height: 2.5em;
-            margin-right: 15px;
-            margin-top: 8px;
-            background-color: white;
+            width: auto;
+            height: auto;
+            font-size: 22pt;
+            margin-right: 35px;
+            margin-top: 13px;
+            color: white;
+            background-color: $gray_background;
             border-radius: 20px;
         }
         &__nav {
