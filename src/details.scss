@@ -131,9 +131,12 @@ html .body {
         margin-bottom: auto;
         margin-left: 25%;
         margin-right: auto;
-        width: auto;
-        height: 72%;
+        width: 50%;
+        height: auto;
+        min-height: 350px;
         max-height: 25em;
+        max-width: 270px;
+        min-width: 230px;
     }
     .book__stars{
         margin-left: 24%;
@@ -152,7 +155,7 @@ html .body {
     }
 }
     .book__details {
-        width: 40vw;
+        width: 45vw;
         height: auto;
         font-size: 14pt;
         line-height: 130%;
@@ -278,12 +281,9 @@ html .body {
         }
     }
     .main{
-        height:85vh;
-        &__searchwrapper {
-            display: none;
-        }
-        &__gridcontainer {
-            height: 97%;
+        .book__details {
+            margin-left: -2%;
+            margin-top: 1%;
         }
     }
     
