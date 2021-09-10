@@ -1,0 +1,385 @@
+$gray_background: rgb(60, 67, 75);
+$gray_letters: rgb(123, 127, 131);
+$teal_button: rgb(32, 145, 163);
+$book_brown: rgba(77, 63, 63, 0.63);
+
+html .body {
+    font-size: 14;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    width: 100vw;
+    border: 2px solid rgba(0, 0, 0, 0);
+    margin: 0 0 0 -3px;
+    padding: 0;
+    position: relative; 
+    overflow-y: hidden;
+}
+//------------------------------------------------------------------ 
+//------------------------------------------------------------------ 
+//HEADER
+.header {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    justify-content: space-between;
+    width: 101%;
+    height: 4em;
+    background-color: $gray_background;
+    color: white;
+    margin-top: -2px;
+    position: fixed;
+    z-index: 1;
+    
+    &__title {
+        height: 100%;
+        width: 30%;
+        margin-left: 1rem;
+        text-decoration: none;
+        font-size: 1.5em;
+        font-weight: lighter;
+    }
+    &__dropdown {
+        display: none;
+    }
+    &__nav {
+        width: 40vw;
+        margin-top: .7em;
+        color: $gray_letters;
+        .header__list{
+            list-style-type: none;
+            display: inline-flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            margin-left: -8px;
+            margin-top: 12px;
+            .header__listitem {
+                margin-right: 4.6vw;
+                font-weight: lighter;
+            }
+            .header--home {
+                color: white;
+            }
+            .header--addbook {
+                width: 100px;
+            }
+        }
+    }
+    &__search {
+        height: 100%;
+        margin-right: 2%;
+        width: 50%;
+        .header__input {
+            margin-top: .8em;
+            height: 1.8em;
+            border-radius: 7px;
+            border-width: 2px;
+            border-color: gray;
+            min-width: 26vw;
+            max-width: 30em;
+            font-size: 1em; 
+            text-indent: 6px;
+            padding-top: 4px;
+            
+        }
+        .header__searchbtn {
+            color: $teal_button;
+            font-size: 1em;
+            font-weight: bold;
+            width: 5em;
+            margin-left: .5em;
+            height: 2em;
+            border-radius: 5px;
+            background-color: $gray_background;
+            border: 1px solid $teal_button;
+        }
+    }
+}
+ //------------------------------------------------------------------ 
+ //------------------------------------------------------------------  
+ //MAIN
+
+.main {
+    margin-top: 4.8em;
+    height: 100%;
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    font-family: 'Times New Roman', Times, serif;
+    
+    &__detailcard {
+        width: 95vw;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: .2em;
+        padding: 15px;
+        display: inline-flex;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
+        height: 70vh;
+    }
+    &__coverwrap {
+        height: 100%;
+        width: 40vw;
+        margin: 0 0 0 0;
+        display: block;
+        
+        
+    .book__cover {
+        margin-top: 1em;
+        margin-bottom: auto;
+        margin-left: 25%;
+        margin-right: auto;
+        width: auto;
+        height: 72%;
+        max-height: 25em;
+    }
+    .book__stars{
+        margin-left: 24%;
+        height: 55px;
+        width: 50%;
+        display: inline-flex;
+        max-width: 280px;
+        min-width: 230px;
+        .fa-star {
+            color: gold;
+            font-size: 20pt;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 25px;
+        }
+    }
+}
+    .book__details {
+        width: 40vw;
+        height: auto;
+        font-size: 14pt;
+        line-height: 130%;
+        margin-left: 7%;
+        margin-top: -1em;
+        padding-bottom: 5%;
+        color: $gray_background;
+
+        .book__title {
+            font-weight: lighter;
+        }
+        .book__author {
+            font-weight: lighter;
+        }
+        
+    }
+    &__btnwrap {
+        width: 75%;
+        height: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: center;
+        
+    }
+    &__button {
+        height: 3em;
+        background-color: rgb(230, 230, 230);
+        width: 30%;
+        color: $gray_background;
+        font-size: 11pt;
+        border-radius: 7px;
+        margin: -35px 20px 0 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        border: none;
+        
+    }
+    .button--dark {
+        background-color: $gray_background;
+        color: white;
+    }
+    
+
+    
+}
+//------------------------------------------------------------------ 
+//------------------------------------------------------------------ 
+//FOOTER
+
+.footer {
+    background-color: rgb(226, 225, 225);
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: auto;
+    font-size: 10pt;
+    color: rgb(88, 88, 88);
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    left: 0;
+}
+//------------------------------------------------------------------ 
+//------------------------------------------------------------------ 
+//BREAKPOINTS
+
+//Breakpoint for Md-laptop 769px - 1024px
+@media screen and (min-width:769px) and (max-width: 1025px ){
+    .header {
+        min-height: 4em;
+        height: 7%;
+        &__title {
+            width: 16%;
+        }
+        &__nav{
+            width: 40%;
+            margin-left: -10px;
+            .header__listitem {
+                font-size: 11pt;
+            }
+        }
+        &__search {
+            width: 40%;
+            button {
+                width: 18%;
+                font-size: 89%;
+            }
+        }
+        &__listitem {
+            width: fit-content;
+            flex-wrap: nowrap;
+        }
+    }
+    .main {
+        height: 100%;
+        width: 100%;
+        font-size: 12pt;
+    }
+    
+}
+
+//------------------------------------------------------------------ 
+//Breakpoint for Lg-desktop 1025px - 1200px
+@media screen and (min-width: 1025px) and (max-width: 2200px) {
+    .header {
+        min-height: 65px;
+        height: 7%;
+        max-height: 65px;
+        justify-content: space-between;
+        &__title {
+            width: 16%;
+        }
+        &__nav {
+            margin-left: -7%;
+            width: 39%
+        }
+        &__search {
+            width: 40%;
+            margin-right: -2%;
+            
+        }
+    }
+    .main{
+        height:85vh;
+        &__searchwrapper {
+            display: none;
+        }
+        &__gridcontainer {
+            height: 97%;
+        }
+    }
+    
+    
+}
+
+//------------------------------------------------------------------ 
+//------------------------------------------------------------------ 
+//MOBILE
+
+//Breakpoint for Mobile 375px - 480px
+@media screen and (min-width: 0px) and (max-width: 480px) {
+    .body {
+        overflow: scroll;
+        margin-bottom: -30px;
+        position: relative;
+        min-height: 100%;
+        min-height: 100vh;
+        
+    }
+    .header {
+        height: 3.5rem;
+        width: 101vw;
+        display: row;
+
+        &__title {
+            width: 100%;
+            
+        }
+        &__dropdown {
+            display: inline-flex;
+            width: auto;
+            height: auto;
+            font-size: 22pt;
+            margin-right: 25px;
+            margin-top: 13px;
+            color: white;
+            background-color: $gray_background;
+            border-radius: 20px;
+        }
+        &__nav {
+            display: none;
+        }
+        &__search {
+            display: none;
+        }
+}
+    .main {
+        width: 100vw;
+        height: 82vh;       
+        &__searchwrapper {
+            width: 101%;
+            height: 2em;
+            background-color: rgb(216, 215, 215);
+            margin-top: -23px;
+            padding-top: 12px;
+            padding-bottom: 2.5%;
+            display: flex;
+            position: absolute;
+        }
+        &__title {
+            margin-top: 40px;
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        &__form {
+            
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+        &__search {
+            text-indent: 10pt;
+            width: 80%;
+            height: 82%;
+            border-radius: 5px;
+            border: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        &__searchimg {
+            height: 1.2em;
+            width: 1.2em;
+            position: absolute;
+            right: 12.5%;
+            justify-self: center;
+            padding-top: 4px;
+        }
+        &__gridcontainer{
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+            
+            }
+        
+        
+    }
+    
+}
