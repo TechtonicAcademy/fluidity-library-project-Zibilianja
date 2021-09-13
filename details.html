@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="./src/details.scss" />
+</head>
+<body class="body">
+    <header class="header">
+        <h1 class="header__title">The Library</h1> 
+        <i class="fa fa-bars header__dropdown"></i>
+        <nav class="header__nav"> 
+            <ul class="header__list">
+                <li class="header__listitem">Home</li>
+                <li class="header__listitem">Bookshelf</li>
+                <li class="header__listitem">Add Book</li>
+            </ul>
+        </nav>
+        <section class="header__search header__search--styles">
+            <input type="text" placeholder="Search by Title/Author" class="header__input">
+            <button type="submit" class="header__searchbtn">Search</button>
+        </section>
+    </header>
+    <main class="main">
+        <section class="main__detailcard">
+            <div class="main__coverwrap">
+                <img src="src/images/sorcerers_stone.jpeg" class="book__cover">
+                <div class="book__stars">
+                    <i class="fa fa-star star1"></i>
+                    <i class="fa fa-star star2"></i>
+                    <i class="fa fa-star star3"></i>
+                    <i class="fa fa-star star4"></i>
+                    <i class="fa fa-star star5"></i>
+                </div>
+            </div>
+            <section class="book__details">
+                <h2 class="book__title">Harry Potter and The Sorcerer's Stone</h2>
+                <h3 class="book__author">J.K. Rowling</h3>
+                <p class="details"><i>Published: June 26, 1997</i></p>
+                <p class="details"><i>223 pages</i></p>
+                <p class="book__description">Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright.</p>
+            </section>
+            
+        </section>
+        <div class="main__btnwrap">
+            <button class="main__button button--dark">Edit This Book</button>
+            <button class="main__button">Back to Shelf</button>
+        </div>
+    </main>
+    <footer class="footer">Copyright 2020 Zibilianja</footer>
+</body>
