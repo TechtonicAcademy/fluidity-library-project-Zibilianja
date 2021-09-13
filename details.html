@@ -11,7 +11,14 @@
 <body class="body">
     <header class="header">
         <h1 class="header__title">The Library</h1> 
-        <i class="fa fa-bars header__dropdown"></i>
+        <div class ="dropdown__shown">
+            <button class="click__dropdown"><i class="fa fa-bars header__dropdown"></i></button>
+            <ul class="dropdown__content dropdown--hidden">
+                <li class="dropdown__link dropdown__home">Home</li>
+                <li class="dropdown__link dropdown__bookshelf">Bookshelf</li>
+                <li class="dropdown__link dropdown__addbook">Add Book</li>
+            </ul>
+        </div>
         <nav class="header__nav"> 
             <ul class="header__list">
                 <li class="header__listitem">Home</li>
@@ -27,13 +34,18 @@
     <main class="main">
         <section class="main__detailcard">
             <div class="main__coverwrap">
+                <h2 class ="book__title--mobile">Harry Potter and The Sorcerer's Stone</h2>
                 <img src="src/images/sorcerers_stone.jpeg" class="book__cover">
+                <h3 class="author__mobile">J.K. Rowling</h3>
                 <div class="book__stars">
+                    <h4 class="book__rating">Rating:</h4>
+                    <div class="star__wrapper">
                     <i class="fa fa-star star1"></i>
                     <i class="fa fa-star star2"></i>
                     <i class="fa fa-star star3"></i>
                     <i class="fa fa-star star4"></i>
                     <i class="fa fa-star star5"></i>
+                    </div>
                 </div>
             </div>
             <section class="book__details">
@@ -43,12 +55,13 @@
                 <p class="details"><i>223 pages</i></p>
                 <p class="book__description">Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright.</p>
             </section>
-            
+            <div class="main__btnwrap">
+                <button class="main__button button--dark">Edit This Book</button>
+                <button class="main__button">Back to Shelf</button>
+            </div>
         </section>
-        <div class="main__btnwrap">
-            <button class="main__button button--dark">Edit This Book</button>
-            <button class="main__button">Back to Shelf</button>
-        </div>
+        
     </main>
     <footer class="footer">Copyright 2020 Zibilianja</footer>
+    <!-- <script src="src/index.js"></script> -->
 </body>
