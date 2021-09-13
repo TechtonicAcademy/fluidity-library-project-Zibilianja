@@ -11,7 +11,14 @@
 <body class="body">
     <header class="header">
         <h1 class="header__title">The Library</h1> 
-        <i class="fa fa-bars header__dropdown"></i>
+        <div class ="dropdown__shown">
+            <button class="click__dropdown"><i class="fa fa-bars header__dropdown"></i></button>
+            <ul class="dropdown__content dropdown--hidden">
+                <li class="dropdown__link dropdown__home">Home</li>
+                <li class="dropdown__link dropdown__bookshelf">Bookshelf</li>
+                <li class="dropdown__link dropdown__addbook">Add Book</li>
+            </ul>
+        </div>
         <nav class="header__nav"> 
             <ul class="header__list">
                 <li class="header__listitem">Home</li>
@@ -56,4 +63,5 @@
         </div>
     </main>
     <footer class="footer">Copyright 2020 Zibilianja</footer>
+    <script src="src/index.js"></script>
 </body>
