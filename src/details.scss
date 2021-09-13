@@ -120,10 +120,14 @@ html .body {
         height: 70vh;
     }
     &__coverwrap {
-        height: 100%;
+        height: fit-content;
         width: 40vw;
         margin: 0 0 0 0;
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        max-width: 500px;
+        align-content: center;
         
     .book__title--mobile {
         display: none;
@@ -131,27 +135,30 @@ html .body {
     .book__cover {
         margin-top: 1em;
         margin-bottom: auto;
-        margin-left: 25%;
+        margin-left: auto;
         margin-right: auto;
         width: 50%;
         height: auto;
-        min-height: 350px;
-        max-height: 25em;
-        max-width: 270px;
-        min-width: 230px;
+       
     }
     .author__mobile {
         display: none;
     }
     .book__stars{
-        margin-left: 24%;
+        margin-left: 24%;;
+        margin-right: auto;
         height: 55px;
         width: 50%;
         display: inline-flex;
-        max-width: 280px;
-        min-width: 230px;
+       
+        
         .book__rating{
             display: none;
+        }
+        .star__wrapper{
+            width: 100%;
+            display: flex;
+            align-content: space-between;
         }
         .fa-star {
             color: gold;
@@ -159,6 +166,10 @@ html .body {
             margin-left: auto;
             margin-right: auto;
             margin-top: 25px;
+            width: auto;
+        }
+        .star5 {
+            color: grey;
         }
     }
 }
@@ -180,14 +191,15 @@ html .body {
         }
         
     }
-    &__btnwrap {
-        width: 75%;
+    &__btnwrap {        
+        width: 100%;
         height: fit-content;
         margin-left: auto;
         margin-right: auto;
         display: flex;
         justify-content: center;
-        
+        position: absolute;
+        margin: 75vh 0 0 0;
     }
     &__button {
         height: 3em;
