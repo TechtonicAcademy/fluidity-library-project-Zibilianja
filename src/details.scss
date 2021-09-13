@@ -102,14 +102,14 @@ html .body {
 .main {
     margin-top: 4.8em;
     height: 100%;
-    width: 100%;
+    width: 100vw;
     display: inline-flex;
     flex-wrap: wrap;
     flex-direction: row;
     font-family: 'Times New Roman', Times, serif;
     
     &__detailcard {
-        width: 95vw;
+        width: 95%;
         margin-left: auto;
         margin-right: auto;
         margin-top: .2em;
@@ -125,7 +125,9 @@ html .body {
         margin: 0 0 0 0;
         display: block;
         
-        
+    .book__title--mobile {
+        display: none;
+    }
     .book__cover {
         margin-top: 1em;
         margin-bottom: auto;
@@ -138,6 +140,9 @@ html .body {
         max-width: 270px;
         min-width: 230px;
     }
+    .author__mobile {
+        display: none;
+    }
     .book__stars{
         margin-left: 24%;
         height: 55px;
@@ -145,6 +150,9 @@ html .body {
         display: inline-flex;
         max-width: 280px;
         min-width: 230px;
+        .book__rating{
+            display: none;
+        }
         .fa-star {
             color: gold;
             font-size: 20pt;
@@ -208,7 +216,7 @@ html .body {
 
 .footer {
     background-color: rgb(226, 225, 225);
-    width: 100%;
+    width: 100vw;
     height: 20px;
     text-align: center;
     padding-top: 8px;
@@ -294,15 +302,16 @@ html .body {
 //------------------------------------------------------------------ 
 //MOBILE
 
-//Breakpoint for Mobile 375px - 480px
+//Breakpoint for Mobile 300px - 480px
 @media screen and (min-width: 0px) and (max-width: 480px) {
     .body {
         overflow: scroll;
         margin-bottom: -30px;
         position: relative;
-        min-height: 100%;
+        margin: 0;
+        padding: 0;
         min-height: 100vh;
-        
+        display: flex;
     }
     .header {
         height: 3.5rem;
@@ -331,55 +340,125 @@ html .body {
             display: none;
         }
 }
-    .main {
-        width: 100vw;
-        height: 82vh;       
-        &__searchwrapper {
-            width: 101%;
-            height: 2em;
-            background-color: rgb(216, 215, 215);
-            margin-top: -23px;
-            padding-top: 12px;
-            padding-bottom: 2.5%;
-            display: flex;
-            position: absolute;
-        }
-        &__title {
-            margin-top: 40px;
-            width: 85%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        &__form {
-            
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-        }
-        &__search {
-            text-indent: 10pt;
-            width: 80%;
-            height: 82%;
-            border-radius: 5px;
-            border: none;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        &__searchimg {
-            height: 1.2em;
-            width: 1.2em;
-            position: absolute;
-            right: 12.5%;
-            justify-self: center;
-            padding-top: 4px;
-        }
-        &__gridcontainer{
-            grid-template-columns: auto;
-            grid-template-rows: auto;
-            
-            }
+.main {
+    padding: 0;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    &__detailcard {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0;
+    }
+    &__coverwrap {
+        width: 100%;
+        height: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        text-align: center;
+
+    .book__title--mobile {
+        display: flex;
+        width: 95%;
+        font-weight: lighter;
+        margin-right: auto;
+    }
+    .book__cover {
+        height: auto;
+        width: 50%;
+        min-height: 0px;
+        max-height: 50vh;
+        max-width: 50vw;
+        min-width: 0px;
+    }
+    .author__mobile {
+        display: flex;
+        width: fit-content;
+        font-weight: lighter;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .book__stars{
+        background-color: white;
+        max-width: 75%;
+        min-width: 0px;
+        width: 75%;
+        margin: 1% auto 0 auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: fit-content;
+        text-align: center;
         
+        .book__rating{
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            width: fit-content;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: lighter;
+        }
+        .star__wrapper {
+            width: 100%;
+            display: inline-flex;
+        }
+        .fa-star {
+            color: gold;
+            font-size: 18pt;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: auto;
+            margin-bottom: auto;
+            display: block;
+            width: 20%
+            
+        }
+        .star5 {
+            color: grey;
+        }
+    }
+}
+    .book__details {
+        font-size: 12pt;
+        width: 100%;
+        margin-top: 2%;
+        text-align: center;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        .book__title {
+            display: none;
+            
+        }
+        .book__author {
+            display: none;
+        }
+        
+    }
+    &__btnwrap {
+        margin-top: 75px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        
+    }
+    &__button {
+        width: 75%;
+        margin-bottom: 50px;
+        
+    }
+    .button--dark {
         
     }
     
+
+    
 }
+    
+}//media query mobile end bracket
