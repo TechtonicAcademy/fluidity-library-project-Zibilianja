@@ -47,24 +47,27 @@
                 </div>
                 <div class="form__wrappers">
                     <label class="form__labels">Synopsis:</label>
-                    <input type="text" class="form__input form__synopsis">
+                    <textarea type="text" class="form__input form__synopsis"></textarea>
                 </div>
-                <div class="form__wrappers">
-                    <label class="form__labels">Published:</label>
-                    <input type="date" class="form__input form__published">
+                <div class="input__smaller">
+                    <div class="form__wrappers wrappers__sidebyside published__wrapper">
+                        <label class="form__labels">Published:</label>
+                        <input type="date" class="form__input form__published">
+                    </div>
+            
+                    <div class="form__wrappers wrappers__sidebyside pages__wrapper">
+                        <label class="form__labels">Pages:</label>
+                        <input type="number" class="form__input form__pages">
+                    </div>
                 </div>
-                <div class="form__wrappers">
-                    <label class="form__labels">Pages:</label>
-                    <input type="number" class="form__input form__pages">
-                </div>
-                <div class="form__wrappers">
+                <div class="form__wrappers rating__wrapper">
                     <label class="label__rating">Rating:</label>
                     <div class="form__rating">
-                        <input class="star__rating" type=radio>
-                        <input class="star__rating" type=radio>
-                        <input class="star__rating" type=radio>
-                        <input class="star__rating" type=radio>
-                        <input class="star__rating" type=radio>
+                        <i class="fa fa-star star__rating"></i>
+                        <i class="fa fa-star star__rating"></i>
+                        <i class="fa fa-star star__rating"></i>
+                        <i class="fa fa-star star__rating"></i>
+                        <i class="fa fa-star star__rating"></i>
                     </div>
                 </div>
             </div>
@@ -76,7 +79,12 @@
                 <button class="image__upload">Add Image</button>
                 <input class="image__upload--hidden" type="file" alt="Add Image" style="display:none">
             </div>
+            
         </form>
+        <div class="main__btnwrap">
+            <button class="main__button button--dark">Add Book</button>
+            <button class="main__button">Back to Shelf</button>
+        </div>
     </main>
     <footer class="footer">Copyright 2020 Zibilianja</footer>
     <!-- <script src="src/index.js"></script> -->
