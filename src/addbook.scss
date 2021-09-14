@@ -509,6 +509,8 @@ html .body {
                 .form__rating {
                     width: 100%;
                     justify-content: center;
+                    margin-left: -3px;
+                    
                     .star__rating {
                         margin: 0 3px 0 3px;
                     }
