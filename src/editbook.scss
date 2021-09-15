@@ -384,7 +384,6 @@ html .body {
         padding: 0;
         min-height: 100vh;
         display: flex;
-        
     }
     .header {
         height: 3.5rem;
@@ -473,11 +472,11 @@ html .body {
 
             .author__wrapper {
                 position: absolute;
-                margin-top: 4em;
+                margin-top: 3.7em;
             }
             .synopsis__wrapper {
                 position: absolute;
-                margin-top: 22.5em;
+                margin-top: 23em;
 
             }
             .form__wrappers {
@@ -494,12 +493,15 @@ html .body {
                     margin: 5px auto 0 auto;
                     margin-right: auto;
                     height: 70%;
+                    text-indent: 10px;
                 }
                 .label__synopsis {
                     
                 }
                 .form__synopsis {
                     height: 200%;
+                    font-family: Arial, Helvetica, sans-serif;
+                    letter-spacing: 1px;
                 }
                 
                 .form__published {
@@ -522,7 +524,6 @@ html .body {
                     .star__rating {
                         margin: 0 3px 0 3px;
                     }
-                    
                 }
                 
 
@@ -568,15 +569,21 @@ html .body {
             margin-left: 10%;
             margin-top: 10em;
             .image__frame {
-                width: 60%;
+                width: 75%;
                 max-width: 200px;
-                height: 85%;
+                height: fit-content;
                 margin: 0;
+                background-color: white;
+                .book__cover {
+                    max-height: 240px;
+                    width: 100%;
+                    max-width: 170px;
+                }
             }
             .image__upload {
                 margin: 10px 0 0 0;
-                width: 55%;
-                height: 2em;
+                width: 75%;
+                height: 13%;
             }
         }
     }
