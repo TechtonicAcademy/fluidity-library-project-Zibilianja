@@ -148,6 +148,8 @@ html .body {
                     height: 9em;
                     width: 45vw;
                     resize: none;
+                    font-family: Arial, Helvetica, sans-serif;
+                    line-height: 15pt;
                 }
                 
                 .form__published {
@@ -500,7 +502,7 @@ html .body {
                 }
                 .form__synopsis {
                     height: 200%;
-                    font-family: Arial, Helvetica, sans-serif;
+                    
                     letter-spacing: 1px;
                 }
                 
