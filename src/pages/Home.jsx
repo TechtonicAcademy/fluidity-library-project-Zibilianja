@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 
 const Home = () => {
   // # Gives us access to the history object, which can be used to redirect from one component to another
@@ -23,7 +23,6 @@ const Home = () => {
         </section>
         </div>
         </main>
-        <footer className="footer">Copyright 2020 Zibilianja</footer>
         <script src="src/index.js"></script>
     </div>
   );
