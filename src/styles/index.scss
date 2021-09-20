@@ -314,8 +314,9 @@ body {
       }
       .header {
           height: 3.5rem;
-          width: 102vw;
+          width: 101%;
           display: row;
+        
           .header__a {
             width: 60%;
            
@@ -392,7 +393,7 @@ body {
               min-height: 250px;
               height: 33%;
               margin-top: -15px;
-              margin-left: 10px;;
+              margin-left: -2px;
           }
 
           &__titleheadings {
@@ -406,6 +407,7 @@ body {
       }
       .footer {
           position: absolute;
+          margin-bottom: -4px;
       }
       
   }
