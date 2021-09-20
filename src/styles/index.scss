@@ -161,15 +161,15 @@ body {
           max-width: 1000px;
           margin-left: auto;
           margin-right: auto;
+          top: -5px;
       }
       &__titleheadings {
-          margin-top: 100px;
+          margin-top: 120px;
           width: 100%;
           background-color:$book_brown;
           margin-left: auto;
           margin-right: auto;
           color: rgb(255, 255, 255);
-          
       }
       &__titleheading1 {
           font-size: 45pt;
@@ -220,7 +220,7 @@ body {
       font-size: 11pt;
       color: rgb(88, 88, 88);
       right: 0;
-      bottom: 20px;
+      bottom: 45px;
       left: 0;
   }
   
@@ -259,7 +259,7 @@ body {
           overflow: hidden;
       }
       &__titleheadings {
-          margin-top: 12%;
+          margin-top: 15%;
       }
   }
   
@@ -295,7 +295,7 @@ body {
               background-position-y: 40%;
           }
           &__titleheadings{
-              margin-top: 100px;
+              margin-top: 15%;
           }
       }
   }
@@ -389,9 +389,9 @@ body {
               margin-top: -15px;
               margin-left: 10px;;
           }
-          
+
           &__titleheadings {
-              margin-top: 100px;
+              margin-top: 15%;
               width: 100%;
           }
           &__descriptions {
