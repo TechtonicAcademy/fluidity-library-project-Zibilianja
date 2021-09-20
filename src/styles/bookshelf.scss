@@ -3,7 +3,10 @@ $gray_letters: rgb(123, 127, 131);
 $teal_button: rgb(32, 145, 163);
 $book_brown: rgba(77, 63, 63, 0.63);
 
-html .body {
+.page__bookshelf {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
     font-size: 14;
     font-weight: normal;
     font-family: Arial, Helvetica, sans-serif;
@@ -16,105 +19,28 @@ html .body {
     overflow-y: hidden;
 }
 
-.header {
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: no-wrap;
-    justify-content: space-between;
-    width: 101%;
-    height: 4em;
-    background-color: $gray_background;
-    color: white;
-    margin-top: -2px;
-    position: fixed;
-    z-index: 1;
+
     
-    &__title {
-        height: 100%;
-        width: 30%;
-        margin-left: 1rem;
-        text-decoration: none;
-        font-size: 1.5em;
-        font-weight: lighter;
-    }
-    .dropdown__shown {
-        display: none;
-    }
-    &__nav {
-        width: 40vw;
-        margin-top: .7em;
-        color: $gray_letters;
-        .header__list{
-            list-style-type: none;
-            display: inline-flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            margin-left: -8px;
-            margin-top: 12px;
-            .header__listitem {
-                margin-right: 4.6vw;
-                font-weight: lighter;
-            }
-            .header--home {
-                color: white;
-            }
-            .header--addbook {
-                width: 100px;
-            }
-        }
-    }
-    &__search {
-        height: 100%;
-        margin-right: 2%;
-        width: 50%;
-        .header__input {
-            margin-top: .8em;
-            height: 1.8em;
-            border-radius: 7px;
-            border-width: 2px;
-            border-color: gray;
-            min-width: 26vw;
-            max-width: 30em;
-            font-size: 1em; 
-            text-indent: 6px;
-            padding-top: 4px;
-            
-        }
-        .header__searchbtn {
-            color: $teal_button;
-            font-size: 1em;
-            font-weight: bold;
-            width: 5em;
-            margin-left: .5em;
-            height: 2em;
-            border-radius: 5px;
-            background-color: $gray_background;
-            border: 1px solid $teal_button;
-        }
-    }
-}
-    
-.main {
+.main__bookshelf {
     margin-top: 4.8em;
     width: 100%;
     height: 80vh;
     text-align: center;
     overflow: hidden;
     
-    &__searchwrapper {
+    .main__searchwrapper {
         display: none;
     }
-    &__title {
+    .main__title {
         font-weight: lighter;
         font-style: italic;
         font-family: 'Times New Roman', Times, serif;
         color: $gray_background;
     }
-    &__gridcontainer {
+    .main__gridcontainer {
         margin-left: auto;
         margin-right: auto;
-        min-height: 92%;
-        max-height: 95%;
+        height: 90%;
         width: 82vw;
         display: grid;
         overflow-y: scroll;
@@ -122,7 +48,7 @@ html .body {
         grid-template-rows: auto auto auto;
         justify-content: space-evenly;
         align-content: space-between;
-        margin-top: -5px;
+        margin-top: 5px;
         
         .grid__items {
             justify-items: center;
@@ -196,35 +122,11 @@ html .body {
 
 //Breakpoint for Md-laptop 769px - 1024px
 @media screen and (min-width:769px) and (max-width: 1025px ){
-    .header {
-        min-height: 4em;
-        height: 7%;
-        &__title {
-            width: 16%;
-        }
-        &__nav{
-            width: 40%;
-            margin-left: -10px;
-            .header__listitem {
-                font-size: 11pt;
-            }
-        }
-        &__search {
-            width: 40%;
-            button {
-                width: 18%;
-                font-size: 89%;
-            }
-        }
-        &__listitem {
-            width: fit-content;
-            flex-wrap: nowrap;
-        }
-    }
+    
     .main {
         height:80vh;
         
-        &__gridcontainer {
+        .main__gridcontainer {
             height: 10%;
         }
     }
@@ -234,30 +136,13 @@ html .body {
 
 //Breakpoint for Lg-desktop 1025px - 1200px
 @media screen and (min-width: 1025px) and (max-width: 2200px) {
-    .header {
-        min-height: 65px;
-        height: 7%;
-        max-height: 65px;
-        justify-content: space-between;
-        &__title {
-            width: 16%;
-        }
-        &__nav {
-            margin-left: -7%;
-            width: 39%
-        }
-        &__search {
-            width: 40%;
-            margin-right: -2%;
-            
-        }
-    }
-    .main{
+    
+    .main__bookshelf{
         height:85vh;
-        &__searchwrapper {
+        .main__searchwrapper {
             display: none;
         }
-        &__gridcontainer {
+        .main__gridcontainer {
             height: 97%;
         }
     }
@@ -274,76 +159,13 @@ html .body {
         min-height: 100vh;
         
     }
-    .header {
-        height: 3.5rem;
-        width: 101vw;
-        display: row;
-
-        &__title {
-            width: 100%;
-            
-        }
-        .dropdown__shown {
-            display: block;
-        }
-        //button wrapper
-        .click__dropdown{
-            border: none;
-            background-color: $gray_background;
-            width: 30px;
-            height: fit-content;
-            margin-right: 15px;
-        }
+    
         
-        //hamburger
-        &__dropdown {
-            display: inline-flex;
-            width: auto;
-            height: auto;
-            font-size: 22pt;
-            margin-top: 13px;
-            margin-left: -5px;
-            color: white;
-            background-color: $gray_background;
-            border-radius: 20px;
-        }
-
-        //dropdown list
-        .dropdown__content {
-            display: block;
-            position: absolute;
-            min-width: 100px;
-            box-shadow: 0px 8px 16px 0px black;
-            z-index: 1;
-            background-color: $gray_background;
-            list-style: none;
-            font-size: 15pt;
-            margin-left: -100px;
-            height: auto;
-            color: white;
-            padding-bottom: 25px;
-        }
-        .dropdown__link {
-            color: white;
-            margin-top: 25px;
-            width: 100%;
-            margin-left: -25px;
-        }
-        .dropdown--hidden{
-            display: none;
-            
-        }
-        &__nav {
-            display: none;
-        }
-        &__search {
-            display: none;
-        }
-}
-    .main {
+       
+    .main__bookshelf {
         width: 100vw;
         height: 82vh;       
-        &__searchwrapper {
+        .main__searchwrapper {
             width: 101%;
             height: 2em;
             background-color: rgb(216, 215, 215);
@@ -353,19 +175,19 @@ html .body {
             display: flex;
             position: absolute;
         }
-        &__title {
+        .main__title {
             margin-top: 40px;
             width: 85%;
             margin-left: auto;
             margin-right: auto;
         }
-        &__form {
+        .main__form {
             
             width: 100%;
             display: flex;
             flex-direction: row;
         }
-        &__search {
+        .main__search {
             text-indent: 10pt;
             width: 80%;
             height: 82%;
@@ -374,7 +196,7 @@ html .body {
             margin-left: auto;
             margin-right: auto;
         }
-        &__searchimg {
+        .main__searchimg {
             height: 1.2em;
             width: 1.2em;
             position: absolute;
@@ -382,7 +204,7 @@ html .body {
             justify-self: center;
             padding-top: 4px;
         }
-        &__gridcontainer{
+        .main__gridcontainer{
             grid-template-columns: auto;
             grid-template-rows: auto;
             
