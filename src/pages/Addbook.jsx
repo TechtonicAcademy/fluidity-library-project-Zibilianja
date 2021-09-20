@@ -52,7 +52,7 @@ const Addbook = () => {
             </div>
             <div className="addbook__btnwrap">
                 <input type="button" className="addbook__button button--dark" value="Add Book" />
-                <input type="button" className="addbook__button" value="cancel" />
+                <input type="button" className="addbook__button" value="Cancel" />
             </div>
         </form>
     </main>
