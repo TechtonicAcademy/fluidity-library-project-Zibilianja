@@ -10,30 +10,30 @@ const Addbook = () => {
         <form className="addbook__form">
             <div className="form__left">
                 <div className="form__wrappers">
-                    <label className="form__labels">Title:</label>
+                    <label className="form__labels">Title</label>
                     <input type="text" className="form__input form__title" />
                 </div>
                 <div className="form__wrappers author__wrapper">
-                    <label className="form__labels label__author">Author:</label>
+                    <label className="form__labels label__author">Author</label>
                     <input type="text" className="form__input form__author" />
                 </div>
                 <div className="form__wrappers synopsis__wrapper">
-                    <label className="form__labels label__synopsis">Synopsis:</label>
+                    <label className="form__labels label__synopsis">Synopsis</label>
                     <textarea type="text" className="form__input form__synopsis"></textarea>
                 </div>
                 <div className="input__smaller">
                     <div className="form__wrappers wrappers__sidebyside published__wrapper">
-                        <label className="form__labels">Published:</label>
+                        <label className="form__labels">Published</label>
                         <input type="text" className="form__input form__published" />
                     </div>
             
                     <div className="form__wrappers wrappers__sidebyside pages__wrapper">
-                        <label className="form__labels">Pages:</label>
+                        <label className="form__labels">Pages</label>
                         <input type="number" className="form__input form__pages" />
                     </div>
                 </div>
                 <div className="form__wrappers rating__wrapper">
-                    <label className="label__rating">Rating:</label>
+                    <label className="label__rating">Rating</label>
                     <div className="form__rating">
                         <i className="fa fa-star star__rating"></i>
                         <i className="fa fa-star star__rating"></i>
