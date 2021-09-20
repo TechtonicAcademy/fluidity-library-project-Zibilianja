@@ -382,6 +382,7 @@ html .body {
         height: 3.5rem;
         width: 101vw;
         display: row;
+        margin-right: 0;
         &__title {
             width: 100%;
             
@@ -527,26 +528,21 @@ html .body {
             }
             .wrappers__sidebyside {
                 margin: 0 0 0 0;
-                width: 100%;
-                    
+                width: 100%;      
             }
             .published__wrapper {
                 position: absolute;
-                margin-top: 10.5em;
-
-                
+                margin-top: 10.5em;   
             }
             .pages__wrapper {
                 position: absolute;
-
                 margin-top: 14.4em;
             }
             .rating__wrapper {
                 position: absolute;
                 margin-top: 38em;
                 display: flex;
-                flex-wrap: wrap;
-                
+                flex-wrap: wrap;   
             }
         }
         .form__right {
