@@ -39,95 +39,7 @@ body {
       overflow-x: hidden;
   }
   
-  .header {
-      display: inline-flex;
-      flex-wrap: no-wrap;
-      justify-content: space-between;
-      width: 101vw;
-      height: 4em;
-      background-color: $gray_background;
-      color: white;
-      position: fixed;
-      z-index: 1;
-      margin-left: -.1em;
-      top: 0;
-      a {
-        color: white;
-        text-decoration: none;
-      }
-      .header__a {
-        width: 23%;
-        height: 100%;
-        display: inline-flex;
-        flex-wrap: nowrap;
-      }
-      &__title {
-          height: fit-content;
-          width: 100%;
-          text-indent: 25px;
-          text-decoration: none;
-          font-size: 1.5em;
-          font-weight: lighter;
-         
-      }
-      
-      .dropdown__shown {
-          display: none;
-      }
   
-      &__nav {
-          width: 40vw;
-          margin-top: .7em;
-          margin-left: -2em;
-          color: $gray_letters;
-          .header__list{
-              list-style-type: none;
-              display: inline-flex;
-              flex-direction: row;
-              flex-wrap: nowrap;
-              margin-left: -8px;
-              margin-top: 12px;
-              .header__listitem {
-                  margin-right: 4.6vw;
-                  font-weight: lighter;
-              }
-              .header--home {
-                  color: white;
-              }
-              .header--addbook {
-                  width: 100px;
-              }
-          }
-      }
-      &__search {
-          height: 100%;
-          width: 50%;
-          .header__input {
-              margin-top: .8em;
-              height: 1.8em;
-              border-radius: 7px;
-              border-width: 2px;
-              border-color: gray;
-              min-width: 26vw;
-              max-width: 30em;
-              font-size: 1em; 
-              text-indent: 6px;
-              padding-top: 4px;
-              
-          }
-          .header__searchbtn {
-              color: $teal_button;
-              font-size: 1em;
-              font-weight: bold;
-              width: 5em;
-              margin-left: .5em;
-              height: 2em;
-              border-radius: 5px;
-              background-color: $gray_background;
-              border: 1px solid $teal_button;
-          }
-      }
-  }
       
   .main {
       width: 100vw;
@@ -212,48 +124,11 @@ body {
       }
   }
   
-  .footer {
-      background-color: rgb(226, 225, 225);
-      width: 101%;
-      height: 25px;
-      position: fixed;
-      text-align: center;
-      padding-top: 10px;
-      padding-bottom: auto;
-      font-size: 11pt;
-      color: rgb(88, 88, 88);
-      right: 0;
-      bottom: 10px;
-      left: 0;
-  }
+  
   
   //Breakpoint for Md-laptop 769px - 1024px
   @media screen and (min-width:750px) and (max-width: 1025px ){
-      .header {
-          min-height: 4em;
-          height: 6%;
-          &__title {
-              
-          }
-          &__nav{
-              width: 37%;
-              flex-wrap: nowrap;
-              .header__listitem {
-                  font-size: 11pt;
-              }
-          }
-          &__search {
-              width: 40%;
-              button {
-                  width: 18%;
-                  font-size: 89%;
-              }
-          }
-          &__listitem {
-              width: fit-content;
-              flex-wrap: nowrap;
-          }
-      }
+      
       .main {
       &__titlecontainer {
           height: 42vh;
@@ -274,24 +149,7 @@ body {
       .body {
           justify-content: center;
       }
-      .header {
-          min-height: 65px;
-          height: 7%;
-          max-height: 65px;
-          justify-content: space-between;
-          &__title {
-              
-          }
-          &__nav {
-              margin-left: -5%;
-              width: 39%
-          }
-          &__search {
-              width: 40%;
-              
-              
-          }
-      }
+      
       .main {
           width: 100vw;
           margin-left: -8px;
@@ -312,77 +170,7 @@ body {
           margin-bottom: -30px;
           
       }
-      .header {
-          height: 3.5rem;
-          width: 101%;
-          display: row;
-        
-          .header__a {
-            width: 60%;
-           
-          }
-          &__title {
-              width: 100%;
-              
-              
-          }
-          .dropdown__shown {
-              display: block;
-          }
-          //button wrapper
-          .click__dropdown{
-              border: none;
-              background-color: $gray_background;
-              width: 30px;
-              height: fit-content;
-              margin-right: 2.5em;
-          }
-          
-          //hamburger
-          &__dropdown {
-              display: inline-flex;
-              width: auto;
-              height: auto;
-              font-size: 22pt;
-              margin-top: 13px;
-              margin-left: -5px;
-              color: white;
-              background-color: $gray_background;
-              border-radius: 20px;
-          }
-  
-          //dropdown list
-          .dropdown__content {
-              display: block;
-              position: absolute;
-              min-width: 100px;
-              box-shadow: 0px 8px 16px 0px black;
-              z-index: 1;
-              background-color: $gray_background;
-              list-style: none;
-              font-size: 15pt;
-              margin-left: -100px;
-              height: auto;
-              color: white;
-              padding-bottom: 25px;
-          }
-          .dropdown__link {
-              color: white;
-              margin-top: 25px;
-              width: 100%;
-              margin-left: -25px;
-          }
-          .dropdown--hidden{
-              display: none;
-              
-          }
-          &__nav {
-              display: none;
-          }
-          &__search {
-              display: none;
-          }
-  }
+      
       .main {
           width: 101vw;
           display: flex;
@@ -406,9 +194,6 @@ body {
               
           }
       }
-      .footer {
-          position: absolute;
-          margin-bottom: -4px;
-      }
+      
       
   }
