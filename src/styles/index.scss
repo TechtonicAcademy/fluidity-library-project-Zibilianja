@@ -5,7 +5,7 @@ body {
   .page {
     height: 100%;
     width: 100%;
-    margin: -3.9em 0 0 -.1em;
+    margin: -3.9em 0 0 -1em;
     padding: 0;
   }
   .container {
@@ -15,7 +15,7 @@ body {
   
   /*--------------------------------------------------------------------------------------------------------------------*/
   /*--------------------------------------------------------------------------------------------------------------------*/
-  /* Main Styling */
+  /* Main Styling Landing Page*/
   
   $gray_background: rgb(60, 67, 75);
   $gray_letters: rgb(123, 127, 131);
@@ -225,7 +225,7 @@ body {
   }
   
   //Breakpoint for Md-laptop 769px - 1024px
-  @media screen and (min-width:769px) and (max-width: 1025px ){
+  @media screen and (min-width:750px) and (max-width: 1025px ){
       .header {
           min-height: 4em;
           height: 7%;
@@ -233,7 +233,7 @@ body {
               
           }
           &__nav{
-              width: 39%;
+              width: 37%;
               flex-wrap: nowrap;
               .header__listitem {
                   font-size: 11pt;
@@ -241,6 +241,7 @@ body {
           }
           &__search {
               width: 40%;
+              margin-right: 2.5em;
               button {
                   width: 18%;
                   font-size: 89%;
@@ -266,6 +267,10 @@ body {
   
   //Breakpoint for Lg-desktop 1025px - 1200px
   @media screen and (min-width: 1025px) and (max-width: 2200px) {
+      
+      .body {
+          justify-content: center;
+      }
       .header {
           min-height: 65px;
           height: 7%;
@@ -280,11 +285,12 @@ body {
           }
           &__search {
               width: 40%;
-              margin-right: -2%;
+              margin-right: 2%;
               
           }
       }
       .main {
+          width: 98%;
           &__titlecontainer {
               background-position-y: 40%;
           }
@@ -323,7 +329,7 @@ body {
               background-color: $gray_background;
               width: 30px;
               height: fit-content;
-              margin-right: 15px;
+              margin-right: 2.5em;
           }
           
           //hamburger
@@ -373,6 +379,7 @@ body {
   }
       .main {
           width: 101vw;
+          display: flex;
           &__titlecontainer {
               width: 101%;
               justify-content: center;
@@ -380,7 +387,9 @@ body {
               min-height: 250px;
               height: 33%;
               margin-top: -15px;
+              margin-left: 10px;;
           }
+          
           &__titleheadings {
               margin-top: 100px;
               width: 100%;
