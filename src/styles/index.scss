@@ -213,14 +213,14 @@ body {
       background-color: rgb(226, 225, 225);
       width: 100%;
       height: 25px;
-      position: absolute;
+      position: fixed;
       text-align: center;
       padding-top: 10px;
       padding-bottom: auto;
       font-size: 11pt;
       color: rgb(88, 88, 88);
       right: 0;
-      bottom: 45px;
+      bottom: 48px;
       left: 0;
   }
   
@@ -290,7 +290,8 @@ body {
           }
       }
       .main {
-          width: 98%;
+          width: 99%;
+          margin-left: -2px;
           &__titlecontainer {
               background-position-y: 40%;
           }
@@ -398,6 +399,9 @@ body {
               padding-bottom: 100px;
               
           }
+      }
+      .footer {
+          position: absolute;
       }
       
   }

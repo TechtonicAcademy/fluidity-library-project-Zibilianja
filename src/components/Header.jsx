@@ -33,6 +33,7 @@ const { pathname } = useLocation();
             <input type="text" placeholder="Search by Title/Author" className="header__input" />
             <button type="submit" className="header__searchbtn">Search</button>
         </section>
+        <script src="../index.js"></script>
     </header>
     )
 };
