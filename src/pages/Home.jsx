@@ -24,7 +24,7 @@ const Home = () => {
         </section>
         </div>
         </main>
-        <script src="src/index.js"></script>
+        
     </div>
   );
 };
