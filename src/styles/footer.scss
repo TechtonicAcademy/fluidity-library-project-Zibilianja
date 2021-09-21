@@ -9,7 +9,7 @@
     font-size: 11pt;
     color: rgb(88, 88, 88);
     right: 0;
-    bottom: 15px;
+    bottom: 10px;
     left: 0;
 }
 
@@ -20,7 +20,7 @@
 
 @media screen and (min-width: 0px) and (max-width: 480px) {
 .footer {
-    position: absolute;
-    margin-bottom: -4px;
+    position: fixed;
+    
 }
 }

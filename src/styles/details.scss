@@ -3,14 +3,17 @@ $gray_letters: rgb(123, 127, 131);
 $teal_button: rgb(32, 145, 163);
 $book_brown: rgba(77, 63, 63, 0.63);
 
+.container {
+
+}
 
 //------------------------------------------------------------------ 
 //------------------------------------------------------------------ 
  .page__details {
-    width: 101vw;
+    width: 100vw;
     margin-left: -2px;
     height: 100%;
-    padding-bottom: 0;
+    
 }
  //------------------------------------------------------------------ 
  //------------------------------------------------------------------  
@@ -18,14 +21,13 @@ $book_brown: rgba(77, 63, 63, 0.63);
 
 .main__detail {
     margin-top: 4em;
-    height: 98vh;
     width: 100vw;
     display: inline-flex;
     flex-wrap: wrap;
     flex-direction: row;
     font-family: 'Times New Roman', Times, serif;
     padding-top: 15px;
-    
+    height: 50vh;
     .main__detailcard {
         width: 95%;
         margin-left: auto;
@@ -35,7 +37,7 @@ $book_brown: rgba(77, 63, 63, 0.63);
         display: inline-flex;
         grid-template-columns: auto auto;
         grid-template-rows: auto;
-        height: 90vh;
+        height: fit-content;
     }
     .main__coverwrap {
         height: fit-content;
@@ -117,7 +119,7 @@ $book_brown: rgba(77, 63, 63, 0.63);
         display: flex;
         justify-content: center;
         position: absolute;
-        margin: 75vh 0 0 0;
+        margin: 45em 0 0 0;
     }
     .main__button {
         height: 3em;
@@ -149,7 +151,7 @@ $book_brown: rgba(77, 63, 63, 0.63);
 @media screen and (min-width:769px) and (max-width: 1025px ){
     
     .main__detail {
-        height: 100%;
+        height: fit-content;
         width: 100%;
         font-size: 12pt;
     }
@@ -175,9 +177,21 @@ $book_brown: rgba(77, 63, 63, 0.63);
 //MOBILE
 
 //Breakpoint for Mobile 300px - 480px
-@media screen and (min-width: 0px) and (max-width: 769px) {
- 
+@media screen and (min-width: 0px) and (max-width: 769px) { 
+
+.page__details {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        margin-bottom: -30px;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        
     
+}
+
 .main__detail {
     padding: 0;
     width: 100%;

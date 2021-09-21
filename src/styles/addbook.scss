@@ -221,12 +221,7 @@ $book_brown: rgba(77, 63, 63, 0.63);
 
 //Breakpoint for Mobile 300px - 480px
 @media screen and (min-width: 0px) and (max-width: 769px) {
-    html {
-        overflow-y: scroll;
-        ::-webkit-scrollbar {
-            display: none;
-        }
-    }
+   
      .body__addbook {
         overflow-y: scroll;
         overflow-x: hidden;
