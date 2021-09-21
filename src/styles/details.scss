@@ -3,6 +3,7 @@ $gray_letters: rgb(123, 127, 131);
 $teal_button: rgb(32, 145, 163);
 $book_brown: rgba(77, 63, 63, 0.63);
 
+
 .container {
 
 }
@@ -10,9 +11,9 @@ $book_brown: rgba(77, 63, 63, 0.63);
 //------------------------------------------------------------------ 
 //------------------------------------------------------------------ 
  .page__details {
-    width: 100vw;
-    margin-left: -2px;
+    width: 100%;
     height: 100%;
+    margin-left: 2.5%;
     
 }
  //------------------------------------------------------------------ 
@@ -21,13 +22,15 @@ $book_brown: rgba(77, 63, 63, 0.63);
 
 .main__detail {
     margin-top: 4em;
-    width: 100vw;
+    width: 100%;
     display: inline-flex;
     flex-wrap: wrap;
     flex-direction: row;
     font-family: 'Times New Roman', Times, serif;
     padding-top: 15px;
     height: 50vh;
+    margin-left: auto;
+    
     .main__detailcard {
         width: 95%;
         margin-left: auto;
@@ -38,6 +41,7 @@ $book_brown: rgba(77, 63, 63, 0.63);
         grid-template-columns: auto auto;
         grid-template-rows: auto;
         height: fit-content;
+        
     }
     .main__coverwrap {
         height: fit-content;
@@ -114,12 +118,10 @@ $book_brown: rgba(77, 63, 63, 0.63);
     .main__btnwrap {        
         width: 100%;
         height: fit-content;
-        margin-left: auto;
-        margin-right: auto;
         display: flex;
         justify-content: center;
         position: absolute;
-        margin: 45em 0 0 0;
+        margin: 45em auto 0 -2.5%;
     }
     .main__button {
         height: 3em;
