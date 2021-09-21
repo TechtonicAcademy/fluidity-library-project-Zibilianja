@@ -151,7 +151,7 @@ body {
       
       .main {
           width: 100vw;
-          
+          margin-left: -7px;
           
           &__titlecontainer {
               background-position-y: 40%;
@@ -182,7 +182,7 @@ body {
               min-height: 250px;
               height: 33%;
               margin-top: -9px;
-              
+              margin-left: 2px;
           }
 
           &__titleheadings {
@@ -191,7 +191,7 @@ body {
           }
           &__descriptions {
               padding-bottom: 100px;
-              
+              margin-left: 8%;
           }
       }
       

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import '../styles/details.scss';
 import HarryCover from '../images/sorcerers_stone.jpeg';
 
@@ -30,8 +31,8 @@ const Bookdetails = () => {
                 <p className="book__description">Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright.</p>
             </section>
             <div className="main__btnwrap">
-                <button className="main__button button--dark">Edit This Book</button>
-                <button className="main__button">Back to Shelf</button>
+            <NavLink to="/editbook" className="edit__link"><button className="main__button button--dark">Edit This Book</button></NavLink>
+            <NavLink to="/bookshelf" className="shelf__link"><button className="main__button">Back to Shelf</button></NavLink>
             </div>
         </section>
         
