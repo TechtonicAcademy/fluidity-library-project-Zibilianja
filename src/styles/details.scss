@@ -119,17 +119,19 @@ $book_brown: rgba(77, 63, 63, 0.63);
         width: 100%;
         height: fit-content;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         position: absolute;
         margin: 33em auto 0 -5.5%;
     }
     .shelf__link {
         width: 30%;
         max-width: 25em;
+        margin-left: 2%;
     }
     .edit__link {
         width: 30%;
         max-width: 25em;
+        margin-right: 2%;
     }
     .main__button {
         height: 3em;
