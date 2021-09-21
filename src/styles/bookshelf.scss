@@ -62,6 +62,10 @@ $book_brown: rgba(77, 63, 63, 0.63);
             font-size: 12pt;
             font-family: 'Times New Roman', Times, serif;
             color: $gray_background;
+            .book__link {
+                text-decoration: none;
+                color: black;
+            }
             .grid__bookcover {
                 margin-top: 8px;
                 height: 130px;
