@@ -6,7 +6,7 @@ body {
   .page {
     height: 100%;
     width: 100vw;
-    margin: -3.3em auto 0 auto;
+    margin: -3.3em 0 0 0;
     padding: 0;
     
   }
@@ -31,7 +31,7 @@ body {
       font-family: Arial, Helvetica, sans-serif;
       min-height: 100vh;
       width: 100vw;
-      border: 2px solid rgba(0, 0, 0, 0);
+      border: 0 solid transparent;
       margin: 0;
       padding: 0;
       position: relative; 
@@ -63,7 +63,7 @@ body {
       &__titlecontainer{
           height: 44vh;
           min-height: 280px;
-          width: 100%;
+          width: 101%;
           text-align: center;
           justify-content: center;
           position: relative;
@@ -77,6 +77,7 @@ body {
           margin-left: auto;
           margin-right: auto;
           top: -5px;
+          padding: 0;
       }
       &__titleheadings {
           margin-top: 120px;
@@ -166,23 +167,29 @@ body {
   //Breakpoint for Mobile 375px - 480px
   @media screen and (min-width: 0px) and (max-width: 480px) {
       .body {
-          overflow: scroll;
-          margin-bottom: -30px;
-          
+          overflow-y: scroll;
+          overflow-x: hidden;
+          width: 100vw;
+          margin: 0 0 -30px 0;
+          padding: 0;
       }
-      
+      .page {
+          width: 100%;
+          padding: 0;
+          margin-left: -10px;
+      }
       .main {
           width: 101vw;
           display: flex;
           &__titlecontainer {
-              
-              width: 101%;
+
+              width: 102%;
               justify-content: center;
               background-size: 100%;
               min-height: 250px;
               height: 33%;
-              margin-top: -15px;
-              margin-left: -2px;
+              margin-top: -9px;
+              
           }
 
           &__titleheadings {
