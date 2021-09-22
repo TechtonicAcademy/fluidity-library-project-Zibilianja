@@ -25,29 +25,29 @@ const Bookshelf = () => {
 
     return (
         <div className="page__bookshelf">
-<main className="main__bookshelf">
-        <div className="main__searchwrapper">
-            <form className="main__form">
-                <input type="text" placeholder="Search by Title/Author" className="main__search" />
-                <img src={SearchImg} alt="Magnifying Glass" className="main__searchimg" />
-            </form>
+            <main className="main__bookshelf">
+                <div className="main__searchwrapper">
+                    <form className="main__form">
+                        <input type="text" placeholder="Search by Title/Author" className="main__search" />
+                        <img src={SearchImg} alt="Magnifying Glass" className="main__searchimg" />
+                    </form>
+                </div>
+                <h2 className="main__title">Release the Kraken of Knowledge!</h2>
+                <section className="main__gridcontainer">
+                    { books.map((book, i) => {
+                        return(
+                        <div className="grid__items">
+                            <NavLink to={'/bookdetails/' + book.id} className="book__link">
+                                <img className="grid__bookcover" src={coversObject[book.image]} />
+                                <div className ="grid__title">{book.title}</div>
+                                <div className="grid__author">{book.author}</div>
+                            </NavLink>
+                        </div>
+                        )
+                    })}
+                </section>
+            </main>
         </div>
-        <h2 className="main__title">Release the Kraken of Knowledge!</h2>
-        <section className="main__gridcontainer">
-            { books.map((book, i) => {
-                return(
-                    <div className="grid__items">
-                <NavLink to={'/bookdetails/' + book.id} className="book__link">
-                    <img className="grid__bookcover" src={coversObject[book.image]} />
-                    <div className ="grid__title">{book.title}</div>
-                    <div className="grid__author">{book.author}</div>
-                </NavLink>
-            </div>
-                )
-            })}
-        </section>
-    </main>
-    </div>
     
     )
     
