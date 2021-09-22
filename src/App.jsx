@@ -30,7 +30,7 @@ const App = () => {
           <Route path="/editbook">
             <Editbook />
           </Route>
-          <Route path="/bookdetails">
+          <Route path="/bookdetails/:id">
             <Bookdetails />
           </Route>
         </Switch>
