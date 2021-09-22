@@ -27,7 +27,7 @@ const Bookshelf = () => {
         <div className="page__bookshelf">
 <main className="main__bookshelf">
         <div className="main__searchwrapper">
-            <form action="/" method="GET" className="main__form">
+            <form className="main__form">
                 <input type="text" placeholder="Search by Title/Author" className="main__search" />
                 <img src={SearchImg} alt="Magnifying Glass" className="main__searchimg" />
             </form>
