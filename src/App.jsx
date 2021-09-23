@@ -14,21 +14,11 @@ const App = () => {
       <div className="container">
         <Header />
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/bookshelf">
-            <Bookshelf />
-          </Route>
-          <Route path="/addbook">
-            <Addbook />
-          </Route>
-          <Route path="/editbook">
-            <Editbook />
-          </Route>
-          <Route path="/bookdetails/:id">
-            <Bookdetails />
-          </Route>
+          <Route exact path="/" component={Home} />
+          <Route path="/bookshelf" component={Bookshelf} />
+          <Route path="/addbook" component={Addbook} />
+          <Route path="/editbook" component={Editbook} />
+          <Route path="/bookdetails/:id" component={Bookdetails} />
         </Switch>
         <Footer />
       </div>

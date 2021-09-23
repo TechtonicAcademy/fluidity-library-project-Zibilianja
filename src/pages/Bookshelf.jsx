@@ -14,6 +14,7 @@ import { getBooks } from '../utils/API.js';
 const Bookshelf = () => {
   const [books, setBooks] = useState([]);
 
+
   useEffect(() => {
     getBooks()
       .then(({ data: books }) => setBooks(books))
@@ -21,7 +22,7 @@ const Bookshelf = () => {
   }, []);
 
   const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
-
+  
   return (
     <div className="page__bookshelf">
       <main className="main__bookshelf">
@@ -41,20 +42,19 @@ const Bookshelf = () => {
         </div>
         <h2 className="main__title">Release the Kraken of Knowledge!</h2>
         <section className="main__gridcontainer">
-          {books.map((book, i) => {
-            return (
+          {books.map(({ id, title, image, author }, i) => (
               <div className="grid__items">
-                <NavLink to={'/bookdetails/' + book.id} className="book__link">
+                <NavLink to={'/bookdetails/' + id} className="book__link">
                   <img
                     className="grid__bookcover"
-                    src={coversObject[book.image]}
+                    src={coversObject[image]}
                   />
-                  <div className="grid__title">{book.title}</div>
-                  <div className="grid__author">{book.author}</div>
+                  <div className="grid__title">{title}</div>
+                  <div className="grid__author">{author}</div>
                 </NavLink>
               </div>
-            );
-          })}
+            )
+          )}
         </section>
       </main>
     </div>
