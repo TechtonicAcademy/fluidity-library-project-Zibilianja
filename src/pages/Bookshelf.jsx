@@ -1,87 +1,63 @@
-import React from 'react';
-import { useHistory, NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import '../styles/bookshelf.scss';
 import SearchImg from '../images/magnify.png';
-import HarryCover from '../images/sorcerers_stone.jpeg';
+import Book1 from '../images/sorcerers_stone.jpeg';
+import Book2 from '../images/chamberofsecrets.jpeg';
+import Book3 from '../images/prisoner.jpeg';
+import Book4 from '../images/goblet.jpeg';
+import Book5 from '../images/phoenix.jpeg';
+import Book6 from '../images/halfblood.jpeg';
+import Book7 from '../images/deathlyhallows.jpeg';
+import { getBooks } from '../utils/API.js';
 
 const Bookshelf = () => {
-    return (
-        <div className="page__bookshelf">
-<main className="main__bookshelf">
+  const [books, setBooks] = useState([]);
+
+
+  useEffect(() => {
+    getBooks()
+      .then(({ data: books }) => setBooks(books))
+      .catch((err) => console.log(err));
+  }, []);
+
+  const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
+  
+  return (
+    <div className="page__bookshelf">
+      <main className="main__bookshelf">
         <div className="main__searchwrapper">
-            <form action="/" method="GET" className="main__form">
-                <input type="text" placeholder="Search by Title/Author" className="main__search" />
-                <img src={SearchImg} alt="Magnifying Glass" className="main__searchimg" />
-            </form>
+          <form className="main__form">
+            <input
+              type="text"
+              placeholder="Search by Title/Author"
+              className="main__search"
+            />
+            <img
+              src={SearchImg}
+              alt="Magnifying Glass"
+              className="main__searchimg"
+            />
+          </form>
         </div>
         <h2 className="main__title">Release the Kraken of Knowledge!</h2>
         <section className="main__gridcontainer">
-            <div className="grid__items">
-            <NavLink to='/bookdetails' className="book__link">
-                <img className="grid__bookcover" src={HarryCover} />
-                <div className ="grid__title">Harry Potter and The Sorcerer's Stone</div>
-                <div className="grid__author">J.K. Rowling</div>
+          {books.map(({ id, title, image, author }, i) => (
+              <div className="grid__items">
+                <NavLink to={'/bookdetails/' + id} className="book__link">
+                  <img
+                    className="grid__bookcover"
+                    src={coversObject[image]}
+                  />
+                  <div className="grid__title">{title}</div>
+                  <div className="grid__author">{author}</div>
                 </NavLink>
-            </div>
-            <div className="grid__items">
-            <NavLink to='/bookdetails' className="book__link">
-                <img className="grid__bookcover" src={HarryCover} />
-                <div className ="grid__title">Harry Potter and The Sorcerer's Stone</div>
-                <div className="grid__author">J.K. Rowling</div>
-                </NavLink>
-            </div>
-            <div className="grid__items">
-                <NavLink to='/bookdetails' className="book__link">
-                    <img className="grid__bookcover" src={HarryCover} />
-                    <div className ="grid__title">Harry Potter and The Sorcerer's Stone</div>
-                    <div className="grid__author">J.K. Rowling</div>
-                </NavLink>
-            </div>
-            <div className="grid__items">
-                <NavLink to='/bookdetails' className="book__link">
-                    <img className="grid__bookcover" src={HarryCover} />
-                    <div className ="grid__title">Harry Potter and The Sorcerer's Stone</div>
-                    <div className="grid__author">J.K. Rowling</div>
-                </NavLink>
-            </div>
-            <div className="grid__items">
-                <NavLink to='/bookdetails' className="book__link">
-                    <img className="grid__bookcover" src={HarryCover} />
-                    <div className ="grid__title">Harry Potter and The Sorcerer's Stone</div>
-                    <div className="grid__author">J.K. Rowling</div>
-                </NavLink>
-            </div>
-            <div className="grid__items">
-                <NavLink to='/bookdetails' className="book__link">
-                    <img className="grid__bookcover" src={HarryCover} />
-                    <div className ="grid__title">Harry Potter and The Sorcerer's Stone</div>
-                    <div className="grid__author">J.K. Rowling</div>
-                </NavLink>
-            </div>
-            <div className="grid__items">
-                <NavLink to='/bookdetails' className="book__link">
-                    <img className="grid__bookcover" src={HarryCover} />
-                    <div className ="grid__title">Harry Potter and The Sorcerer's Stone</div>
-                    <div className="grid__author">J.K. Rowling</div>
-                </NavLink>
-            </div>
-            <div className="grid__items">
-                <NavLink to='/bookdetails' className="book__link">
-                    <img className="grid__bookcover" src={HarryCover} />
-                    <div className ="grid__title">Harry Potter and The Sorcerer's Stone</div>
-                    <div className="grid__author">J.K. Rowling</div>
-                </NavLink>
-            </div>
-            <div className="grid__items">
-                <NavLink to='/bookdetails' className="book__link">
-                    <img className="grid__bookcover" src={HarryCover} />
-                    <div className ="grid__title">Harry Potter and The Sorcerer's Stone</div>
-                    <div className="grid__author">J.K. Rowling</div>
-                </NavLink>
-            </div>
+              </div>
+            )
+          )}
         </section>
-    </main>
+      </main>
     </div>
-    )
-}
+  );
+};
 export default Bookshelf;
