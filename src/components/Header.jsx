@@ -64,7 +64,7 @@ const Header = () => {
           Search
         </button>
       </section>
-      <script src="../index.js"></script>
+      
     </header>
   );
 };

@@ -12,7 +12,7 @@ import { getBook } from '../utils/API.js';
 
 const Bookdetails = () => {
   const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
-  const [book, setBook] = useState({});
+  const [{ title, author, image, published, synopsis, pages }, setBook] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
@@ -26,9 +26,9 @@ const Bookdetails = () => {
       <main className="main__detail">
         <section className="main__detailcard">
           <div className="main__coverwrap">
-            <h2 className="book__title--mobile">{book.title}</h2>
-            <img src={coversObject[book.image]} className="book__cover" />
-            <h3 className="author__mobile">{book.author}</h3>
+            <h2 className="book__title--mobile">{title}</h2>
+            <img src={coversObject[image]} className="book__cover" />
+            <h3 className="author__mobile">{author}</h3>
             <div className="book__stars">
               <h4 className="book__rating">Rating</h4>
               <div className="star__wrapper">
@@ -41,15 +41,15 @@ const Bookdetails = () => {
             </div>
           </div>
           <section className="book__details">
-            <h2 className="book__title">{book.title}</h2>
-            <h3 className="book__author">{book.author}</h3>
+            <h2 className="book__title">{title}</h2>
+            <h3 className="book__author">{author}</h3>
             <p className="details">
-              <i>Published: {book.published}</i>
+              <i>Published: {published}</i>
             </p>
             <p className="details">
-              <i>{book.pages} pages</i>
+              <i>{pages} pages</i>
             </p>
-            <p className="book__description">{book.synopsis}</p>
+            <p className="book__description">{synopsis}</p>
           </section>
           <div className="main__btnwrap">
             <NavLink to="/editbook" className="edit__link">
