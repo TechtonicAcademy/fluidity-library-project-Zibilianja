@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/editbook.scss';
 import HarryCover from '../images/sorcerers_stone.jpeg';
+import Rating from '../components/Rating.jsx'
 
 const Editbook = () => {
   return (
@@ -55,11 +56,7 @@ const Editbook = () => {
             <div className="form__wrappers rating__wrapper">
               <label className="label__rating">Rating</label>
               <div className="form__rating">
-                <i className="fa fa-star star__rating"></i>
-                <i className="fa fa-star star__rating"></i>
-                <i className="fa fa-star star__rating"></i>
-                <i className="fa fa-star star__rating"></i>
-                <i className="fa fa-star star__rating star5"></i>
+                <Rating />
               </div>
             </div>
           </div>
