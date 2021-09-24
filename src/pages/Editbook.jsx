@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/editbook.scss';
 import HarryCover from '../images/sorcerers_stone.jpeg';
 import Rating from '../components/Rating.jsx'
+import { useState } from 'react';
+import { FaStar } from 'react-icons/fa';
 
 const Editbook = () => {
+  const [rating, setRating] = useState(null);
+  const [hover, setHover] = useState(null);
+
   return (
     <div className="edit__page">
       <main className="edit__main">
@@ -56,7 +61,28 @@ const Editbook = () => {
             <div className="form__wrappers rating__wrapper">
               <label className="label__rating">Rating</label>
               <div className="form__rating">
-                <Rating />
+              {[...Array(5)].map((star, i) => {
+                  let ratingValue = i + 1;
+                  return (
+                    <label>
+                      <input
+                        type="radio"
+                        className="rating__radio"
+                        value={ratingValue}
+                        display="hidden"
+                        onClick={() => setRating(ratingValue)}
+                      />
+                      <FaStar
+                        className="fa fa-star star__rating"
+                        color={
+                          ratingValue <= (hover || rating) ? 'gold' : 'grey'
+                        }
+                        onMouseEnter={() => setHover(ratingValue)}
+                        onMouseLeave={() => setHover(null)}
+                      />
+                    </label>
+                  );
+                })}
               </div>
             </div>
           </div>

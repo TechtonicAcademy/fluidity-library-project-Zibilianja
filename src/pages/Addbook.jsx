@@ -14,7 +14,6 @@ const Addbook = () => {
   const synopsisInput = useRef();
   const pageInput = useRef();
   const publishInput = useRef();
-  
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -86,32 +85,32 @@ const Addbook = () => {
             <div className="form__wrappers rating__wrapper">
               <label className="label__rating">Rating</label>
               <div className="form__rating">
-              <div className="form__rating">
-      {[...Array(5)].map((star, i) => {
-        let ratingValue = i + 1;
-        return (
-          <label>
-            <input
-              type="radio"
-              className="rating__radio"
-              value={ratingValue}
-              display="hidden"
-              onClick={() => setRating(ratingValue)}
-              
-            />
-            <FaStar
-              className="fa fa-star star__rating"
-              color={ratingValue <= (hover || rating) ? "gold" : "grey"}
-              onMouseEnter={() => setHover(ratingValue)}
-              onMouseLeave={() => setHover(null)}
-            />
-          </label>
-        );
-      })}
-    </div>
+                {[...Array(5)].map((star, i) => {
+                  let ratingValue = i + 1;
+                  return (
+                    <label>
+                      <input
+                        type="radio"
+                        className="rating__radio"
+                        value={ratingValue}
+                        display="hidden"
+                        onClick={() => setRating(ratingValue)}
+                      />
+                      <FaStar
+                        className="fa fa-star star__rating"
+                        color={
+                          ratingValue <= (hover || rating) ? 'gold' : 'grey'
+                        }
+                        onMouseEnter={() => setHover(ratingValue)}
+                        onMouseLeave={() => setHover(null)}
+                      />
+                    </label>
+                  );
+                })}
               </div>
             </div>
           </div>
+
           <div className="form__right">
             <div className="image__frame">Add Image</div>
             <img />
@@ -121,7 +120,9 @@ const Addbook = () => {
             <button type="submit" className="addbook__button button--dark">
               Add Book
             </button>
-            <button className="addbook__button" type="reset">Cancel</button>
+            <button className="addbook__button" type="reset">
+              Cancel
+            </button>
           </div>
         </form>
       </main>

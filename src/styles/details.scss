@@ -145,6 +145,9 @@ $book_brown: rgba(77, 63, 63, 0.63);
     font-weight: bold;
     border: none;
   }
+  .main__button:hover {
+    cursor: pointer;
+  }
   .button--dark {
     background-color: $gray_background;
     color: white;

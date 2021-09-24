@@ -69,32 +69,6 @@
       "image": "Book7",
       "synopsis": "Voldemort takes control of the Ministry of Magic, installs Severus Snape as headmaster at Hogwarts, and sends his Death Eaters across the country to wreak havoc and find Harry. Meanwhile, Harry, Ron, and Hermione embark on a desperate quest the length and breadth of Britain, trying to locate and destroy Voldemort’s four remaining Horcruxes, the magical objects in which he has hidden parts of his broken soul. But every time they solve one mystery, three more evolve—and not just about Voldemort, but about Dumbledore, and Harry’s own past, and three mysterious objects called the Deathly Hallows. The Hallows are literally things out of a children’s tale, which, if real, promise to make their possessor the “Master of Death;” and they ensnare Harry with their tantalizing claim of invulnerability.",
       "rating": 5
-    },
-    {
-      "title": "Book",
-      "author": "Person",
-      "synopsis": "Content",
-      "pages": "321",
-      "published": "2021-09-09",
-      "id": 130
-    },
-    {
-      "title": "new book",
-      "author": "other person",
-      "synopsis": "Content ContentContentContentContentContentContentContent",
-      "pages": "234",
-      "published": "2021-09-13",
-      "rating": 4,
-      "id": 131
-    },
-    {
-      "title": "Whoot",
-      "author": "This works",
-      "synopsis": "I am sad I couldn't keep the rating system as a separate component file but this works well.",
-      "pages": "34",
-      "published": "2016-07-14",
-      "rating": 2,
-      "id": 132
     }
   ]
 }
