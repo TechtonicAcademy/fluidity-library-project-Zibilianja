@@ -83,13 +83,14 @@ const Addbook = () => {
               </div>
 
               <div className="form__wrappers wrappers__sidebyside pages__wrapper">
-                <label htmlFor="pages" className="form__labels">Pages</label>
+                <label htmlFor="pages" className="form__labels">Pages
                 <input
                   id="pages"
                   type="number"
                   className="form__input form__pages"
                   ref={pageInput}
                 />
+                </label>
               </div>
             </div>
             <div className="form__wrappers rating__wrapper">
