@@ -14,9 +14,16 @@ $book_brown: rgba(77, 63, 63, 0.63);
   position: fixed;
   z-index: 1;
   top: 0;
-  a {
-    color: white;
+  .navlink {
+    color: rgb(165, 163, 163);
     text-decoration: none;
+    &__title {
+      color: white;
+      text-decoration: none;
+    }
+  }
+  .navlink:hover {
+    color: white;
   }
   .header__a {
     width: 23%;

@@ -71,12 +71,12 @@
       "rating": 5
     },
     {
-      "title": "new book",
-      "author": "other person",
-      "synopsis": "Content ContentContentContentContentContentContentContent",
-      "pages": "234",
-      "published": "2021-09-13",
-      "rating": 4,
+      "title": "Edit This Book",
+      "author": "Edit Person",
+      "synopsis": "NEWCONTENTHERE",
+      "pages": "23423",
+      "published": "2021-04-15",
+      "rating": "2",
       "id": 131
     }
   ]

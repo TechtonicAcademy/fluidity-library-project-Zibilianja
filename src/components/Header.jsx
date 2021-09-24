@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <header className="header">
-      <Link className="header__a" to="/">
+      <Link className="header__a navlink__title" to="/">
         <h1 className="header__title">The Library</h1>
       </Link>
       <div className="dropdown__shown">
@@ -26,15 +26,15 @@ const Header = () => {
         >
           <div className="dropdown__content">
             <li className="dropdown__link dropdown__home">
-              <NavLink to="/" isActive={() => pathname === '/'}>
+              <NavLink className="navlink" to="/" isActive={() => pathname === '/'}>
                 Home
               </NavLink>
             </li>
             <li className="dropdown__link dropdown__bookshelf">
-              <NavLink to="/bookshelf">Bookshelf</NavLink>
+              <NavLink className="navlink" to="/bookshelf">Bookshelf</NavLink>
             </li>
             <li className="dropdown__link dropdown__addbook">
-              <NavLink to="/addbook">Add Book</NavLink>
+              <NavLink className="navlink" to="/addbook">Add Book</NavLink>
             </li>
           </div>
         </ul>
@@ -42,15 +42,15 @@ const Header = () => {
       <nav className="header__nav">
         <ul className="header__list">
           <li className="header__listitem header--home">
-            <NavLink to="/" isActive={() => pathname === '/'}>
+            <NavLink className="navlink" to="/" isActive={() => pathname === '/'}>
               Home
             </NavLink>
           </li>
           <li className="header__listitem header--bookshelf">
-            <NavLink to="/bookshelf">Bookshelf</NavLink>
+            <NavLink className="navlink" to="/bookshelf">Bookshelf</NavLink>
           </li>
           <li className="header__listitem header--addbook">
-            <NavLink to="/addbook">Add Book</NavLink>
+            <NavLink className="navlink" to="/addbook">Add Book</NavLink>
           </li>
         </ul>
       </nav>

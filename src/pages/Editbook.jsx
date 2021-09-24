@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import useParams from 'react-router-dom';
+import useParams, { NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import '../styles/editbook.scss';
 import { getBook, editBook } from '../utils/API';
@@ -16,25 +16,13 @@ import Book7 from '../images/deathlyhallows.jpeg';
 
 const Editbook = () => {
   const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
-  const [
-    { title, author, image, published, synopsis, pages, rating },
-    setBook,
-  ] = useState({});
+  const [book,setBook] = useState({});
+  const { title, author, image, published, synopsis, pages, rating } = book;
+  const history = useHistory();
   const { id } = useParams();
-
   const [ratingStar, setRating] = useState(rating);
   const [hover, setHover] = useState(null);
-  const [
-    {
-      titleInput,
-      authorInput,
-      publishInput,
-      pageInput,
-      synopsisInput,
-      ratingInput,
-    },
-    setInput,
-  ] = useState({});
+  
 
   useEffect(() => {
     getBook(id)
@@ -49,10 +37,27 @@ const Editbook = () => {
       return alert('You must include both a title and author!');
     }
 
+    setBook({
+      title: '',
+      author: '',
+      image: 'default',
+      published: 0/0/0,
+      synopsis: '',
+      pages: null,
+      rating: null
+    });
+
+    
+
     editBook(id, { title, author, synopsis, pages, published, rating })
       .then(() => history.push('/bookshelf'))
       .catch((err) => console.log(err));
   };
+
+  const inputChange = (e) => {
+    const { name, value } = e.target;
+    setBook({ ...book, [name]: value });
+  }
 
   return (
     <div className="edit__page">
@@ -67,8 +72,9 @@ const Editbook = () => {
                 id="title"
                   type="text"
                   className="form__input form__title"
-                  placeholder={title}
-                  ref={titleInput}
+                  value={title}
+                  name="title"
+                  onChange={inputChange}
                 />
               </label>
             </div>
@@ -79,8 +85,9 @@ const Editbook = () => {
                   id="author"
                   type="text"
                   className="form__input form__author"
-                  placeholder={author}
-                  ref={authorInput}
+                  value={author}
+                  name="author"
+                  onChange={inputChange}
                 />
               </label>
             </div>
@@ -91,8 +98,9 @@ const Editbook = () => {
                   id="synopsis"
                   type="text"
                   className="form__input form__synopsis"
-                  placeholder={synopsis}
-                  ref={synopsisInput}
+                  name="synopsis"
+                  value={synopsis}
+                  onChange={inputChange}
                 ></textarea>
               </label>
             </div>
@@ -102,10 +110,11 @@ const Editbook = () => {
                   Published
                   <input
                     id="publish"
-                    type="text"
+                    type="date"
                     className="form__input form__published"
-                    placeholder={published}
-                    ref={publishInput}
+                    value={published}
+                    name="published"
+                    onChange={inputChange}
                   />
                 </label>
               </div>
@@ -116,8 +125,9 @@ const Editbook = () => {
                   <input
                     type="number"
                     className="form__input form__pages"
-                    placeholder={pages}
-                    ref={pageInput}
+                    value={pages}
+                    name="pages"
+                    onChange={inputChange}
                   />
                 </label>
               </div>
@@ -137,6 +147,8 @@ const Editbook = () => {
                           value={ratingValue}
                           display="hidden"
                           onClick={() => setRating(ratingValue)}
+                          name="rating"
+                          onChange={inputChange}
                         />
                         <FaStar
                           className="fa fa-star star__rating"
@@ -160,12 +172,14 @@ const Editbook = () => {
             <button className="image__upload">Change Image</button>
           </div>
           <div className="edit__btnwrap">
-            <button type="submit" className="addbook__button button--dark">
+            <button type="submit" className="edit__button button--dark">
               Submit
             </button>
-            <button className="addbook__button" type="reset">
+            <NavLink to="/bookshelf" className="cancel__button--nav">
+            <button className="edit__button cancel__button" type="reset">
               Cancel
             </button>
+            </NavLink>
           </div>
         </form>
       </main>
