@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import useParams, { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import '../styles/editbook.scss';
 import { getBook, editBook } from '../utils/API';
