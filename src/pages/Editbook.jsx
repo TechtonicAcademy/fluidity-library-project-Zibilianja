@@ -3,7 +3,6 @@ import useParams, { NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import '../styles/editbook.scss';
 import { getBook, editBook } from '../utils/API';
-import { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { useParams } from 'react-router';
 import Book1 from '../images/sorcerers_stone.jpeg';
