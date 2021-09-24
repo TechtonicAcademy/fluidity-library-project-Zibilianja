@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import '../styles/details.scss';
+import { FaStar } from 'react-icons/fa';
 import Book1 from '../images/sorcerers_stone.jpeg';
 import Book2 from '../images/chamberofsecrets.jpeg';
 import Book3 from '../images/prisoner.jpeg';
@@ -12,7 +13,10 @@ import { getBook } from '../utils/API.js';
 
 const Bookdetails = () => {
   const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
-  const [{ title, author, image, published, synopsis, pages }, setBook] = useState({});
+  const [
+    { title, author, image, published, synopsis, pages, rating },
+    setBook,
+  ] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
@@ -32,11 +36,27 @@ const Bookdetails = () => {
             <div className="book__stars">
               <h4 className="book__rating">Rating</h4>
               <div className="star__wrapper">
-                <i className="fa fa-star star1"></i>
-                <i className="fa fa-star star2"></i>
-                <i className="fa fa-star star3"></i>
-                <i className="fa fa-star star4"></i>
-                <i className="fa fa-star star5"></i>
+                <div className="form__rating">
+                  {[...Array(5)].map((star, i) => {
+                    let ratingValue = i + 1;
+                    return (
+                      <label>
+                        <input
+                          type="radio"
+                          className="rating__radio"
+                          value={ratingValue}
+                          display="hidden"
+                        />
+                        <FaStar
+                          className="fa fa-star star__rating"
+                          color={
+                            ratingValue <= rating ? 'gold' : 'grey'
+                          }
+                        />
+                      </label>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
@@ -52,7 +72,7 @@ const Bookdetails = () => {
             <p className="book__description">{synopsis}</p>
           </section>
           <div className="main__btnwrap">
-            <NavLink to="/editbook" className="edit__link">
+            <NavLink to={"/editbook/" + id} className="edit__link">
               <button className="main__button button--dark">
                 Edit This Book
               </button>

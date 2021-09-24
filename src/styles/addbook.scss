@@ -79,6 +79,9 @@ $book_brown: rgba(77, 63, 63, 0.63);
           margin-right: -20px;
           float: right;
         }
+        .form__published:hover {
+          cursor: pointer;
+        }
         .form__pages {
           height: 100%;
           width: 50%;
@@ -87,22 +90,20 @@ $book_brown: rgba(77, 63, 63, 0.63);
           font-size: 12pt;
         }
         .form__rating {
-          width: fit-content;
-          margin-left: 8%;
+          width: 100%;
         }
         .label__rating {
-          margin-left: 9%;
           margin-top: 1%;
+          width: 100%;
         }
         .form__rating {
           margin-top: 2%;
-          width: 30%;
-          margin-left: 2%;
+          width: 70%;
           display: flex;
           justify-content: space-evenly;
           .star__rating {
-            font-size: 18pt;
-            color: gold;
+            font-size: 19pt;
+            cursor: pointer;
           }
         }
       }
@@ -131,10 +132,24 @@ $book_brown: rgba(77, 63, 63, 0.63);
       }
       .rating__wrapper {
         height: 10%;
-        display: flex;
+        width: 75%;
+        display: inline-flex;
         margin-top: -3%;
-        margin-left: 3%;
+        margin-left: -15%;
         align-content: center;
+      }
+      .rating__radio {
+        display: none;
+      }
+      .form__rating {
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        float: right;
+      }
+      .fa-star {
+        margin-left: 5px;
+        font-size: 20pt;
       }
     }
     .form__right {
@@ -162,6 +177,9 @@ $book_brown: rgba(77, 63, 63, 0.63);
         font-weight: bold;
         font-size: 12pt;
       }
+      .image__upload:hover {
+        cursor: pointer;
+      }
     }
   }
   &__btnwrap {
@@ -183,6 +201,9 @@ $book_brown: rgba(77, 63, 63, 0.63);
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     border: none;
+  }
+  &__button:hover {
+    cursor: pointer;
   }
   .button--dark {
     background-color: $gray_background;

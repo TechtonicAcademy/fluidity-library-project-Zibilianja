@@ -132,6 +132,19 @@ $book_brown: rgba(77, 63, 63, 0.63);
         margin-left: 3%;
         align-content: center;
       }
+      .rating__radio {
+        display: none;
+      }
+      .form__rating {
+        width: 100%;
+        margin-left: 5px;
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+      }
+      .fa-star {
+        margin-left: 5px;
+        font-size: 20pt;
+      }
     }
     .form__right {
       width: 30vw;
@@ -139,9 +152,9 @@ $book_brown: rgba(77, 63, 63, 0.63);
       justify-content: center;
 
       .image__frame {
-        height: fit-content;
+        height: 70%;
+        max-height: 550px;
         width: 80%;
-        background-color: rgb(228, 228, 228);
         display: flex;
         flex-wrap: wrap;
         align-content: center;
@@ -150,6 +163,8 @@ $book_brown: rgba(77, 63, 63, 0.63);
         .book__cover {
           height: auto;
           width: 100%;
+          max-width: 300px;
+          max-height: 400px;
         }
       }
       .image__upload {

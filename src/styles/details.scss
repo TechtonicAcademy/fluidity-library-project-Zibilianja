@@ -74,20 +74,25 @@ $book_brown: rgba(77, 63, 63, 0.63);
         display: none;
       }
       .star__wrapper {
-        width: 100%;
+        width: 250px;
+
+        margin-top: 20px;
         display: flex;
-        align-content: space-between;
+        margin-left: 1%;
+        margin-right: -1%;
+      }
+      .rating__radio {
+        display: none;
+      }
+      .form__rating {
+        width: 100%;
+        margin-left: 5px;
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
       }
       .fa-star {
-        color: gold;
+        margin-left: 5px;
         font-size: 20pt;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 25px;
-        width: auto;
-      }
-      .star5 {
-        color: grey;
       }
     }
   }
@@ -139,6 +144,9 @@ $book_brown: rgba(77, 63, 63, 0.63);
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     border: none;
+  }
+  .main__button:hover {
+    cursor: pointer;
   }
   .button--dark {
     background-color: $gray_background;
