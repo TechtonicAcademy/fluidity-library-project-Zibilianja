@@ -22,7 +22,7 @@ const Addbook = () => {
     const synopsis = synopsisInput.current.value.trim();
     const pages = pageInput.current.value.trim();
     const published = publishInput.current.value.trim();
-    // const rating = ratingInput.current.value.trim();
+    
 
     if (!title || !author) {
       return alert('You must include both a title and author to add a book!');
@@ -40,42 +40,52 @@ const Addbook = () => {
         <form className="addbook__form" onSubmit={formSubmit}>
           <div className="form__left">
             <div className="form__wrappers">
-              <label className="form__labels">Title</label>
+              <label htmlFor="title" className="form__labels">Title
               <input
+              id="title"
                 type="text"
                 className="form__input form__title"
                 ref={titleInput}
               />
+              </label>
             </div>
             <div className="form__wrappers author__wrapper">
-              <label className="form__labels label__author">Author</label>
+              <label htmlFor="author" className="form__labels label__author">Author
               <input
+              id="author"
                 type="text"
                 className="form__input form__author"
                 ref={authorInput}
               />
+              </label>
             </div>
+            
             <div className="form__wrappers synopsis__wrapper">
-              <label className="form__labels label__synopsis">Synopsis</label>
+              <label htmlFor="synopsis" className="form__labels label__synopsis">Synopsis
               <textarea
+              id="synopsis"
                 type="text"
                 className="form__input form__synopsis"
                 ref={synopsisInput}
               ></textarea>
+              </label>
             </div>
             <div className="input__smaller">
               <div className="form__wrappers wrappers__sidebyside published__wrapper">
-                <label className="form__labels">Published</label>
+                <label htmlFor="publish" className="form__labels">Published
                 <input
+                  id="publish"
                   type="date"
                   className="form__input form__published"
                   ref={publishInput}
                 />
+                </label>
               </div>
 
               <div className="form__wrappers wrappers__sidebyside pages__wrapper">
-                <label className="form__labels">Pages</label>
+                <label htmlFor="pages" className="form__labels">Pages</label>
                 <input
+                  id="pages"
                   type="number"
                   className="form__input form__pages"
                   ref={pageInput}
@@ -83,8 +93,8 @@ const Addbook = () => {
               </div>
             </div>
             <div className="form__wrappers rating__wrapper">
-              <label className="label__rating">Rating</label>
-              <div className="form__rating">
+              <label htmlFor="rating" className="label__rating">Rating
+              <div id="rating" className="form__rating">
                 {[...Array(5)].map((star, i) => {
                   let ratingValue = i + 1;
                   return (
@@ -108,6 +118,7 @@ const Addbook = () => {
                   );
                 })}
               </div>
+              </label>
             </div>
           </div>
 

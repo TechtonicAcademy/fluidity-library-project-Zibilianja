@@ -5,8 +5,8 @@ import { FaStar } from 'react-icons/fa';
 
 
 const Rating = () => {
-const [rating, setRating] = useState(null);
-const [hover, setHover] = useState(null);
+    const [rating, setRating] = useState(null);
+    const [hover, setHover] = useState(null);
 
 
   return (
@@ -38,12 +38,3 @@ const [hover, setHover] = useState(null);
 
 export default Rating;
 
-/*
-
-- stars are numbered 1 - 5 representing the Rating
-- if a star is clicked, every star before it should be gold and return a value equal to the star clicked
-- if a new star is clicked, it should adjust accordingly
--
-
-
-*/

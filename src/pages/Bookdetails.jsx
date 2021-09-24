@@ -46,15 +46,12 @@ const Bookdetails = () => {
                           className="rating__radio"
                           value={ratingValue}
                           display="hidden"
-                          onClick={() => setRating(ratingValue)}
                         />
                         <FaStar
                           className="fa fa-star star__rating"
                           color={
                             ratingValue <= rating ? 'gold' : 'grey'
                           }
-                          onMouseEnter={() => setHover(ratingValue)}
-                          onMouseLeave={() => setHover(null)}
                         />
                       </label>
                     );
@@ -75,7 +72,7 @@ const Bookdetails = () => {
             <p className="book__description">{synopsis}</p>
           </section>
           <div className="main__btnwrap">
-            <NavLink to="/editbook" className="edit__link">
+            <NavLink to={"/editbook/" + id} className="edit__link">
               <button className="main__button button--dark">
                 Edit This Book
               </button>

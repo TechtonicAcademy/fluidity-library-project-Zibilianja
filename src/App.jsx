@@ -17,7 +17,7 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route path="/bookshelf" component={Bookshelf} />
           <Route path="/addbook" component={Addbook} />
-          <Route path="/editbook" component={Editbook} />
+          <Route path="/editbook/:id" component={Editbook} />
           <Route path="/bookdetails/:id" component={Bookdetails} />
         </Switch>
         <Footer />
