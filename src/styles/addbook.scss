@@ -180,6 +180,9 @@ $book_brown: rgba(77, 63, 63, 0.63);
         font-weight: bold;
         font-size: 12pt;
       }
+      .image__upload:hover {
+        cursor: pointer;
+      }
     }
   }
   &__btnwrap {
