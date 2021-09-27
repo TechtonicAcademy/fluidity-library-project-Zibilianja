@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import { useHistory } from 'react-router';
 import { addBook } from '../utils/API';
@@ -8,17 +9,12 @@ import Rating from '../components/Rating';
 
 const Addbook = () => {
   const [rating, setRating] = useState(null);
-  const [hover, setHover] = useState(null);
   const history = useHistory();
   const titleInput = useRef();
   const authorInput = useRef();
   const synopsisInput = useRef();
   const pageInput = useRef();
   const publishInput = useRef();
-
-const ratingThread = () => {
-  setRating(ratingValue);
-}
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -100,7 +96,7 @@ const ratingThread = () => {
             </div>
             <div className="form__wrappers rating__wrapper">
               <label htmlFor="rating" className="label__rating">Rating
-              <Rating />
+              <Rating changeRating={rating => setRating(rating)} currentRating={() => {return 0}}/>
               </label>
             </div>
           </div>
@@ -114,7 +110,9 @@ const ratingThread = () => {
               Add Book
             </button>
             <button className="addbook__button" type="reset">
+              <NavLink to={"/bookshelf"} className="NavCancel"> 
               Cancel
+              </NavLink>
             </button>
           </div>
         </form>

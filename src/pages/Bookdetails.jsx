@@ -22,7 +22,7 @@ const Bookdetails = () => {
   ] = useState({});
   const { id } = useParams();
   const history = useHistory();
-
+  
   
   useEffect(() => {
     getBook(id)
@@ -48,7 +48,7 @@ const Bookdetails = () => {
             <div className="book__stars">
               <h4 className="book__rating">Rating</h4>
               <div className="star__wrapper">
-                <Rating />
+              <Rating currentRating={() => {return rating}}/>
               </div>
             </div>
           </div>

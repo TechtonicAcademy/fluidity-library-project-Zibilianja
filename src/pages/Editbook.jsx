@@ -17,9 +17,10 @@ import Rating from '../components/Rating';
 const Editbook = () => {
   const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
   const [book,setBook] = useState({});
-  const { title, author, image, published, synopsis, pages, rating } = book;
+  const { title, author, image, published, synopsis, pages } = book;
   const history = useHistory();
   const { id } = useParams();
+  const [rating, setRating] = useState(null);
   
   
 
@@ -28,10 +29,7 @@ const Editbook = () => {
       .then(({ data: book }) => setBook(book))
       .catch((err) => console.log(err));
   }, [id]);
-
-const ratingThread = (setRating) => {
-  setRating(ratingValue);
-}
+  
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -41,13 +39,13 @@ const ratingThread = (setRating) => {
     }
 
     setBook({
-      title: '',
-      author: '',
+      title: title,
+      author: author,
       image: 'default',
-      published: 0/0/0,
-      synopsis: '',
-      pages: null,
-      rating: null
+      published: published,
+      synopsis: synopsis,
+      pages: pages,
+      rating: rating
     });
 
     
@@ -138,7 +136,7 @@ const ratingThread = (setRating) => {
             <div className="form__wrappers rating__wrapper">
               <label htmlFor="rating" className="label__rating">
                 Rating
-                <Rating />
+                <Rating changeRating={rating => setRating(rating)} currentRating={() => {return book.rating}} />
                 {/* <div className="form__rating">
                   {[...Array(5)].map((star, i) => {
                     let ratingValue = i + 1;
