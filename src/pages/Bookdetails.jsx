@@ -12,7 +12,7 @@ import Book7 from '../images/deathlyhallows.jpeg';
 import { getBook } from '../utils/API.js';
 import { deleteBook } from '../utils/API.js';
 import { useHistory } from 'react-router';
-
+import Rating from '../components/Rating';
 
 const Bookdetails = () => {
   const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
@@ -48,27 +48,7 @@ const Bookdetails = () => {
             <div className="book__stars">
               <h4 className="book__rating">Rating</h4>
               <div className="star__wrapper">
-                <div className="form__rating">
-                  {[...Array(5)].map((star, i) => {
-                    let ratingValue = i + 1;
-                    return (
-                      <label>
-                        <input
-                          type="radio"
-                          className="rating__radio"
-                          value={ratingValue}
-                          display="hidden"
-                        />
-                        <FaStar
-                          className="fa fa-star star__rating"
-                          color={
-                            ratingValue <= rating ? 'gold' : 'grey'
-                          }
-                        />
-                      </label>
-                    );
-                  })}
-                </div>
+                <Rating />
               </div>
             </div>
           </div>

@@ -4,6 +4,7 @@ import { useHistory } from 'react-router';
 import { addBook } from '../utils/API';
 import '../styles/addbook.scss';
 import { FaStar } from 'react-icons/fa';
+import Rating from '../components/Rating';
 
 const Addbook = () => {
   const [rating, setRating] = useState(null);
@@ -14,6 +15,10 @@ const Addbook = () => {
   const synopsisInput = useRef();
   const pageInput = useRef();
   const publishInput = useRef();
+
+const ratingThread = () => {
+  setRating(ratingValue);
+}
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -95,34 +100,10 @@ const Addbook = () => {
             </div>
             <div className="form__wrappers rating__wrapper">
               <label htmlFor="rating" className="label__rating">Rating
-              <div id="rating" className="form__rating">
-                {[...Array(5)].map((star, i) => {
-                  let ratingValue = i + 1;
-                  return (
-                    <label>
-                      <input
-                        type="radio"
-                        className="rating__radio"
-                        value={ratingValue}
-                        display="hidden"
-                        onClick={() => setRating(ratingValue)}
-                      />
-                      <FaStar
-                        className="fa fa-star star__rating"
-                        color={
-                          ratingValue <= (hover || rating) ? 'gold' : 'grey'
-                        }
-                        onMouseEnter={() => setHover(ratingValue)}
-                        onMouseLeave={() => setHover(null)}
-                      />
-                    </label>
-                  );
-                })}
-              </div>
+              <Rating />
               </label>
             </div>
           </div>
-
           <div className="form__right">
             <div className="image__frame">Add Image</div>
             <img />

@@ -12,6 +12,7 @@ import Book4 from '../images/goblet.jpeg';
 import Book5 from '../images/phoenix.jpeg';
 import Book6 from '../images/halfblood.jpeg';
 import Book7 from '../images/deathlyhallows.jpeg';
+import Rating from '../components/Rating';
 
 const Editbook = () => {
   const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
@@ -19,7 +20,7 @@ const Editbook = () => {
   const { title, author, image, published, synopsis, pages, rating } = book;
   const history = useHistory();
   const { id } = useParams();
-  const [ratingStar, setRating] = useState(rating);
+  const [rating, setRating] = useState(rating);
   const [hover, setHover] = useState(null);
   
 
@@ -28,6 +29,10 @@ const Editbook = () => {
       .then(({ data: book }) => setBook(book))
       .catch((err) => console.log(err));
   }, [id]);
+
+const ratingThread = (setRating) => {
+  setRating(ratingValue);
+}
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -134,7 +139,8 @@ const Editbook = () => {
             <div className="form__wrappers rating__wrapper">
               <label htmlFor="rating" className="label__rating">
                 Rating
-                <div className="form__rating">
+                <Rating />
+                {/* <div className="form__rating">
                   {[...Array(5)].map((star, i) => {
                     let ratingValue = i + 1;
                     return (
@@ -160,7 +166,7 @@ const Editbook = () => {
                       </label>
                     );
                   })}
-                </div>
+                </div> */}
               </label>
             </div>
           </div>

@@ -4,7 +4,7 @@ import '../styles/rating.scss';
 import { FaStar } from 'react-icons/fa';
 
 
-const Rating = () => {
+const Rating = (props) => {
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
 
@@ -20,7 +20,7 @@ const Rating = () => {
               className="rating__radio"
               value={ratingValue}
               display="hidden"
-              onClick={() => setRating(ratingValue)}
+              onClick={() => props.ratingThread()}
               
             />
             <FaStar
