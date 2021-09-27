@@ -264,6 +264,7 @@ $book_brown: rgba(77, 63, 63, 0.63);
         width: 101vw;
         height: 45em;
         padding: 0;
+
         justify-content: center;
         text-align: center;
 
@@ -274,20 +275,22 @@ $book_brown: rgba(77, 63, 63, 0.63);
         .synopsis__wrapper {
           position: absolute;
           margin-top: 23em;
+          width: 100%;
         }
         .form__wrappers {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
           height: 2.5em;
+          width: 100%;
           .form__labels {
             width: 50vw;
             margin-left: 0;
           }
           .form__input {
-            width: 85%;
-            margin: 5px auto 0 auto;
-            margin-right: auto;
+            width: 90%;
+            margin: 5px 10px 0 0;
+
             height: 70%;
             text-indent: 10px;
           }
@@ -295,15 +298,19 @@ $book_brown: rgba(77, 63, 63, 0.63);
           }
           .form__synopsis {
             height: 200%;
-
+            width: 100%;
             letter-spacing: 1px;
+            margin-right: 0;
           }
 
           .form__published {
-            width: 50%;
+            width: 35vw;
+            justify-self: center;
+            margin-right: 15%;
           }
           .form__pages {
-            width: 50%;
+            width: 35vw;
+            margin-right: 1%;
           }
           .form__rating {
           }
@@ -333,18 +340,23 @@ $book_brown: rgba(77, 63, 63, 0.63);
         }
         .published__wrapper {
           position: absolute;
-          margin-top: 10.5em;
+          margin-top: 13.4em;
+          display: flex;
+          width: 80%;
+          height: 5%;
         }
         .pages__wrapper {
           position: absolute;
-
-          margin-top: 14.4em;
+          margin-top: 17.4em;
+          display: flex;
+          width: 30%;
         }
         .rating__wrapper {
           position: absolute;
-          margin-top: 38em;
+          margin-top: 42em;
           display: flex;
           flex-wrap: wrap;
+          margin-left: 0;
         }
       }
       .form__right {
@@ -376,7 +388,7 @@ $book_brown: rgba(77, 63, 63, 0.63);
       }
     }
     .edit__btnwrap {
-      margin-top: 52em;
+      margin-top: 54em;
       display: flex;
       flex-wrap: wrap;
       height: 7em;
@@ -386,6 +398,15 @@ $book_brown: rgba(77, 63, 63, 0.63);
       height: 33%;
     }
     .button--dark {
+    }
+    .cancel__button {
+      width: 55vw;
+      height: 100%;
+    }
+    .cancel__button--nav {
+      width: 55vw;
+      height: 33%;
+      margin-top: 1.5em;
     }
   }
 } //media query mobile end bracket
