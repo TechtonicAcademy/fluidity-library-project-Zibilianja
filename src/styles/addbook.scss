@@ -247,6 +247,7 @@ $book_brown: rgba(77, 63, 63, 0.63);
     height: 63.5em;
     width: 101vw;
     margin-top: 4em;
+
     &__title {
       margin-top: -0.1em;
     }
@@ -266,6 +267,8 @@ $book_brown: rgba(77, 63, 63, 0.63);
         .author__wrapper {
           position: absolute;
           margin-top: 4em;
+
+          text-align: center;
         }
         .synopsis__wrapper {
           position: absolute;
@@ -276,15 +279,16 @@ $book_brown: rgba(77, 63, 63, 0.63);
           flex-wrap: wrap;
           justify-content: center;
           height: 2.5em;
+
           .form__labels {
             width: 50vw;
             margin-left: 0;
           }
           .form__input {
-            width: 85%;
+            width: 100%;
             margin: 5px auto 0 auto;
-            margin-right: auto;
             height: 70%;
+            display: flex;
           }
           .label__synopsis {
           }
@@ -293,10 +297,13 @@ $book_brown: rgba(77, 63, 63, 0.63);
           }
 
           .form__published {
-            width: 50%;
+            width: 35vw;
+            justify-self: center;
+            margin-right: 15%;
           }
           .form__pages {
-            width: 50%;
+            width: 35vw;
+            margin-right: 1%;
           }
           .form__rating {
           }
@@ -322,21 +329,30 @@ $book_brown: rgba(77, 63, 63, 0.63);
         }
         .wrappers__sidebyside {
           margin: 0 0 0 0;
-          width: 100%;
+          width: 65vw;
+          display: block;
         }
         .published__wrapper {
           position: absolute;
-          margin-top: 10.5em;
+          margin-top: 11.7em;
+          display: flex;
+          width: 80%;
+          height: 5%;
         }
         .pages__wrapper {
           position: absolute;
-          margin-top: 14.4em;
+          margin-top: 15.4em;
+          display: flex;
+          width: 30%;
         }
         .rating__wrapper {
           position: absolute;
-          margin-top: 38em;
+          margin-top: 40em;
           display: flex;
           flex-wrap: wrap;
+          width: 100%;
+          margin-right: 0;
+          margin-left: 0;
         }
       }
       .form__right {
@@ -362,7 +378,7 @@ $book_brown: rgba(77, 63, 63, 0.63);
       }
     }
     &__btnwrap {
-      margin-top: 52em;
+      margin-top: 54em;
       display: flex;
       flex-wrap: wrap;
       height: 7em;
