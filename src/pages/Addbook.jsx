@@ -5,10 +5,10 @@ import { useHistory } from 'react-router';
 import { addBook } from '../utils/API';
 import '../styles/addbook.scss';
 import { FaStar } from 'react-icons/fa';
-import Rating from '../components/Rating';
 
 const Addbook = () => {
   const [rating, setRating] = useState(null);
+  const [hover, setHover] = useState(null);
   const history = useHistory();
   const titleInput = useRef();
   const authorInput = useRef();
@@ -96,10 +96,34 @@ const Addbook = () => {
             </div>
             <div className="form__wrappers rating__wrapper">
               <label htmlFor="rating" className="label__rating">Rating
-              <Rating changeRating={rating => setRating(rating)} currentRating={() => {return 0}}/>
+              <div id="rating" className="form__rating">
+                {[...Array(5)].map((star, i) => {
+                  let ratingValue = i + 1;
+                  return (
+                    <label>
+                      <input
+                        type="radio"
+                        className="rating__radio"
+                        value={ratingValue}
+                        display="hidden"
+                        onClick={() => setRating(ratingValue)}
+                      />
+                      <FaStar
+                        className="fa fa-star star__rating"
+                        color={
+                          ratingValue <= (hover || rating) ? 'gold' : 'grey'
+                        }
+                        onMouseEnter={() => setHover(ratingValue)}
+                        onMouseLeave={() => setHover(null)}
+                      />
+                    </label>
+                  );
+                })}
+              </div>
               </label>
             </div>
           </div>
+
           <div className="form__right">
             <div className="image__frame">Add Image</div>
             <img />
@@ -110,7 +134,7 @@ const Addbook = () => {
               Add Book
             </button>
             <button className="addbook__button" type="reset">
-              <NavLink to={"/bookshelf"} className="NavCancel"> 
+            <NavLink to={"/bookshelf"} className="NavCancel"> 
               Cancel
               </NavLink>
             </button>

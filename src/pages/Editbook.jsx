@@ -12,16 +12,15 @@ import Book4 from '../images/goblet.jpeg';
 import Book5 from '../images/phoenix.jpeg';
 import Book6 from '../images/halfblood.jpeg';
 import Book7 from '../images/deathlyhallows.jpeg';
-import Rating from '../components/Rating';
 
 const Editbook = () => {
   const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
   const [book,setBook] = useState({});
-  const { title, author, image, published, synopsis, pages } = book;
+  const { title, author, image, published, synopsis, pages, rating } = book;
   const history = useHistory();
   const { id } = useParams();
-  const [rating, setRating] = useState(null);
-  
+  const [ratingStar, setRating] = useState(rating);
+  const [hover, setHover] = useState(null);
   
 
   useEffect(() => {
@@ -29,7 +28,6 @@ const Editbook = () => {
       .then(({ data: book }) => setBook(book))
       .catch((err) => console.log(err));
   }, [id]);
-  
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -39,13 +37,13 @@ const Editbook = () => {
     }
 
     setBook({
-      title: title,
-      author: author,
+      title: '',
+      author: '',
       image: 'default',
-      published: published,
-      synopsis: synopsis,
-      pages: pages,
-      rating: rating
+      published: 0/0/0,
+      synopsis: '',
+      pages: null,
+      rating: null
     });
 
     
@@ -136,8 +134,7 @@ const Editbook = () => {
             <div className="form__wrappers rating__wrapper">
               <label htmlFor="rating" className="label__rating">
                 Rating
-                <Rating changeRating={rating => setRating(rating)} currentRating={() => {return book.rating}} />
-                {/* <div className="form__rating">
+                <div className="form__rating">
                   {[...Array(5)].map((star, i) => {
                     let ratingValue = i + 1;
                     return (
@@ -163,7 +160,7 @@ const Editbook = () => {
                       </label>
                     );
                   })}
-                </div> */}
+                </div>
               </label>
             </div>
           </div>
