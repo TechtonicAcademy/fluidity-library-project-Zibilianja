@@ -20,8 +20,7 @@ const Editbook = () => {
   const { title, author, image, published, synopsis, pages, rating } = book;
   const history = useHistory();
   const { id } = useParams();
-  const [rating, setRating] = useState(rating);
-  const [hover, setHover] = useState(null);
+  
   
 
   useEffect(() => {

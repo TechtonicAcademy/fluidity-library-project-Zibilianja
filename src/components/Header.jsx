@@ -1,12 +1,20 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import React from 'react';
+import { useHistory } from 'react-router';
 import '../styles/header.scss';
 import { useState } from 'react';
+import { searchBooks } from '../utils/API';
 
 const Header = () => {
   const [dropDown, setDropOpen] = useState(false);
-
+  const [searchTerm, searchSet] = useState('');
   const { pathname } = useLocation();
+
+  const formSubmit = (e) => {
+    e.preventDefault();
+    searchBooks(searchTerm)
+
+  };
 
   return (
     <header className="header">
@@ -54,7 +62,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <section className="header__search header__search--styles">
+      <form className="header__search header__search--styles">
         <input
           type="text"
           placeholder="Search by Title/Author"
@@ -63,7 +71,7 @@ const Header = () => {
         <button type="submit" className="header__searchbtn">
           Search
         </button>
-      </section>
+      </form>
       
     </header>
   );
