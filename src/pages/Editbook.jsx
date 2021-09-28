@@ -48,7 +48,7 @@ const Editbook = () => {
 
     
 
-    editBook(id, { title, author, synopsis, pages, published, rating })
+    editBook(id, { title, author, synopsis, pages, published, rating, image })
       .then(() => history.push('/bookshelf'))
       .catch((err) => console.log(err));
   };

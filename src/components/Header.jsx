@@ -1,20 +1,33 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import React from 'react';
 import { useHistory } from 'react-router';
 import '../styles/header.scss';
-import { useState } from 'react';
-import { searchBooks } from '../utils/API';
+import React, { useState } from 'react';
+import { getBooks } from '../utils/API';
 
 const Header = () => {
   const [dropDown, setDropOpen] = useState(false);
-  const [searchTerm, searchSet] = useState('');
+  const [query, setQuery] = useState("");
   const { pathname } = useLocation();
+  const history = useHistory();
+
+
 
   const formSubmit = (e) => {
     e.preventDefault();
-    searchBooks(searchTerm)
 
+    if (!query){
+      return alert("Must provide an author or title!");
+    };
+
+    getBooks()
+    .then(() => history.push('/filtered/' + query))
+    .catch((err) => console.log(err))
   };
+
+  const inputChange = (e) => {
+    const { value } = e.target;
+    setQuery(value);
+  }
 
   return (
     <header className="header">
@@ -62,11 +75,12 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <form className="header__search header__search--styles">
+      <form onSubmit={formSubmit} className="header__search header__search--styles">
         <input
           type="text"
           placeholder="Search by Title/Author"
           className="header__input"
+          onChange={inputChange}
         />
         <button type="submit" className="header__searchbtn">
           Search

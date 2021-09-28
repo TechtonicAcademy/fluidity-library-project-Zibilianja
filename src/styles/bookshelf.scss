@@ -26,6 +26,16 @@ $book_brown: rgba(77, 63, 63, 0.63);
   text-align: center;
   overflow: hidden;
 
+  .clear__button {
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    background-color: $gray_background;
+    color: white;
+    font-weight: bold;
+    padding: 9px;
+    border-radius: 5px;
+  }
   .main__searchwrapper {
     display: none;
   }
@@ -34,6 +44,7 @@ $book_brown: rgba(77, 63, 63, 0.63);
     font-style: italic;
     font-family: 'Times New Roman', Times, serif;
     color: $gray_background;
+    margin-bottom: 2%;
   }
   .main__gridcontainer {
     margin-left: auto;
@@ -79,6 +90,7 @@ $book_brown: rgba(77, 63, 63, 0.63);
     }
   }
 }
+
 //Scroll bar customs
 .main__gridcontainer::-webkit-scrollbar {
   width: 8px;
@@ -166,13 +178,17 @@ $book_brown: rgba(77, 63, 63, 0.63);
       margin-left: auto;
       margin-right: auto;
     }
+    .search__button {
+      background-color: transparent;
+      border-color: transparent;
+    }
     .main__searchimg {
       height: 1.2em;
       width: 1.2em;
       position: absolute;
       right: 12.5%;
       justify-self: center;
-      padding-top: 4px;
+      margin-top: -2%;
     }
     .main__gridcontainer {
       grid-template-columns: auto;

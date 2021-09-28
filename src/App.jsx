@@ -7,6 +7,7 @@ import Addbook from './pages/Addbook';
 import Bookdetails from './pages/Bookdetails';
 import Editbook from './pages/Editbook';
 import Footer from './components/Footer';
+import FilteredBooks from './pages/FilteredBooks';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/addbook" component={Addbook} />
           <Route path="/editbook/:id" component={Editbook} />
           <Route path="/bookdetails/:id" component={Bookdetails} />
+          <Route path="/filtered/:query" component={FilteredBooks} />
         </Switch>
         <Footer />
       </div>

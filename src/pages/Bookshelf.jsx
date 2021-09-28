@@ -11,9 +11,12 @@ import Book6 from '../images/halfblood.jpeg';
 import Book7 from '../images/deathlyhallows.jpeg';
 import { getBooks } from '../utils/API.js';
 
+
+
 const Bookshelf = () => {
   const [books, setBooks] = useState([]);
-
+  
+  
 
   useEffect(() => {
     getBooks()

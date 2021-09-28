@@ -16,8 +16,9 @@ export const editBook = (id, book) => {
   })
 };
 
-export const searchBooks = (search) => {
-  return axios.get(`http://localhost:3000/books/${search}`);
+export const searchBooks = (query) => {
+  return axios.get(`http://localhost:3000/books/${query}`);
+  
 }
 
 export const deleteBook = (id) => {
