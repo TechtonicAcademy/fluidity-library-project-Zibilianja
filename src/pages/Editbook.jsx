@@ -155,7 +155,7 @@ const Editbook = () => {
                             ratingValue <= (hover || rating) ? 'gold' : 'grey'
                           }
                           onMouseEnter={() => setHover(ratingValue)}
-                          onMouseLeave={() => setHover(null)}
+                          onMouseLeave={() => setHover('')}
                         />
                       </label>
                     );
