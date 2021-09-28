@@ -148,6 +148,12 @@ $book_brown: rgba(77, 63, 63, 0.63);
   .main__bookshelf {
     width: 100vw;
     height: 82vh;
+    .clear__button {
+      position: absolute;
+      height: fit;
+      top: 90%;
+      left: none;
+    }
     .main__searchwrapper {
       width: 101vw;
       height: 2em;
@@ -188,7 +194,8 @@ $book_brown: rgba(77, 63, 63, 0.63);
       position: absolute;
       right: 12.5%;
       justify-self: center;
-      margin-top: -2%;
+      margin-top: -10px;
+      margin-right: 4px;
     }
     .main__gridcontainer {
       grid-template-columns: auto;
