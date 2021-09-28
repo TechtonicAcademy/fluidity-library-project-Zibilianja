@@ -77,6 +77,15 @@
       "published": "2021-09-03",
       "rating": "2",
       "id": 130
+    },
+    {
+      "title": "Newest Book",
+      "author": "Me",
+      "synopsis": "Something Good",
+      "pages": "",
+      "published": "",
+      "rating": 3,
+      "id": 131
     }
   ]
 }

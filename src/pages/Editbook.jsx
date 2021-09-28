@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useHistory } from 'react-router';
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import '../styles/editbook.scss';
 import { getBook, editBook } from '../utils/API';
 import { FaStar } from 'react-icons/fa';
-import { useParams } from 'react-router';
 import Book1 from '../images/sorcerers_stone.jpeg';
 import Book2 from '../images/chamberofsecrets.jpeg';
 import Book3 from '../images/prisoner.jpeg';
@@ -174,11 +172,11 @@ const Editbook = () => {
             <button type="submit" className="edit__button button--dark">
               Submit
             </button>
-            <NavLink to="/bookshelf" className="cancel__button--nav">
+            <Link to="/bookshelf" className="cancel__button--nav">
             <button className="edit__button cancel__button" type="reset">
               Cancel
             </button>
-            </NavLink>
+            </Link>
           </div>
         </form>
       </main>

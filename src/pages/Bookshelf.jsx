@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useHistory } from 'react-router';
+import { NavLink, useHistory } from 'react-router-dom';
 import '../styles/bookshelf.scss';
 import SearchImg from '../images/magnify.png';
 import Book1 from '../images/sorcerers_stone.jpeg';
