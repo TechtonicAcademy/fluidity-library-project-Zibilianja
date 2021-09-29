@@ -151,8 +151,10 @@ $book_brown: rgba(77, 63, 63, 0.63);
     .clear__button {
       position: absolute;
       height: fit;
-      top: 90%;
+      top: 85%;
       left: none;
+      width: 18%;
+      min-width: 70px;
     }
     .main__searchwrapper {
       width: 101vw;

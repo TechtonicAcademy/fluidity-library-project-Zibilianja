@@ -68,24 +68,6 @@
       "image": "Book7",
       "published": "2007-03-27",
       "id": 129
-    },
-    {
-      "title": "Turkey Farmer Goes to school",
-      "author": "Edit Author",
-      "synopsis": "TEST EDIT",
-      "pages": "234",
-      "published": "2021-09-03",
-      "rating": "2",
-      "id": 130
-    },
-    {
-      "title": "Newest Book",
-      "author": "Me",
-      "synopsis": "Something Good",
-      "pages": "",
-      "published": "",
-      "rating": 3,
-      "id": 131
     }
   ]
 }
