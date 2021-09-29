@@ -10,9 +10,7 @@ import './styles/errorboundary.scss';
 render(
   <Router>
     <ErrorBoundary>
-      <Header />
         <App />
-      <Footer />
     </ErrorBoundary>
   </Router>,
   document.getElementById('root')

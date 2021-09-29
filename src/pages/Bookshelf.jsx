@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import '../styles/bookshelf.scss';
 import SearchImg from '../images/magnify.png';
 import Book1 from '../images/sorcerers_stone.jpeg';
@@ -65,11 +65,11 @@ const Bookshelf = () => {
         <section className="main__gridcontainer">
           {books.map(({ id, title, image, author }, i) => (
             <div className="grid__items">
-              <NavLink to={'/bookdetails/' + id} className="book__link">
+              <Link to={'/bookdetails/' + id} className="book__link">
                 <img className="grid__bookcover" src={coversObject[image]} />
                 <div className="grid__title">{title}</div>
                 <div className="grid__author">{author}</div>
-              </NavLink>
+              </Link>
             </div>
           ))}
         </section>
