@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useHistory } from 'react-router';
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import '../styles/editbook.scss';
 import { getBook, editBook } from '../utils/API';
 import { FaStar } from 'react-icons/fa';
-import { useParams } from 'react-router';
 import Book1 from '../images/sorcerers_stone.jpeg';
 import Book2 from '../images/chamberofsecrets.jpeg';
 import Book3 from '../images/prisoner.jpeg';
@@ -15,13 +13,12 @@ import Book7 from '../images/deathlyhallows.jpeg';
 
 const Editbook = () => {
   const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
-  const [book,setBook] = useState({});
+  const [book, setBook] = useState({});
   const { title, author, image, published, synopsis, pages, rating } = book;
   const history = useHistory();
   const { id } = useParams();
   const [ratingStar, setRating] = useState(rating);
   const [hover, setHover] = useState(null);
-  
 
   useEffect(() => {
     getBook(id)
@@ -40,15 +37,13 @@ const Editbook = () => {
       title: '',
       author: '',
       image: 'default',
-      published: 0/0/0,
+      published: 0 / 0 / 0,
       synopsis: '',
       pages: null,
-      rating: null
+      rating: null,
     });
 
-    
-
-    editBook(id, { title, author, synopsis, pages, published, rating })
+    editBook(id, { title, author, synopsis, pages, published, rating, image })
       .then(() => history.push('/bookshelf'))
       .catch((err) => console.log(err));
   };
@@ -56,7 +51,7 @@ const Editbook = () => {
   const inputChange = (e) => {
     const { name, value } = e.target;
     setBook({ ...book, [name]: value });
-  }
+  };
 
   return (
     <div className="edit__page">
@@ -68,7 +63,7 @@ const Editbook = () => {
               <label htmlFor="title" className="form__labels">
                 Title
                 <input
-                id="title"
+                  id="title"
                   type="text"
                   className="form__input form__title"
                   value={title}
@@ -155,7 +150,7 @@ const Editbook = () => {
                             ratingValue <= (hover || rating) ? 'gold' : 'grey'
                           }
                           onMouseEnter={() => setHover(ratingValue)}
-                          onMouseLeave={() => setHover(null)}
+                          onMouseLeave={() => setHover('')}
                         />
                       </label>
                     );
@@ -174,11 +169,11 @@ const Editbook = () => {
             <button type="submit" className="edit__button button--dark">
               Submit
             </button>
-            <NavLink to="/bookshelf" className="cancel__button--nav">
-            <button className="edit__button cancel__button" type="reset">
-              Cancel
-            </button>
-            </NavLink>
+            <Link to="/bookshelf" className="cancel__button--nav">
+              <button className="edit__button cancel__button" type="reset">
+                Cancel
+              </button>
+            </Link>
           </div>
         </form>
       </main>

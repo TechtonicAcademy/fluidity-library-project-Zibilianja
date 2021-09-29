@@ -1,7 +1,15 @@
 import { render } from 'react-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react';
 import ErrorBoundary from './ErrorBoundary';
-import App from './App';
+import App from './App.jsx';
+import './styles/errorboundary.scss';
 
-
-render(<ErrorBoundary><App /></ErrorBoundary>, document.getElementById('root'));
+render(
+  <Router>
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
+  </Router>,
+  document.getElementById('root')
+);

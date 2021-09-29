@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useParams, useHistory, NavLink } from 'react-router-dom';
 import '../styles/bookshelf.scss';
 import SearchImg from '../images/magnify.png';
 import Book1 from '../images/sorcerers_stone.jpeg';
@@ -9,18 +9,34 @@ import Book4 from '../images/goblet.jpeg';
 import Book5 from '../images/phoenix.jpeg';
 import Book6 from '../images/halfblood.jpeg';
 import Book7 from '../images/deathlyhallows.jpeg';
-import { getBooks } from '../utils/API.js';
+import { getBooks } from '../utils/API';
 
-const Bookshelf = () => {
-  const [books, setBooks] = useState([]);
+const FilteredBooks = () => {
+  const [filteredBooks, setFilteredBooks] = useState([]);
   const [newQuery, setNewQuery] = useState('');
+  const { query } = useParams();
   const history = useHistory();
 
   useEffect(() => {
     getBooks()
-      .then(({ data: books }) => setBooks(books))
+      .then(({ data: books }) => {
+        if (query) {
+          let tempArray = [];
+          for (let i = 0; i < books.length; i++) {
+            if (
+              books[i].title.toLowerCase().includes(query.toLowerCase()) ||
+              books[i].author.toLowerCase().includes(query.toLowerCase())
+            ) {
+              tempArray.push(books[i]);
+            }
+          }
+          setFilteredBooks(tempArray);
+        } else {
+          setFilteredBooks(books);
+        }
+      })
       .catch((err) => console.log(err));
-  }, []);
+  }, [query]);
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -62,14 +78,17 @@ const Bookshelf = () => {
           </form>
         </div>
         <h2 className="main__title">Release the Kraken of Knowledge!</h2>
+        <NavLink to="/bookshelf">
+          <button className="clear__button">Clear Search</button>
+        </NavLink>
         <section className="main__gridcontainer">
-          {books.map(({ id, title, image, author }, i) => (
+          {filteredBooks.map(({ id, title, image, author }) => (
             <div className="grid__items">
-              <Link to={'/bookdetails/' + id} className="book__link">
+              <NavLink to={'/bookdetails/' + id} className="book__link">
                 <img className="grid__bookcover" src={coversObject[image]} />
                 <div className="grid__title">{title}</div>
                 <div className="grid__author">{author}</div>
-              </Link>
+              </NavLink>
             </div>
           ))}
         </section>
@@ -77,4 +96,4 @@ const Bookshelf = () => {
     </div>
   );
 };
-export default Bookshelf;
+export default FilteredBooks;

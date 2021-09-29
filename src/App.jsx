@@ -7,22 +7,22 @@ import Addbook from './pages/Addbook';
 import Bookdetails from './pages/Bookdetails';
 import Editbook from './pages/Editbook';
 import Footer from './components/Footer';
+import FilteredBooks from './pages/FilteredBooks';
 
 const App = () => {
   return (
-    <Router>
-      <div className="container">
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/bookshelf" component={Bookshelf} />
-          <Route path="/addbook" component={Addbook} />
-          <Route path="/editbook/:id" component={Editbook} />
-          <Route path="/bookdetails/:id" component={Bookdetails} />
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
+    <div className="container">
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/bookshelf" component={Bookshelf} />
+        <Route path="/addbook" component={Addbook} />
+        <Route path="/editbook/:id" component={Editbook} />
+        <Route path="/bookdetails/:id" component={Bookdetails} />
+        <Route path="/filtered/:query" component={FilteredBooks} />
+      </Switch>
+      <Footer />
+    </div>
   );
 };
 

@@ -1,12 +1,31 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import React from 'react';
+import { useHistory } from 'react-router';
 import '../styles/header.scss';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { getBooks } from '../utils/API';
 
 const Header = () => {
   const [dropDown, setDropOpen] = useState(false);
-
+  const [query, setQuery] = useState('');
   const { pathname } = useLocation();
+  const history = useHistory();
+
+  const formSubmit = (e) => {
+    e.preventDefault();
+
+    if (!query) {
+      return alert('Must provide an author or title!');
+    }
+
+    getBooks()
+      .then(() => history.push('/filtered/' + query))
+      .catch((err) => console.log(err));
+  };
+
+  const inputChange = (e) => {
+    const { value } = e.target;
+    setQuery(value);
+  };
 
   return (
     <header className="header">
@@ -26,15 +45,23 @@ const Header = () => {
         >
           <div className="dropdown__content">
             <li className="dropdown__link dropdown__home">
-              <NavLink className="navlink" to="/" isActive={() => pathname === '/'}>
+              <NavLink
+                className="navlink"
+                to="/"
+                isActive={() => pathname === '/'}
+              >
                 Home
               </NavLink>
             </li>
             <li className="dropdown__link dropdown__bookshelf">
-              <NavLink className="navlink" to="/bookshelf">Bookshelf</NavLink>
+              <NavLink className="navlink" to="/bookshelf">
+                Bookshelf
+              </NavLink>
             </li>
             <li className="dropdown__link dropdown__addbook">
-              <NavLink className="navlink" to="/addbook">Add Book</NavLink>
+              <NavLink className="navlink" to="/addbook">
+                Add Book
+              </NavLink>
             </li>
           </div>
         </ul>
@@ -42,29 +69,40 @@ const Header = () => {
       <nav className="header__nav">
         <ul className="header__list">
           <li className="header__listitem header--home">
-            <NavLink className="navlink" to="/" isActive={() => pathname === '/'}>
+            <NavLink
+              className="navlink"
+              to="/"
+              isActive={() => pathname === '/'}
+            >
               Home
             </NavLink>
           </li>
           <li className="header__listitem header--bookshelf">
-            <NavLink className="navlink" to="/bookshelf">Bookshelf</NavLink>
+            <NavLink className="navlink" to="/bookshelf">
+              Bookshelf
+            </NavLink>
           </li>
           <li className="header__listitem header--addbook">
-            <NavLink className="navlink" to="/addbook">Add Book</NavLink>
+            <NavLink className="navlink" to="/addbook">
+              Add Book
+            </NavLink>
           </li>
         </ul>
       </nav>
-      <section className="header__search header__search--styles">
+      <form
+        onSubmit={formSubmit}
+        className="header__search header__search--styles"
+      >
         <input
           type="text"
           placeholder="Search by Title/Author"
           className="header__input"
+          onChange={inputChange}
         />
         <button type="submit" className="header__searchbtn">
           Search
         </button>
-      </section>
-      
+      </form>
     </header>
   );
 };

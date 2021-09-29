@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import '../styles/details.scss';
-import { FaStar, FaX } from 'react-icons/fa';
+import { FaStar } from 'react-icons/fa';
 import Book1 from '../images/sorcerers_stone.jpeg';
 import Book2 from '../images/chamberofsecrets.jpeg';
 import Book3 from '../images/prisoner.jpeg';
@@ -9,10 +9,7 @@ import Book4 from '../images/goblet.jpeg';
 import Book5 from '../images/phoenix.jpeg';
 import Book6 from '../images/halfblood.jpeg';
 import Book7 from '../images/deathlyhallows.jpeg';
-import { getBook } from '../utils/API.js';
-import { deleteBook } from '../utils/API.js';
-import { useHistory } from 'react-router';
-
+import { getBook, deleteBook } from '../utils/API.js';
 
 const Bookdetails = () => {
   const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
@@ -23,7 +20,6 @@ const Bookdetails = () => {
   const { id } = useParams();
   const history = useHistory();
 
-  
   useEffect(() => {
     getBook(id)
       .then(({ data: book }) => setBook(book))
@@ -61,9 +57,7 @@ const Bookdetails = () => {
                         />
                         <FaStar
                           className="fa fa-star star__rating"
-                          color={
-                            ratingValue <= rating ? 'gold' : 'grey'
-                          }
+                          color={ratingValue <= rating ? 'gold' : 'grey'}
                         />
                       </label>
                     );
@@ -84,19 +78,24 @@ const Bookdetails = () => {
             <p className="book__description">{synopsis}</p>
           </section>
           <div className="main__btnwrap">
-            <NavLink to={"/editbook/" + id} className="edit__link">
+            <Link to={'/editbook/' + id} className="edit__link">
               <button className="main__button button--dark">
                 Edit This Book
               </button>
-            </NavLink>
-            <NavLink to="/bookshelf" className="shelf__link">
+            </Link>
+            <Link to="/bookshelf" className="shelf__link">
               <button className="main__button">Back to Shelf</button>
-            </NavLink>
-            <NavLink to={"/bookshelf"} className="delete__link">
-            <button className="delete__button" type="submit" onClick={bookDelete}>Delete Book</button>
-            </NavLink>
+            </Link>
+            <Link to="/bookshelf" className="delete__link">
+              <button
+                className="delete__button"
+                type="submit"
+                onClick={bookDelete}
+              >
+                Delete Book
+              </button>
+            </Link>
           </div>
-          
         </section>
       </main>
     </div>
