@@ -120,6 +120,7 @@ $book_brown: rgba(77, 63, 63, 0.63);
     justify-content: center;
     position: absolute;
     margin: 33em auto 0 -5.5%;
+    bottom: 15%;
   }
   .shelf__link {
     width: 30%;
@@ -152,6 +153,25 @@ $book_brown: rgba(77, 63, 63, 0.63);
     background-color: $gray_background;
     color: white;
   }
+  .delete__link {
+    text-decoration: none;
+    width: 135px;
+    display: inline-flex;
+    justify-content: center;
+    margin-left: 25px;
+  }
+  .delete__button {
+    background-color: transparent;
+    border: none;
+    height: fit-content;
+    width: fit-content;
+    right: 5%;
+    color: red;
+    font-size: 15pt;
+  }
+  .delete__button:hover {
+    color: rgb(244, 181, 181);
+  }
 }
 
 //------------------------------------------------------------------
@@ -170,6 +190,9 @@ $book_brown: rgba(77, 63, 63, 0.63);
       margin-left: 0;
     }
   }
+  .delete__button {
+    margin-left: 10%;
+  }
 }
 
 //------------------------------------------------------------------
@@ -179,6 +202,9 @@ $book_brown: rgba(77, 63, 63, 0.63);
     .book__details {
       margin-left: -2%;
       margin-top: 1%;
+    }
+    .delete__button {
+      margin-left: 10%;
     }
   }
 }
@@ -274,8 +300,6 @@ $book_brown: rgba(77, 63, 63, 0.63);
           display: inline-flex;
         }
         .fa-star {
-          color: gold;
-          font-size: 18pt;
           margin-left: auto;
           margin-right: auto;
           margin-top: auto;
@@ -283,8 +307,10 @@ $book_brown: rgba(77, 63, 63, 0.63);
           display: block;
           width: 20%;
         }
-        .star5 {
-          color: grey;
+        .star__rating {
+          font-size: 20pt;
+          height: auto;
+          width: 1em;
         }
       }
     }

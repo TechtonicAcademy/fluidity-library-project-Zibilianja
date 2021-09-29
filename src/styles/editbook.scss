@@ -80,25 +80,20 @@ $book_brown: rgba(77, 63, 63, 0.63);
           font-size: 12pt;
         }
         .form__rating {
-          width: fit-content;
-          margin-left: 8%;
+          width: 100%;
         }
         .label__rating {
-          margin-left: 9%;
           margin-top: 1%;
+          width: 100%;
         }
         .form__rating {
           margin-top: 2%;
-          width: 30%;
-          margin-left: 2%;
+          width: 70%;
           display: flex;
           justify-content: space-evenly;
           .star__rating {
-            font-size: 18pt;
-            color: gold;
-          }
-          .star5 {
-            color: grey;
+            font-size: 19pt;
+            cursor: pointer;
           }
         }
       }
@@ -127,9 +122,10 @@ $book_brown: rgba(77, 63, 63, 0.63);
       }
       .rating__wrapper {
         height: 10%;
-        display: flex;
+        width: 75%;
+        display: inline-flex;
         margin-top: -3%;
-        margin-left: 3%;
+        margin-left: -15%;
         align-content: center;
       }
       .rating__radio {
@@ -137,9 +133,9 @@ $book_brown: rgba(77, 63, 63, 0.63);
       }
       .form__rating {
         width: 100%;
-        margin-left: 5px;
         display: grid;
         grid-template-columns: auto auto auto auto auto;
+        float: right;
       }
       .fa-star {
         margin-left: 5px;
@@ -186,6 +182,7 @@ $book_brown: rgba(77, 63, 63, 0.63);
     height: fit-content;
     display: flex;
     justify-content: center;
+    align-content: center;
     position: absolute;
     margin: 66vh 0 0 0;
   }
@@ -204,6 +201,19 @@ $book_brown: rgba(77, 63, 63, 0.63);
   .button--dark {
     background-color: $gray_background;
     color: white;
+  }
+  .cancel__button--nav {
+    margin-top: -35px;
+    width: 30%;
+    height: 3em;
+  }
+  .cancel__button {
+    width: 100%;
+    height: 3em;
+    margin: 0;
+  }
+  .edit__button:hover {
+    color: gray;
   }
 }
 
@@ -264,20 +274,22 @@ $book_brown: rgba(77, 63, 63, 0.63);
         .synopsis__wrapper {
           position: absolute;
           margin-top: 23em;
+          width: 100%;
         }
         .form__wrappers {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
           height: 2.5em;
+          width: 100%;
           .form__labels {
             width: 50vw;
             margin-left: 0;
           }
           .form__input {
-            width: 85%;
-            margin: 5px auto 0 auto;
-            margin-right: auto;
+            width: 90%;
+            margin: 5px 10px 0 0;
+
             height: 70%;
             text-indent: 10px;
           }
@@ -285,15 +297,19 @@ $book_brown: rgba(77, 63, 63, 0.63);
           }
           .form__synopsis {
             height: 200%;
-
+            width: 100%;
             letter-spacing: 1px;
+            margin-right: 0;
           }
 
           .form__published {
-            width: 50%;
+            width: 35vw;
+            justify-self: center;
+            margin-right: 15%;
           }
           .form__pages {
-            width: 50%;
+            width: 35vw;
+            margin-right: 1%;
           }
           .form__rating {
           }
@@ -323,18 +339,23 @@ $book_brown: rgba(77, 63, 63, 0.63);
         }
         .published__wrapper {
           position: absolute;
-          margin-top: 10.5em;
+          margin-top: 13.4em;
+          display: flex;
+          width: 80%;
+          height: 5%;
         }
         .pages__wrapper {
           position: absolute;
-
-          margin-top: 14.4em;
+          margin-top: 17.4em;
+          display: flex;
+          width: 30%;
         }
         .rating__wrapper {
           position: absolute;
-          margin-top: 38em;
+          margin-top: 42em;
           display: flex;
           flex-wrap: wrap;
+          margin-left: 0;
         }
       }
       .form__right {
@@ -366,7 +387,7 @@ $book_brown: rgba(77, 63, 63, 0.63);
       }
     }
     .edit__btnwrap {
-      margin-top: 52em;
+      margin-top: 54em;
       display: flex;
       flex-wrap: wrap;
       height: 7em;
@@ -376,6 +397,15 @@ $book_brown: rgba(77, 63, 63, 0.63);
       height: 33%;
     }
     .button--dark {
+    }
+    .cancel__button {
+      width: 55vw;
+      height: 100%;
+    }
+    .cancel__button--nav {
+      width: 55vw;
+      height: 33%;
+      margin-top: 1.5em;
     }
   }
 } //media query mobile end bracket
