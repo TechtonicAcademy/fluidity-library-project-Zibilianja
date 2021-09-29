@@ -13,13 +13,12 @@ import Book7 from '../images/deathlyhallows.jpeg';
 
 const Editbook = () => {
   const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
-  const [book,setBook] = useState({});
+  const [book, setBook] = useState({});
   const { title, author, image, published, synopsis, pages, rating } = book;
   const history = useHistory();
   const { id } = useParams();
   const [ratingStar, setRating] = useState(rating);
   const [hover, setHover] = useState(null);
-  
 
   useEffect(() => {
     getBook(id)
@@ -38,13 +37,11 @@ const Editbook = () => {
       title: '',
       author: '',
       image: 'default',
-      published: 0/0/0,
+      published: 0 / 0 / 0,
       synopsis: '',
       pages: null,
-      rating: null
+      rating: null,
     });
-
-    
 
     editBook(id, { title, author, synopsis, pages, published, rating, image })
       .then(() => history.push('/bookshelf'))
@@ -54,7 +51,7 @@ const Editbook = () => {
   const inputChange = (e) => {
     const { name, value } = e.target;
     setBook({ ...book, [name]: value });
-  }
+  };
 
   return (
     <div className="edit__page">
@@ -66,7 +63,7 @@ const Editbook = () => {
               <label htmlFor="title" className="form__labels">
                 Title
                 <input
-                id="title"
+                  id="title"
                   type="text"
                   className="form__input form__title"
                   value={title}
@@ -173,9 +170,9 @@ const Editbook = () => {
               Submit
             </button>
             <Link to="/bookshelf" className="cancel__button--nav">
-            <button className="edit__button cancel__button" type="reset">
-              Cancel
-            </button>
+              <button className="edit__button cancel__button" type="reset">
+                Cancel
+              </button>
             </Link>
           </div>
         </form>

@@ -13,17 +13,16 @@ export const editBook = (id, book) => {
     headers: {
       'Content-Type': 'application/json',
     },
-  })
+  });
 };
 
 export const searchBooks = (query) => {
   return axios.get(`http://localhost:3000/books/${query}`);
-  
-}
+};
 
 export const deleteBook = (id) => {
-  return axios.delete(`http://localhost:3000/books/${id}`)
-}
+  return axios.delete(`http://localhost:3000/books/${id}`);
+};
 
 export const addBook = (book) => {
   return axios.post('http://localhost:3000/books', book, {

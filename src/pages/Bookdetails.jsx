@@ -11,7 +11,6 @@ import Book6 from '../images/halfblood.jpeg';
 import Book7 from '../images/deathlyhallows.jpeg';
 import { getBook, deleteBook } from '../utils/API.js';
 
-
 const Bookdetails = () => {
   const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
   const [
@@ -21,7 +20,6 @@ const Bookdetails = () => {
   const { id } = useParams();
   const history = useHistory();
 
-  
   useEffect(() => {
     getBook(id)
       .then(({ data: book }) => setBook(book))
@@ -59,9 +57,7 @@ const Bookdetails = () => {
                         />
                         <FaStar
                           className="fa fa-star star__rating"
-                          color={
-                            ratingValue <= rating ? 'gold' : 'grey'
-                          }
+                          color={ratingValue <= rating ? 'gold' : 'grey'}
                         />
                       </label>
                     );
@@ -82,7 +78,7 @@ const Bookdetails = () => {
             <p className="book__description">{synopsis}</p>
           </section>
           <div className="main__btnwrap">
-            <Link to={"/editbook/" + id} className="edit__link">
+            <Link to={'/editbook/' + id} className="edit__link">
               <button className="main__button button--dark">
                 Edit This Book
               </button>
@@ -91,10 +87,15 @@ const Bookdetails = () => {
               <button className="main__button">Back to Shelf</button>
             </Link>
             <Link to="/bookshelf" className="delete__link">
-            <button className="delete__button" type="submit" onClick={bookDelete}>Delete Book</button>
+              <button
+                className="delete__button"
+                type="submit"
+                onClick={bookDelete}
+              >
+                Delete Book
+              </button>
             </Link>
           </div>
-          
         </section>
       </main>
     </div>

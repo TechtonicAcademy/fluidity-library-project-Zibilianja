@@ -11,7 +11,7 @@ import FilteredBooks from './pages/FilteredBooks';
 
 const App = () => {
   return (
-    <Router>
+    
       <div className="container">
         <Header />
         <Switch>
@@ -24,7 +24,7 @@ const App = () => {
         </Switch>
         <Footer />
       </div>
-    </Router>
+    
   );
 };
 

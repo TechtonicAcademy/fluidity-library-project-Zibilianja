@@ -28,7 +28,10 @@ class ErrorBoundary extends Component {
       return (
         <>
           <Header />
-          <h2 className="error__message">There has been an error and you got lost, please use the nav bar to find your way home. </h2>
+          <h2 className="error__message">
+            There has been an error and you got lost, please use the nav bar to
+            find your way home.{' '}
+          </h2>
           <Footer />
         </>
       );

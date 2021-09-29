@@ -2,6 +2,7 @@ import { useHistory, NavLink } from 'react-router-dom';
 import React from 'react';
 import '../styles/index.scss';
 
+
 const Home = () => {
   // # Gives us access to the history object, which can be used to redirect from one component to another
   const history = useHistory();

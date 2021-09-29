@@ -11,11 +11,9 @@ import Book6 from '../images/halfblood.jpeg';
 import Book7 from '../images/deathlyhallows.jpeg';
 import { getBooks } from '../utils/API.js';
 
-
-
 const Bookshelf = () => {
   const [books, setBooks] = useState([]);
-  const [newQuery, setNewQuery] = useState("");
+  const [newQuery, setNewQuery] = useState('');
   const history = useHistory();
 
   useEffect(() => {
@@ -27,57 +25,53 @@ const Bookshelf = () => {
   const formSubmit = (e) => {
     e.preventDefault();
 
-    if (!newQuery){
-      return alert("Must provide an author or title!");
-    };
+    if (!newQuery) {
+      return alert('Must provide an author or title!');
+    }
 
     getBooks()
-    .then(() => history.push('/filtered/' + newQuery))
-    .catch((err) => console.log(err))
+      .then(() => history.push('/filtered/' + newQuery))
+      .catch((err) => console.log(err));
   };
 
-const inputChange = (e) => {
+  const inputChange = (e) => {
     const { value } = e.target;
     setNewQuery(value);
-  }
+  };
 
   const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
-  
+
   return (
     <div className="page__bookshelf">
       <main className="main__bookshelf">
         <div className="main__searchwrapper">
-        <form onSubmit={formSubmit} className="main__form">
-              <input
-                type="text"
-                placeholder="Search by Title/Author"
-                className="main__search"
-                onChange={inputChange}
-              />
-              <button type="submit" className="search__button">
+          <form onSubmit={formSubmit} className="main__form">
+            <input
+              type="text"
+              placeholder="Search by Title/Author"
+              className="main__search"
+              onChange={inputChange}
+            />
+            <button type="submit" className="search__button">
               <img
                 src={SearchImg}
                 alt="Magnifying Glass"
                 className="main__searchimg"
               />
-              </button>
-              </form>
+            </button>
+          </form>
         </div>
         <h2 className="main__title">Release the Kraken of Knowledge!</h2>
         <section className="main__gridcontainer">
           {books.map(({ id, title, image, author }, i) => (
-              <div className="grid__items">
-                <NavLink to={'/bookdetails/' + id} className="book__link">
-                  <img
-                    className="grid__bookcover"
-                    src={coversObject[image]}
-                  />
-                  <div className="grid__title">{title}</div>
-                  <div className="grid__author">{author}</div>
-                </NavLink>
-              </div>
-            )
-          )}
+            <div className="grid__items">
+              <NavLink to={'/bookdetails/' + id} className="book__link">
+                <img className="grid__bookcover" src={coversObject[image]} />
+                <div className="grid__title">{title}</div>
+                <div className="grid__author">{author}</div>
+              </NavLink>
+            </div>
+          ))}
         </section>
       </main>
     </div>
