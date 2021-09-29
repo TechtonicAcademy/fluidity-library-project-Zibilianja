@@ -3,14 +3,12 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react';
 import ErrorBoundary from './ErrorBoundary';
 import App from './App.jsx';
-import Header from './components/Header';
-import Footer from './components/Footer';
 import './styles/errorboundary.scss';
 
 render(
   <Router>
     <ErrorBoundary>
-        <App />
+      <App />
     </ErrorBoundary>
   </Router>,
   document.getElementById('root')

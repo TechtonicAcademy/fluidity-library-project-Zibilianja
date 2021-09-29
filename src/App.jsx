@@ -11,20 +11,18 @@ import FilteredBooks from './pages/FilteredBooks';
 
 const App = () => {
   return (
-    
-      <div className="container">
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/bookshelf" component={Bookshelf} />
-          <Route path="/addbook" component={Addbook} />
-          <Route path="/editbook/:id" component={Editbook} />
-          <Route path="/bookdetails/:id" component={Bookdetails} />
-          <Route path="/filtered/:query" component={FilteredBooks} />
-        </Switch>
-        <Footer />
-      </div>
-    
+    <div className="container">
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/bookshelf" component={Bookshelf} />
+        <Route path="/addbook" component={Addbook} />
+        <Route path="/editbook/:id" component={Editbook} />
+        <Route path="/bookdetails/:id" component={Bookdetails} />
+        <Route path="/filtered/:query" component={FilteredBooks} />
+      </Switch>
+      <Footer />
+    </div>
   );
 };
 
