@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
         synopsis: {
             type: DataTypes.STRING,
             validate: {
-                len: [1, 100]
+                len: [1, 500]
             }
         },
         number_of_pages: {
