@@ -25,6 +25,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         number_of_pages: {
             type: DataTypes.INTEGER,
+            validate: {
+                isNumeric: true
+            }
         },
         rating: {
             type: DataTypes.INTEGER,
