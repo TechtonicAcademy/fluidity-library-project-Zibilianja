@@ -3,20 +3,8 @@ module.exports = (sequelize, DataTypes) => {
         author_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            validate: {
-                len: [1, 100]
-            }
-        },
-        createdAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            validate: {
-                len: [1, 100]
-            }
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
+            auto_increment: true,
+            primaryKey: true,
             validate: {
                 len: [1, 100]
             }
@@ -34,10 +22,13 @@ module.exports = (sequelize, DataTypes) => {
             validate: {
                 len: [1, 100]
             }
-        }   
-    });
+        },   
+    }, {
+        paranoid: true, 
+        });
 
-    Author.associate = ({ Books }) => {
-        Author.hasMany(Books);
-    }
-}
+    Author.associate = ({ Book }) => {
+        Author.hasMany(Book);
+    };
+    return Author;
+};
