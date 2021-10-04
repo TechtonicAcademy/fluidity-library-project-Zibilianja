@@ -163,13 +163,12 @@ $book_brown: rgba(77, 63, 63, 0.63);
     width: 100vw;
     display: flex;
     &__titlecontainer {
-      width: 102%;
+      min-width: 102vw;
       justify-content: center;
-      background-size: 100%;
-      min-height: 250px;
       height: 33%;
-      margin-top: -9px;
-      margin-left: 2px;
+      margin-top: -8%;
+      margin-left: 5px;
+      background-size: 150%;
     }
 
     &__titleheadings {
