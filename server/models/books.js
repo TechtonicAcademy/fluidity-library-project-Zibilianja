@@ -30,9 +30,15 @@ module.exports = (sequelize, DataTypes) => {
       },
       cover_image_url: {
         type: DataTypes.STRING,
+        validate: {
+            isUrl: true
+        }
       },
       published_date: {
         type: DataTypes.DATE,
+        validate: {
+            isDate: true
+        }
       },
     },
     {
