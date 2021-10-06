@@ -32,12 +32,18 @@ module.exports = {
       },
     })
       .then((Book) => res.json(Book))
-      .catch((err) => {
-          console.log(err);
-          res.status(500).json(err)});
+      .catch((err) => res.status(500).json(err));
   },
   create: (req, res) => {
-    Book.create(req.body)
+    const { book } = req.book
+    Book.findOrCreate({
+        include: [Author],
+        where: { [Op.or]: [
+            { title: { [Op.substring]: book.author } },
+            { first_name: { [Op.substring]: book.author } },
+            { last_name: { [Op.substring]: book.author } },
+          ], }, 
+        }, )
       .then(() => res.end())
       .catch((err) => {
           console.log(err);
