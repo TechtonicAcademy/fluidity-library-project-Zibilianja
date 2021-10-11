@@ -1,5 +1,5 @@
 const { Book, Author } = require('../models');
-const Op = require('sequelize');
+const { Op } = require('sequelize');
 
 module.exports = {
   findAll: (req, res) => {
@@ -20,8 +20,9 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   search: (req, res) => {
-    const { query } = req.query;
-    Book.findAll({
+    const { query } = req.params.query;
+    console.log(query)
+    Book.findAll(req.params.query, {
       include: [Author],
       where: {
         [Op.or]: [
@@ -35,16 +36,30 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   create: (req, res) => {
-    const { book } = req.book
-    Book.findOrCreate({
-        include: [Author],
-        where: { [Op.or]: [
-            { title: { [Op.substring]: book.author } },
-            { first_name: { [Op.substring]: book.author } },
-            { last_name: { [Op.substring]: book.author } },
-          ], }, 
-        }, )
-      .then(() => res.end())
+    const {
+        body: { author, ...book },
+    } = req;
+    const [first_name, last_name] = author.split(' ');
+    Author.findOrCreate({
+        where: {
+            [Op.or]: [
+            { first_name },
+            { last_name }
+            ],
+        },
+        defaults: {
+            first_name,
+            last_name,
+        },
+    })
+      .then((author) => {
+          console.log(author);
+          Book.create({
+              AuthorId: author[0].dataValues.id,
+              ...book,
+          })
+          .then(() => res.end());
+      })
       .catch((err) => {
           console.log(err);
           res.status(422).json(err)})
