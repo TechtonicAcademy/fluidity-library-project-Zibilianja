@@ -22,12 +22,16 @@ module.exports = {
   },
   search: (req, res) => {
     const { query } = req.query;
+
     Book.findAll({
       include: [Author],
       where: {
         [Op.or]: [
-            { title: { [Op.substring]: query } },
-        ]},
+          { title: { [Op.substring]: query } },
+          { '$Author.first_name$': { [Op.substring]: query } },
+          { '$Author.last_name$': { [Op.substring]: query } },
+        ],
+      },
     })
       .then((Book) => res.json(Book))
       .catch((err) => {
@@ -42,7 +46,7 @@ module.exports = {
     const [first_name, last_name] = author.split(' ');
     Author.findOrCreate({
       where: {
-        [Op.or]: [{ first_name }, { last_name }],
+        [Op.and]: [{ first_name }, { last_name }],
       },
       defaults: {
         first_name,
@@ -62,17 +66,34 @@ module.exports = {
       });
   },
   update: (req, res) => {
+    const {
+      body: { author, ...book },
+    } = req;
+    const [first_name, last_name] = author.split(' ');
+    console.log(req.body);
     Book.update(req.body, {
-      where: { id: req.params.id },
-    })
+        where: { id: req.params.id },
+      });
+    Author.update(
+      { first_name, last_name },
+      {
+        where: [{ id: req.body.Authorid }],
+      }
+    )
       .then(() => res.end())
-      .catch((err) => res.status(422).json(err));
+      .catch((err) => {
+        console.log(err);
+        res.status(422).json(err);
+      });
   },
   delete: (req, res) => {
     Book.destroy({
       where: { id: req.params.id },
     })
       .then(() => res.end())
-      .catch((err) => res.status(500).json(err));
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   },
 };
