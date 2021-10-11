@@ -20,21 +20,24 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   search: (req, res) => {
-    const { query } = req.params.query;
-    console.log(query)
-    Book.findAll(req.params.query, {
-      include: [Author],
+    const { query } = req.query;
+    Book.findAll({
+        include: [{model : Author, as : 'Author'}],
       where: {
         [Op.or]: [
           { title: { [Op.substring]: query } },
-          { first_name: { [Op.substring]: query } },
-          { last_name: { [Op.substring]: query } },
+          { 'Author.first_name' : { [Op.substring]: query } },
+          { 'Author.last_name' : { [Op.substring]: query } },
+
         ],
       },
     })
       .then((Book) => res.json(Book))
-      .catch((err) => res.status(500).json(err));
-  },
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err)})
+    
+},
   create: (req, res) => {
     const {
         body: { author, ...book },

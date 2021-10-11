@@ -3,7 +3,7 @@ const booksController = require('../../controllers/booksController');
 
 router.route('/').get(booksController.findAll);
 
-router.route('/search/:query').get(booksController.search);
+router.route('/search').get(booksController.search);
 
 router.route('/addbook').post(booksController.create);
 
