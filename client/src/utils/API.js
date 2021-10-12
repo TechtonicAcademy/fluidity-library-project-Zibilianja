@@ -17,7 +17,7 @@ export const editBook = (id, book) => {
 };
 
 export const searchBooks = (query) => {
-  return axios.get(`http://localhost:8080/books/${query}`);
+  return axios.get(`http://localhost:8080/books/search`);
 };
 
 export const deleteBook = (id) => {
@@ -25,7 +25,7 @@ export const deleteBook = (id) => {
 };
 
 export const addBook = (book) => {
-  return axios.post('http://localhost:8080/books', book, {
+  return axios.post('http://localhost:8080/books/addbook', book, {
     headers: {
       'Content-Type': 'application/json',
     },
