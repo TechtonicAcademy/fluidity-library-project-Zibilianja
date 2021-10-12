@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
           len: [1, 500],
         },
       },
-      number_of_pages: {
+      pages: {
         type: DataTypes.INTEGER,
         validate: {
           isNumeric: true,
@@ -28,14 +28,14 @@ module.exports = (sequelize, DataTypes) => {
           isIn: [[1, 2, 3, 4, 5]],
         },
       },
-      cover_image_url: {
-        type: DataTypes.STRING,
+      image: {
+        type: DataTypes.TEXT('medium'),
         validate: {
-            isUrl: true
+            
         }
       },
-      published_date: {
-        type: DataTypes.DATE,
+      published: {
+        type: DataTypes.DATEONLY,
         validate: {
             isDate: true
         }

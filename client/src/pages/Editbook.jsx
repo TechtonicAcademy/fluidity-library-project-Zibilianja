@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import '../styles/editbook.scss';
 import { getBook, editBook } from '../utils/API';
 import { FaStar } from 'react-icons/fa';
-import Book1 from '../images/sorcerers_stone.jpeg';
-import Book2 from '../images/chamberofsecrets.jpeg';
-import Book3 from '../images/prisoner.jpeg';
-import Book4 from '../images/goblet.jpeg';
-import Book5 from '../images/phoenix.jpeg';
-import Book6 from '../images/halfblood.jpeg';
-import Book7 from '../images/deathlyhallows.jpeg';
+
 
 const Editbook = () => {
-  const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
   const [book, setBook] = useState({});
-  const { title, author, image, published, synopsis, pages, rating } = book;
+  const { title, Author, image, published, synopsis, pages, rating } = book;
+  
   const history = useHistory();
   const { id } = useParams();
   const [ratingStar, setRating] = useState(rating);
   const [hover, setHover] = useState(null);
+  const [imageState, setImageState] = useState(image);
+  const [preview, setPreview] = useState();
+  const fileInput = useRef();
+ 
 
   useEffect(() => {
     getBook(id)
-      .then(({ data: book }) => setBook(book))
+      .then(({ data: book }) => {
+        console.log(book)
+        setBook(book)})
       .catch((err) => console.log(err));
   }, [id]);
 
@@ -79,7 +79,7 @@ const Editbook = () => {
                   id="author"
                   type="text"
                   className="form__input form__author"
-                  value={author}
+                  value={Author}
                   name="author"
                   onChange={inputChange}
                 />
@@ -160,10 +160,21 @@ const Editbook = () => {
             </div>
           </div>
           <div className="form__right">
-            <div className="image__frame">
-              <img src={coversObject[image]} className="book__cover" />
-            </div>
-            <button className="image__upload">Change Image</button>
+          <div className="image__frame" ref={fileInput}><img className="book__cover" src={image} /></div>
+              
+              <input style={{display: 'none'}} type="file" accept="image/*" ref={fileInput} onChange={(e) => {
+                const file = e.target.files[0];
+                if (file && file.type.substr(0,5) === 'image') {
+                  setImageState(file);
+                } else {
+                  setImageState(null);
+                }
+              }}/>
+              <button className="image__upload" onClick={(e) => {
+                setImageState(null);
+                e.preventDefault();
+                fileInput.current.value.click()
+              }}>Add Image</button>
           </div>
           <div className="edit__btnwrap">
             <button type="submit" className="edit__button button--dark">

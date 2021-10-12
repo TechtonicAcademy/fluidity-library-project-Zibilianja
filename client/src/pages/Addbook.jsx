@@ -1,18 +1,36 @@
 import { NavLink, useHistory } from 'react-router-dom';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { addBook } from '../utils/API';
 import '../styles/addbook.scss';
 import { FaStar } from 'react-icons/fa';
 
+
 const Addbook = () => {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
+const [image, setImage] = useState();
+const [preview, setPreview] = useState();
+
   const history = useHistory();
   const titleInput = useRef();
   const authorInput = useRef();
   const synopsisInput = useRef();
   const pageInput = useRef();
   const publishInput = useRef();
+  const fileInput = useRef();
+
+useEffect(() => {
+  if (image){
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPreview(reader.result)
+    }
+    reader.readAsDataURL(image);
+
+  } else {
+    setPreview(null);
+  }
+}, [image]);
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -21,12 +39,13 @@ const Addbook = () => {
     const synopsis = synopsisInput.current.value.trim();
     const pages = pageInput.current.value.trim();
     const published = publishInput.current.value.trim();
+    const image = preview;
 
     if (!title || !author) {
       return alert('You must include both a title and author to add a book!');
     }
 
-    addBook({ title, author, synopsis, pages, published, rating })
+    addBook({ title, author, synopsis, pages, published, rating, image })
       .then(() => history.push('/bookshelf'))
       .catch((err) => console.log(err));
   };
@@ -131,9 +150,21 @@ const Addbook = () => {
           </div>
 
           <div className="form__right">
-            <div className="image__frame">Add Image</div>
-            <img />
-            <button className="image__upload">Add Image</button>
+            <div className="image__frame" ref={fileInput} onChange>{preview ? <img className="upload__image" src={preview} /> : "Add Image"}</div>
+              
+            <input style={{display: 'none'}} type="file" accept="image/*" ref={fileInput} onChange={(e) => {
+              const file = e.target.files[0];
+              if (file && file.type.substr(0,5) === 'image') {
+                setImage(file);
+              } else {
+                setImage(null);
+              }
+            }}/>
+            <button className="image__upload" onClick={(e) => {
+              setImage(null);
+              e.preventDefault();
+              fileInput.current.click()
+            }}>Add Image</button>
           </div>
           <div className="addbook__btnwrap">
             <button type="submit" className="addbook__button button--dark">

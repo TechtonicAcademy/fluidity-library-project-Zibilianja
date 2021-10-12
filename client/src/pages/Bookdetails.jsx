@@ -2,17 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import '../styles/details.scss';
 import { FaStar } from 'react-icons/fa';
-import Book1 from '../images/sorcerers_stone.jpeg';
-import Book2 from '../images/chamberofsecrets.jpeg';
-import Book3 from '../images/prisoner.jpeg';
-import Book4 from '../images/goblet.jpeg';
-import Book5 from '../images/phoenix.jpeg';
-import Book6 from '../images/halfblood.jpeg';
-import Book7 from '../images/deathlyhallows.jpeg';
 import { getBook, deleteBook } from '../utils/API.js';
 
 const Bookdetails = () => {
-  const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
   const [
     { title, author, image, published, synopsis, pages, rating },
     setBook,
@@ -39,7 +31,7 @@ const Bookdetails = () => {
         <section className="main__detailcard">
           <div className="main__coverwrap">
             <h2 className="book__title--mobile">{title}</h2>
-            <img src={coversObject[image]} className="book__cover" />
+            <img src={image} className="book__cover" />
             <h3 className="author__mobile">{author}</h3>
             <div className="book__stars">
               <h4 className="book__rating">Rating</h4>
