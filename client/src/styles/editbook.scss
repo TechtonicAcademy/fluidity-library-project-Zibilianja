@@ -157,10 +157,9 @@ $book_brown: rgba(77, 63, 63, 0.63);
         justify-content: center;
 
         .book__cover {
-          height: auto;
-          width: 100%;
-          max-width: 300px;
-          max-height: 400px;
+          height: 100%;
+          width: auto;
+          max-height: 350px;
         }
       }
       .image__upload {

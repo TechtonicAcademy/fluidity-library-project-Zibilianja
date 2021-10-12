@@ -7,8 +7,9 @@ import { FaStar } from 'react-icons/fa';
 
 const Editbook = () => {
   const [book, setBook] = useState({});
-  const { title, Author, image, published, synopsis, pages, rating } = book;
-  
+  const { title, image, published, synopsis, pages, rating } = book;
+  const [Author, setAuthor] = useState({});
+  const { first_name, last_name } = Author;
   const history = useHistory();
   const { id } = useParams();
   const [ratingStar, setRating] = useState(rating);
@@ -22,6 +23,7 @@ const Editbook = () => {
     getBook(id)
       .then(({ data: book }) => {
         console.log(book)
+        setAuthor(book.Author)
         setBook(book)})
       .catch((err) => console.log(err));
   }, [id]);
@@ -79,7 +81,7 @@ const Editbook = () => {
                   id="author"
                   type="text"
                   className="form__input form__author"
-                  value={Author}
+                  value={first_name + ' ' + last_name}
                   name="author"
                   onChange={inputChange}
                 />
