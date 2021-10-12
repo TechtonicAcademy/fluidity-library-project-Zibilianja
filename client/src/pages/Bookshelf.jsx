@@ -2,13 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import '../styles/bookshelf.scss';
 import SearchImg from '../images/magnify.png';
-import Book1 from '../images/sorcerers_stone.jpeg';
-import Book2 from '../images/chamberofsecrets.jpeg';
-import Book3 from '../images/prisoner.jpeg';
-import Book4 from '../images/goblet.jpeg';
-import Book5 from '../images/phoenix.jpeg';
-import Book6 from '../images/halfblood.jpeg';
-import Book7 from '../images/deathlyhallows.jpeg';
 import { getBooks } from '../utils/API.js';
 
 const Bookshelf = () => {

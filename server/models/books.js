@@ -11,34 +11,22 @@ module.exports = (sequelize, DataTypes) => {
       },
       synopsis: {
         type: DataTypes.STRING,
-        validate: {
-          len: [1, 500],
-        },
+        allowNull: true,
       },
       pages: {
         type: DataTypes.INTEGER,
-        validate: {
-          isNumeric: true,
-        },
+        allowNull: true,
       },
       rating: {
         type: DataTypes.INTEGER,
-        validate: {
-          isNumeric: true,
-          isIn: [[1, 2, 3, 4, 5]],
-        },
+        allowNull: true,
       },
       image: {
         type: DataTypes.TEXT('medium'),
-        validate: {
-            
-        }
       },
       published: {
         type: DataTypes.DATEONLY,
-        validate: {
-            isDate: true
-        }
+        allowNull: true,
       },
     },
     {

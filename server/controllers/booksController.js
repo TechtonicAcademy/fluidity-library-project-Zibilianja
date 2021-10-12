@@ -76,7 +76,7 @@ module.exports = {
     Author.update(
       { first_name, last_name },
       {
-        where: [{ id: req.body.Authorid }],
+        where: [{ id: req.body.AuthorId }],
       }
     )
       .then(() => res.end())

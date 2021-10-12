@@ -17,7 +17,7 @@ export const editBook = (id, book) => {
 };
 
 export const searchBooks = (query) => {
-  return axios.get(`http://localhost:8080/api/books/search`);
+  return axios.get(`http://localhost:8080/api/books/search?query=${query}`);
 };
 
 export const deleteBook = (id) => {

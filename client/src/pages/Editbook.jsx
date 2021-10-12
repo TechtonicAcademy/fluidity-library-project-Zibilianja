@@ -4,12 +4,10 @@ import '../styles/editbook.scss';
 import { getBook, editBook } from '../utils/API';
 import { FaStar } from 'react-icons/fa';
 
-
 const Editbook = () => {
   const [book, setBook] = useState({});
-  const { title, image, published, synopsis, pages, rating, Authorid } = book;
-  const [Author, setAuthor] = useState({});
-  const { first_name, last_name } = Author;
+  const { title, image, published, synopsis, pages, rating, AuthorId, author } =
+    book;
   const history = useHistory();
   const { id } = useParams();
   const [ratingStar, setRating] = useState(rating);
@@ -17,14 +15,13 @@ const Editbook = () => {
   const [imageState, setImageState] = useState();
   const [preview, setPreview] = useState(image);
   const fileInput = useRef();
- 
+
   useEffect(() => {
-    if (imageState){
+    if (imageState) {
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreview(reader.result);
-        image = preview;
-      }
+      };
       reader.readAsDataURL(imageState);
     } else {
       setPreview(null);
@@ -34,48 +31,34 @@ const Editbook = () => {
   useEffect(() => {
     getBook(id)
       .then(({ data: book }) => {
-        setAuthor(book.Author)
-        setPreview(book.image)
-        setBook(book)})
+        setPreview(book.image);
+        setBook({
+          ...book,
+          author: book.Author.first_name + ' ' + book.Author.last_name,
+        });
+      })
       .catch((err) => console.log(err));
   }, [id]);
 
   const formSubmit = (e) => {
     e.preventDefault();
-    ;
-
+    const image = preview;
     if (!title || !author) {
       return alert('You must include both a title and author!');
     }
-    console.log(author);
-    setBook({
-      title: '',
-      author: '',
-      image: 'default',
-      published: 0 / 0 / 0,
-      synopsis: '',
-      pages: null,
-      rating: null,
-    });
+   
 
-    editBook(id, { title, author, Authorid, synopsis, pages, published, rating, image })
-      .then(() => history.push('/bookshelf'))
+    editBook(id, { title, AuthorId, author, synopsis, pages, published, rating, image })
+      .then(() => {
+        history.push('/bookshelf');
+      })
       .catch((err) => console.log(err));
   };
 
   const inputChange = (e) => {
     const { name, value } = e.target;
-    if (name === "Author"){
-      const [first_name = '', last_name = ''] = value.split(' ');
-      setAuthor({...Author, 
-        first_name,
-        last_name})
-    } else (
-      setBook({ ...book, [name]: value })
-    )
+    setBook({ ...book, [name]: value });
   };
-
-  
 
   return (
     <div className="edit__page">
@@ -103,8 +86,8 @@ const Editbook = () => {
                   id="author"
                   type="text"
                   className="form__input form__author"
-                  value={first_name + ' ' + last_name}
-                  name="Author"
+                  value={author}
+                  name="author"
                   onChange={inputChange}
                 />
               </label>
@@ -184,21 +167,34 @@ const Editbook = () => {
             </div>
           </div>
           <div className="form__right">
-          <div className="image__frame"><img className="book__cover" src={preview} /></div>
-              
-              <input style={{display: 'none'}} name="image" value={imageState} type="file" accept="image/*" ref={fileInput} onChange={(e) => {
+            <div className="image__frame">
+              <img className="book__cover" src={preview} />
+            </div>
+
+            <input
+              style={{ display: 'none' }}
+              name="image"
+              type="file"
+              accept="image/*"
+              ref={fileInput}
+              onChange={(e) => {
                 const file = e.target.files[0];
-                if (file && file.type.substr(0,5) === 'image') {
+                if (file && file.type.substr(0, 5) === 'image') {
                   setImageState(file);
                 } else {
-                  setImageState(null);
+                  setImageState(image);
                 }
-              }}/>
-              <button className="image__upload" onClick={(e) => {
-                setImageState(null);
+              }}
+            />
+            <button
+              className="image__upload"
+              onClick={(e) => {
                 e.preventDefault();
-                fileInput.current.click()
-              }}>Add Image</button>
+                fileInput.current.click();
+              }}
+            >
+              Add Image
+            </button>
           </div>
           <div className="edit__btnwrap">
             <button type="submit" className="edit__button button--dark">

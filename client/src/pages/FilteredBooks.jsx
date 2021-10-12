@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory, NavLink } from 'react-router-dom';
 import '../styles/bookshelf.scss';
 import SearchImg from '../images/magnify.png';
-import { getBooks } from '../utils/API';
+import { getBooks, searchBooks } from '../utils/API';
 
 const FilteredBooks = () => {
   const [filteredBooks, setFilteredBooks] = useState([]);
@@ -11,23 +11,10 @@ const FilteredBooks = () => {
   const history = useHistory();
 
   useEffect(() => {
-    getBooks()
+    searchBooks(query)
       .then(({ data: books }) => {
-        if (query) {
-          let tempArray = [];
-          for (let i = 0; i < books.length; i++) {
-            if (
-              books[i].title.toLowerCase().includes(query.toLowerCase()) ||
-              books[i].author.toLowerCase().includes(query.toLowerCase())
-            ) {
-              tempArray.push(books[i]);
-            }
-          }
-          setFilteredBooks(tempArray);
-        } else {
           setFilteredBooks(books);
-        }
-      })
+         })
       .catch((err) => console.log(err));
   }, [query]);
 
