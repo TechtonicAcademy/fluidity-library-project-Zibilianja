@@ -12,7 +12,6 @@ const Bookshelf = () => {
   useEffect(() => {
     getBooks()
       .then(({ data: books }) => {
-        console.log(books);
         setBooks(books);
       })
       .catch((err) => console.log(err));

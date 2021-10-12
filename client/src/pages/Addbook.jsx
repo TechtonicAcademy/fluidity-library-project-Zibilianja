@@ -5,8 +5,8 @@ import '../styles/addbook.scss';
 import { FaStar } from 'react-icons/fa';
 
 const Addbook = () => {
-  const [rating, setRating] = useState(null);
-  const [hover, setHover] = useState(null);
+  const [rating, setRating] = useState(0);
+  const [hover, setHover] = useState(0);
   const [image, setImage] = useState();
   const [preview, setPreview] = useState();
 

@@ -24,7 +24,6 @@ const Bookdetails = () => {
   }, [id]);
 
   const bookDelete = (e) => {
-    e.preventDefault();
     deleteBook(id)
       .then(() => history.push('/bookshelf'))
       .catch((err) => console.log(err));
@@ -76,17 +75,17 @@ const Bookdetails = () => {
           </section>
           <div className="main__btnwrap">
             <Link to={'/editbook/' + id} className="edit__link">
-              <button className="main__button button--dark">
+              <button className="main__button button--dark" type="button">
                 Edit This Book
               </button>
             </Link>
             <Link to="/bookshelf" className="shelf__link">
-              <button className="main__button">Back to Shelf</button>
+              <button className="main__button" type="button">Back to Shelf</button>
             </Link>
             <Link to="/bookshelf" className="delete__link">
               <button
                 className="delete__button"
-                type="submit"
+                type="button"
                 onClick={bookDelete}
               >
                 Delete Book
