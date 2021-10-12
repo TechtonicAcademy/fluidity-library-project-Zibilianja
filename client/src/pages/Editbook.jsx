@@ -7,34 +7,47 @@ import { FaStar } from 'react-icons/fa';
 
 const Editbook = () => {
   const [book, setBook] = useState({});
-  const { title, image, published, synopsis, pages, rating } = book;
+  const { title, image, published, synopsis, pages, rating, Authorid } = book;
   const [Author, setAuthor] = useState({});
   const { first_name, last_name } = Author;
   const history = useHistory();
   const { id } = useParams();
   const [ratingStar, setRating] = useState(rating);
   const [hover, setHover] = useState(null);
-  const [imageState, setImageState] = useState(image);
-  const [preview, setPreview] = useState();
+  const [imageState, setImageState] = useState();
+  const [preview, setPreview] = useState(image);
   const fileInput = useRef();
  
+  useEffect(() => {
+    if (imageState){
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result);
+        image = preview;
+      }
+      reader.readAsDataURL(imageState);
+    } else {
+      setPreview(null);
+    }
+  }, [imageState]);
 
   useEffect(() => {
     getBook(id)
       .then(({ data: book }) => {
-        console.log(book)
         setAuthor(book.Author)
+        setPreview(book.image)
         setBook(book)})
       .catch((err) => console.log(err));
   }, [id]);
 
   const formSubmit = (e) => {
     e.preventDefault();
+    ;
 
     if (!title || !author) {
       return alert('You must include both a title and author!');
     }
-
+    console.log(author);
     setBook({
       title: '',
       author: '',
@@ -45,15 +58,24 @@ const Editbook = () => {
       rating: null,
     });
 
-    editBook(id, { title, author, synopsis, pages, published, rating, image })
+    editBook(id, { title, author, Authorid, synopsis, pages, published, rating, image })
       .then(() => history.push('/bookshelf'))
       .catch((err) => console.log(err));
   };
 
   const inputChange = (e) => {
     const { name, value } = e.target;
-    setBook({ ...book, [name]: value });
+    if (name === "Author"){
+      const [first_name = '', last_name = ''] = value.split(' ');
+      setAuthor({...Author, 
+        first_name,
+        last_name})
+    } else (
+      setBook({ ...book, [name]: value })
+    )
   };
+
+  
 
   return (
     <div className="edit__page">
@@ -82,7 +104,7 @@ const Editbook = () => {
                   type="text"
                   className="form__input form__author"
                   value={first_name + ' ' + last_name}
-                  name="author"
+                  name="Author"
                   onChange={inputChange}
                 />
               </label>
@@ -162,9 +184,9 @@ const Editbook = () => {
             </div>
           </div>
           <div className="form__right">
-          <div className="image__frame" ref={fileInput}><img className="book__cover" src={image} /></div>
+          <div className="image__frame"><img className="book__cover" src={preview} /></div>
               
-              <input style={{display: 'none'}} type="file" accept="image/*" ref={fileInput} onChange={(e) => {
+              <input style={{display: 'none'}} name="image" value={imageState} type="file" accept="image/*" ref={fileInput} onChange={(e) => {
                 const file = e.target.files[0];
                 if (file && file.type.substr(0,5) === 'image') {
                   setImageState(file);
@@ -175,7 +197,7 @@ const Editbook = () => {
               <button className="image__upload" onClick={(e) => {
                 setImageState(null);
                 e.preventDefault();
-                fileInput.current.value.click()
+                fileInput.current.click()
               }}>Add Image</button>
           </div>
           <div className="edit__btnwrap">
