@@ -13,8 +13,8 @@ const FilteredBooks = () => {
   useEffect(() => {
     searchBooks(query)
       .then(({ data: books }) => {
-          setFilteredBooks(books);
-         })
+        setFilteredBooks(books);
+      })
       .catch((err) => console.log(err));
   }, [query]);
 

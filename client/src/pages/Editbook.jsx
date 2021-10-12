@@ -46,9 +46,17 @@ const Editbook = () => {
     if (!title || !author) {
       return alert('You must include both a title and author!');
     }
-   
 
-    editBook(id, { title, AuthorId, author, synopsis, pages, published, rating, image })
+    editBook(id, {
+      title,
+      AuthorId,
+      author,
+      synopsis,
+      pages,
+      published,
+      rating,
+      image,
+    })
       .then(() => {
         history.push('/bookshelf');
       })

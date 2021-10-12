@@ -4,12 +4,11 @@ import { addBook } from '../utils/API';
 import '../styles/addbook.scss';
 import { FaStar } from 'react-icons/fa';
 
-
 const Addbook = () => {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
-const [image, setImage] = useState();
-const [preview, setPreview] = useState();
+  const [image, setImage] = useState();
+  const [preview, setPreview] = useState();
 
   const history = useHistory();
   const titleInput = useRef();
@@ -19,18 +18,17 @@ const [preview, setPreview] = useState();
   const publishInput = useRef();
   const fileInput = useRef();
 
-useEffect(() => {
-  if (image){
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setPreview(reader.result)
+  useEffect(() => {
+    if (image) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result);
+      };
+      reader.readAsDataURL(image);
+    } else {
+      setPreview(null);
     }
-    reader.readAsDataURL(image);
-
-  } else {
-    setPreview(null);
-  }
-}, [image]);
+  }, [image]);
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -150,21 +148,38 @@ useEffect(() => {
           </div>
 
           <div className="form__right">
-            <div className="image__frame" ref={fileInput} onChange>{preview ? <img className="upload__image" src={preview} /> : "Add Image"}</div>
-              
-            <input style={{display: 'none'}} type="file" accept="image/*" ref={fileInput} onChange={(e) => {
-              const file = e.target.files[0];
-              if (file && file.type.substr(0,5) === 'image') {
-                setImage(file);
-              } else {
+            <div className="image__frame" ref={fileInput} onChange>
+              {preview ? (
+                <img className="upload__image" src={preview} />
+              ) : (
+                'Add Image'
+              )}
+            </div>
+
+            <input
+              style={{ display: 'none' }}
+              type="file"
+              accept="image/*"
+              ref={fileInput}
+              onChange={(e) => {
+                const file = e.target.files[0];
+                if (file && file.type.substr(0, 5) === 'image') {
+                  setImage(file);
+                } else {
+                  setImage(null);
+                }
+              }}
+            />
+            <button
+              className="image__upload"
+              onClick={(e) => {
                 setImage(null);
-              }
-            }}/>
-            <button className="image__upload" onClick={(e) => {
-              setImage(null);
-              e.preventDefault();
-              fileInput.current.click()
-            }}>Add Image</button>
+                e.preventDefault();
+                fileInput.current.click();
+              }}
+            >
+              Add Image
+            </button>
           </div>
           <div className="addbook__btnwrap">
             <button type="submit" className="addbook__button button--dark">
