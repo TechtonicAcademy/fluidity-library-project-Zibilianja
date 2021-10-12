@@ -54,7 +54,7 @@ module.exports = {
       },
     })
       .then((author) => {
-        console.log(author);
+        
         Book.create({
           AuthorId: author[0].dataValues.id,
           ...book,
@@ -70,7 +70,7 @@ module.exports = {
       body: { author, ...book },
     } = req;
     const [first_name, last_name] = author.split(' ');
-    console.log(req.body);
+    
     Book.update(req.body, {
         where: { id: req.params.id },
       });
