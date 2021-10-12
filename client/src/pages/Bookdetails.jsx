@@ -14,7 +14,12 @@ const Bookdetails = () => {
 
   useEffect(() => {
     getBook(id)
-      .then(({ data: book }) => setBook(book))
+      .then(({ data: book }) => {
+        setBook({
+          ...book,
+          author: book.Author.first_name + ' ' + book.Author.last_name,
+        });
+      })
       .catch((err) => console.log(err));
   }, [id]);
 
