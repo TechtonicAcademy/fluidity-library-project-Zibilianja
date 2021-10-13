@@ -2,14 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory, NavLink } from 'react-router-dom';
 import '../styles/bookshelf.scss';
 import SearchImg from '../images/magnify.png';
-import Book1 from '../images/sorcerers_stone.jpeg';
-import Book2 from '../images/chamberofsecrets.jpeg';
-import Book3 from '../images/prisoner.jpeg';
-import Book4 from '../images/goblet.jpeg';
-import Book5 from '../images/phoenix.jpeg';
-import Book6 from '../images/halfblood.jpeg';
-import Book7 from '../images/deathlyhallows.jpeg';
-import { getBooks } from '../utils/API';
+import { getBooks, searchBooks } from '../utils/API';
 
 const FilteredBooks = () => {
   const [filteredBooks, setFilteredBooks] = useState([]);
@@ -18,22 +11,9 @@ const FilteredBooks = () => {
   const history = useHistory();
 
   useEffect(() => {
-    getBooks()
+    searchBooks(query)
       .then(({ data: books }) => {
-        if (query) {
-          let tempArray = [];
-          for (let i = 0; i < books.length; i++) {
-            if (
-              books[i].title.toLowerCase().includes(query.toLowerCase()) ||
-              books[i].author.toLowerCase().includes(query.toLowerCase())
-            ) {
-              tempArray.push(books[i]);
-            }
-          }
-          setFilteredBooks(tempArray);
-        } else {
-          setFilteredBooks(books);
-        }
+        setFilteredBooks(books);
       })
       .catch((err) => console.log(err));
   }, [query]);
@@ -54,8 +34,6 @@ const FilteredBooks = () => {
     const { value } = e.target;
     setNewQuery(value);
   };
-
-  const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
 
   return (
     <div className="page__bookshelf">
@@ -85,7 +63,7 @@ const FilteredBooks = () => {
           {filteredBooks.map(({ id, title, image, author }) => (
             <div className="grid__items">
               <NavLink to={'/bookdetails/' + id} className="book__link">
-                <img className="grid__bookcover" src={coversObject[image]} />
+                <img className="grid__bookcover" src={image} />
                 <div className="grid__title">{title}</div>
                 <div className="grid__author">{author}</div>
               </NavLink>

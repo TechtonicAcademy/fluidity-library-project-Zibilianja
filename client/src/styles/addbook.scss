@@ -108,6 +108,9 @@ $book_brown: rgba(77, 63, 63, 0.63);
         }
       }
 
+      .image--present {
+        display: none;
+      }
       .input__smaller {
         height: 10%;
         width: 80%;
@@ -158,16 +161,21 @@ $book_brown: rgba(77, 63, 63, 0.63);
       justify-content: center;
 
       .image__frame {
-        height: 75%;
-        width: 80%;
+        margin-left: 7%;
+        height: 20em;
+        width: 65%;
         background-color: rgb(228, 228, 228);
         display: flex;
         flex-wrap: wrap;
         align-content: center;
         justify-content: center;
+        .upload__image {
+          max-height: 100%;
+          width: auto;
+        }
       }
       .image__upload {
-        margin-top: 3em;
+        margin-top: 2.8em;
         height: 8%;
         width: 80%;
         border: none;

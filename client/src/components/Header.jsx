@@ -2,7 +2,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import '../styles/header.scss';
 import React, { useState } from 'react';
-import { getBooks } from '../utils/API';
+import { searchBooks } from '../utils/API';
 
 const Header = () => {
   const [dropDown, setDropOpen] = useState(false);
@@ -17,7 +17,7 @@ const Header = () => {
       return alert('Must provide an author or title!');
     }
 
-    getBooks()
+    searchBooks()
       .then(() => history.push('/filtered/' + query))
       .catch((err) => console.log(err));
   };

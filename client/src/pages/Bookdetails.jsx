@@ -2,17 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import '../styles/details.scss';
 import { FaStar } from 'react-icons/fa';
-import Book1 from '../images/sorcerers_stone.jpeg';
-import Book2 from '../images/chamberofsecrets.jpeg';
-import Book3 from '../images/prisoner.jpeg';
-import Book4 from '../images/goblet.jpeg';
-import Book5 from '../images/phoenix.jpeg';
-import Book6 from '../images/halfblood.jpeg';
-import Book7 from '../images/deathlyhallows.jpeg';
 import { getBook, deleteBook } from '../utils/API.js';
 
 const Bookdetails = () => {
-  const coversObject = { Book1, Book2, Book3, Book4, Book5, Book6, Book7 };
   const [
     { title, author, image, published, synopsis, pages, rating },
     setBook,
@@ -22,12 +14,16 @@ const Bookdetails = () => {
 
   useEffect(() => {
     getBook(id)
-      .then(({ data: book }) => setBook(book))
+      .then(({ data: book }) => {
+        setBook({
+          ...book,
+          author: book.Author.first_name + ' ' + book.Author.last_name,
+        });
+      })
       .catch((err) => console.log(err));
   }, [id]);
 
   const bookDelete = (e) => {
-    e.preventDefault();
     deleteBook(id)
       .then(() => history.push('/bookshelf'))
       .catch((err) => console.log(err));
@@ -39,7 +35,7 @@ const Bookdetails = () => {
         <section className="main__detailcard">
           <div className="main__coverwrap">
             <h2 className="book__title--mobile">{title}</h2>
-            <img src={coversObject[image]} className="book__cover" />
+            <img src={image} className="book__cover" />
             <h3 className="author__mobile">{author}</h3>
             <div className="book__stars">
               <h4 className="book__rating">Rating</h4>
@@ -79,17 +75,17 @@ const Bookdetails = () => {
           </section>
           <div className="main__btnwrap">
             <Link to={'/editbook/' + id} className="edit__link">
-              <button className="main__button button--dark">
+              <button className="main__button button--dark" type="button">
                 Edit This Book
               </button>
             </Link>
             <Link to="/bookshelf" className="shelf__link">
-              <button className="main__button">Back to Shelf</button>
+              <button className="main__button" type="button">Back to Shelf</button>
             </Link>
             <Link to="/bookshelf" className="delete__link">
               <button
                 className="delete__button"
-                type="submit"
+                type="button"
                 onClick={bookDelete}
               >
                 Delete Book
